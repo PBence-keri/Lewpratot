@@ -28,9 +28,7 @@
   .run([  
     '$rootScope',
     ($rootScope) => {
-      $rootScope.feliratkozas = () => {
-        alert('asdasdasd!');
-      }
+      
     }
   ])
 

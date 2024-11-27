@@ -1,9 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../components/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../components/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+</head>
 <header ng-include src="'./html/navbar.html'"></header>
+<body ng-app="myApp" ng-controller="mycontroller">
+    
+    <div class="container"></div>
+    <div class="row justify-content-center">
+    <script src="../js/app.js"></script>
+    <script src="../components/jquery/3.7.1/js/jquery.min.js"></script>
+    <script src="../components/angular-js/1.8.2/js/angular.min.js"></script>
+    <script src="../components/angular-js/angular-ui-router/1.0.30/js/angular-ui-router.min.js"></script>
+    <script src="../components/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 
-<div class="container">
-    <div class="row">
-        <h1>Homewww</h1>
-    </div>
-</div>
+    <script>
+        angular.module('myApp', [])
+        .controller('mycontroller', ['$scope', function($scope){
+        }]);
 
+    </script>
+</body>
 <footer ng-include src="'./html/footer.html'"></footer>
+</html>

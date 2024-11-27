@@ -14,8 +14,23 @@
     ($stateProvider, $urlRouterProvider) => {
 
       $stateProvider
+        .state('root', {
+          views: {
+            '': {
+              templateUrl: './html/root.html'
+            }, 
+            'header@root': {
+              templateUrl: './html/navbar.html'
+            }, 
+            'footer@root': {
+              templateUrl: './html/footer.html'
+            }
+          }
+        })
+
         .state('home', {
           url: '/',
+          parent: 'root',
           templateUrl: './html/home.html',
           controller: 'homeController'
         });
@@ -23,20 +38,20 @@
         $stateProvider
           .state('page1', {
             url: '/page1',
+            parent: 'root',
             templateUrl: './html/page1.html',
-            controller: 'page1Controller'
           })
 
           .state('page2', {
             url: '/page2',
+            parent: 'root',
             templateUrl: './html/page2.html',
-            controller: 'page2Controller'
           })
 
           .state('page3', {
             url: '/page3',
+            parent: 'root',
             templateUrl: './html/page3.html',
-            controller: 'page3Controller'
           });
         
       $urlRouterProvider.otherwise('/');
@@ -55,7 +70,7 @@
   .controller('homeController', [
     '$scope',
     function($scope) {
-      
+      console.log("Home controller")
     }
   ])
 

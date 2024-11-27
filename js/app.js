@@ -14,32 +14,45 @@
     ($stateProvider, $urlRouterProvider) => {
 
       $stateProvider
+        .state('root', {
+          views: {
+            '': {
+              templateUrl: './html/root.html'
+            }, 
+            'header@root': {
+              templateUrl: './html/navbar.html'
+            }, 
+            'footer@root': {
+              templateUrl: './html/footer.html'
+            }
+          }
+        })
+
         .state('home', {
           url: '/',
+          parent: 'root',
           templateUrl: './html/home.html',
           controller: 'homeController'
         });
 
         $stateProvider
-        .state('page1', {
-          url: '/',
-          templateUrl: './html/page1.html',
-          controller: 'page1Controller'
-        });
+          .state('page1', {
+            url: '/page1',
+            parent: 'root',
+            templateUrl: './html/page1.html',
+          })
 
-        $stateProvider
-        .state('page2', {
-          url: '/',
-          templateUrl: './html/page2.html',
-          controller: 'page2Controller'
-        });
+          .state('page2', {
+            url: '/page2',
+            parent: 'root',
+            templateUrl: './html/page2.html',
+          })
 
-        $stateProvider
-        .state('page3', {
-          url: '/',
-          templateUrl: './html/page3.html',
-          controller: 'page3Controller'
-        });
+          .state('page3', {
+            url: '/page3',
+            parent: 'root',
+            templateUrl: './html/page3.html',
+          });
         
       $urlRouterProvider.otherwise('/');
     }
@@ -49,9 +62,7 @@
   .run([  
     '$rootScope',
     ($rootScope) => {
-      $rootScope.feliratkozas = () => {
-        alert('asdasdasd!');
-      }
+      
     }
   ])
 
@@ -59,7 +70,7 @@
   .controller('homeController', [
     '$scope',
     function($scope) {
-      
+      console.log("Home controller")
     }
   ])
 

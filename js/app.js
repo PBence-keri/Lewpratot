@@ -52,6 +52,18 @@
             url: '/page3',
             parent: 'root',
             templateUrl: './html/page3.html',
+          })
+
+          .state('login', {
+            url: '/login',
+            parent: 'root',
+            templateUrl: './html/login.html',
+          })
+
+          .state('register', {
+            url: '/register',
+            parent: 'root',
+            templateUrl: './html/register.html',
           });
         
       $urlRouterProvider.otherwise('/');

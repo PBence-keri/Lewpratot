@@ -14,3 +14,33 @@ body{
 #weblogo{
     width: 6rem;
 }
+
+.banner {
+    background-color: #1b1b1b;
+    color: #ffffff;
+    min-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+  
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+  
+.text {
+    padding: 20px;
+}
+  
+@media (max-width: 1000px) {
+    .banner .image, 
+    .banner .text {
+      width: 100%;
+      text-align: center;
+    }
+    .text {
+      padding: 20px 10px;
+    }
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPT</title>
+  <style>
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    
+    header {
+      background: #2d3436;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+    }
+
+   
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #34495e;
+      padding: 0.5rem 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #1abc9c;
+    }
+
+    
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .car-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .car-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .car-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .car-card p {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      color: #7f8c8d;
+    }
+
+    .car-card .price {
+      font-size: 1.2rem;
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+    .car-card button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+
+    .car-card button:hover {
+      background: #2980b9;
+    }
+
+    footer {
+      background: #2d3436;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+ 
+  <header>
+    <h1>LPT</h1>
+    <p>Zuráló kocsik</p>
+  </header>
+
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#cars">Autók</a>
+    <a href="#contact">Kontakt</a>
+    <a href="#about">Rólunk</a>
+  </nav>
+
+  
+  <div class="container">
+    <section id="cars">
+      <h2>Bérelhető Autók</h2>
+      <div class="car-grid">
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Ford Fusion">
+          <h3>Ford Fusion</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">10000 Ft/nap</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="BMW E30">
+          <h3>BMW E30</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">20000 Ft/nap</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Honda Civic">
+          <h3>Honda Civic</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">12000 Ft/nap</p>
+          <button>Bérlés</button>
+        </div>
+       
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Toyota Corolla">
+          <h3>Toyota Corolla</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">12000 Ft/nap</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Mercedes AMG">
+          <h3>Mercedes AMG</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">30000Ft /nap</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Ford Focus">
+          <h3>Ford Focus</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">14000Ft /day</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Audi A6 4G">
+          <h3>Audi A6 4G</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">25000Ft /nap</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Ford Bronco">
+          <h3>Ford Bronco</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">18000Ft /nap</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Ford Bronco Sport">
+          <h3>Ford Bronco Sport</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">16000Ft /nap</p>
+          <button>Bérlés</button>
+        </div>
+        
+        <div class="car-card">
+          <img src="https://via.placeholder.com/300x200" alt="Audi SQ7 SUV">
+          <h3>Audi SQ7 SUV</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+          <p class="price">24000Ft /nap</p>
+          <button>Bérlés</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+ 
+  <footer>
+    <p>&copy; 2025 LPT. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

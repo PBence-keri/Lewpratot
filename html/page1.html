@@ -7,7 +7,15 @@
     </form>
     <div class="car-grid">
       
-      <div class="car-card">
+      <div class="car-card" ng-repeat="car in cars">
+        <img ng-src="./img/{{car.kep}}" alt="Ford Fusion">
+        <h3>{{car.autonev}}</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
+        <p class="price">{{car.ar}} Ft/hónap</p>
+        <button>Bérlés</button>
+      </div>
+
+      <!-- <div class="car-card">
         <img src="https://via.placeholder.com/300x200" alt="Ford Fusion">
         <h3>Ford Fusion</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
@@ -85,7 +93,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat.</p>
         <p class="price">24000Ft /nap</p>
         <button>Bérlés</button>
-      </div>
+      </div> -->
     </div>
   </section>
 </div>

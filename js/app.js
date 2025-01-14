@@ -4,7 +4,8 @@
 
   // Application module
   angular.module('myApp', [
-    'ui.router'
+    'ui.router',
+    'app.common'
   ])
 
   // Application config
@@ -40,6 +41,7 @@
             url: '/page1',
             parent: 'root',
             templateUrl: './html/page1.html',
+            controller: 'page1Controller'
           })
 
           .state('page2', {
@@ -83,6 +85,20 @@
     '$scope',
     function($scope) {
       console.log("Home controller")
+    }
+  ])
+
+  // Page1 controller
+  .controller('page1Controller', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      http.request('./php/card.php')
+      .then(cars => {
+        $scope.cars = cars;
+        $scope.$applyAsync();
+      })
+      .catch(e=>console.log(e));
     }
   ])
 

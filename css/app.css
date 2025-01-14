@@ -49,10 +49,6 @@ body {
     }
 }
 
-nav a:hover {
-  color: #1abc9c;
-}
-
 .container {
   max-width: 1200px;
   margin: 2rem auto;
@@ -112,4 +108,13 @@ nav a:hover {
 
 .car-card button:hover {
   background: #2980b9;
+}
+
+.loginText {
+  background: #1b1b1b;
+  }
+
+#loginLogo {
+  width: 6rem;
+  border-radius: 10%;
 }

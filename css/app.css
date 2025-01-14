@@ -13,6 +13,8 @@ body {
 
 #webname{
     font-size: 2rem;
+    font-style: italic;
+    font-weight: 900;
 }
 
 #weblogo{

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 $host = 'localhost';
@@ -8,25 +9,40 @@ $database = 'lewpratot';
 
 $conn = new mysqli($host, $username, $password, $database);
 
-if ($conn->connect_error) {
-    die("Kapcsolódási hiba: " . $conn->connect_error);
-}
-
-function cards(){
-    $query= "SELECT * FROM `jarmuvek`;";
-    $result = $db->execute($query);
-    foreach ($result as $row) {
-        echo "ID: " . $row["dijid"] . " - Név: " . $row["autonev"] . " - fogyasztas: " . $row["uzemanyag"] . "<br>";
-    }
-}
 
 require_once("./environment.php");
+
+
+$args = Util::getArgs();
+
+$query = "SELECT * FROM `jarmuvek`;";
 
 
 $db = new Database();
 
 
+$result = $db->execute($query, array($args['email']));
+
+
 $db = null;
+
+if ($conn->connect_error) {
+    die("Kapcsolódási hiba: " . $conn->connect_error);
+}
+
+
+if (is_null($result))
+	Util::setError("A felhasználó nem létezik ezen az e-mail címen!");
+
+
+$result = $result[0];
+
+
+if ($result['password'] !== $args['password'])
+	Util::setError("Helytelen jelszó!");
+
+
+unset($result['password']);
 
 
 Util::setResponse($result);

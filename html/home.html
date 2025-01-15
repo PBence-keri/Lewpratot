@@ -38,10 +38,98 @@
         </div>
       </div>
       <div class="col-12 col-md-6 text moveFromBottomFade delay50">
-      	<h1>Autókölcsönzés egyszerűen és gyorsan</h1>
+        <h1>Autókölcsönzés egyszerűen és gyorsan</h1>
         <p>Válasszon autót kölcsönözhető flottánkból, és fedezze fel a világot kényelmesen és gondtalanul! Kiváló állapotú autóinkkal garantált a biztonságos és élvezetes utazás.</p>
+        <button class="btn btn-outline-light me-3 mt-2" ui-sref="page1">Ajánlatok megnézése</button>
+        <button class="btn btn-light me-3 mt-2" onclick="tovabbiInfo()">További jellemzők</button>
       </div>
-
     </div>
   </div>
+  <div id="tovabbiInfo"></div>
 </div>
+
+<div class="container mx-auto" id="jellemzok">
+  <p class="text-center text-base font-semibold text-primary">Jellemzők</p>
+  <h2 class="text-center display-3 font-bold text-dark">
+    Miért válaszd a mi autókölcsönzőnket?
+  </h2>
+  <ul class="row g-4 mt-4 text-center text-dark list-unstyled">
+    <li class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <img src="./img/Icons/newcars.svg" alt="NewCars" class="mx-auto d-block mb-3" style="width: 40px;">
+          <h3 class="card-title mb-3">Vadonatúj autók</h3>
+          <p class="card-text text-secondary">
+            Béreld vadonatúj autóink egyikét és élvezd a legmodernebb kényelmet és biztonsági funkciókat. Flottánk széles választéka minden igényt kielégít.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <img src="./img/Icons/fastprocess.svg" alt="" class="mx-auto d-block mb-3" style="width: 40px;">
+          <h3 class="card-title mb-3">Egyszerű és gyors folyamat</h3>
+          <p class="card-text text-secondary">
+            Bérelj autót pár kattintással és indulj útnak. Nálunk egyszerűen és gyorsan bérelhetsz járművet, így több időd marad az útra és az élményekre.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <img src="./img/Icons/comfortable.svg" alt="" class="mx-auto d-block mb-3" style="width: 40px;">
+          <h3 class="card-title mb-3">Rugalmasság és kényelem</h3>
+          <p class="card-text text-secondary">
+            Testreszabható bérlési lehetőségek, különféle típusú autók és rugalmas feltételek biztosítják, hogy mindig megtaláld a számodra legmegfelelőbb megoldást.
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="container mx-auto">
+  <ul class="row g-4 mt-4 text-center text-dark list-unstyled">
+    <li class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <img src="./img/Icons/newcars.svg" alt="NewCars" class="mx-auto d-block mb-3" style="width: 40px;">
+          <h3 class="card-title mb-3">Lorem, ipsum.</h3>
+          <p class="card-text text-secondary">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur voluptate ad iste corrupti magnam voluptatibus beatae sint quis praesentium ullam.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <img src="./img/Icons/fastprocess.svg" alt="" class="mx-auto d-block mb-3" style="width: 40px;">
+          <h3 class="card-title mb-3">Lorem, ipsum.</h3>
+          <p class="card-text text-secondary">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur voluptate ad iste corrupti magnam voluptatibus beatae sint quis praesentium ullam.
+          </p>
+        </div>
+      </div>
+    </li>
+    <li class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <img src="./img/Icons/comfortable.svg" alt="" class="mx-auto d-block mb-3" style="width: 40px;">
+          <h3 class="card-title mb-3">Lorem, ipsum.</h3>
+          <p class="card-text text-secondary">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur voluptate ad iste corrupti magnam voluptatibus beatae sint quis praesentium ullam.
+          </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+  function tovabbiInfo() {
+    document.getElementById('tovabbiInfo').scrollIntoView({behavior:"smooth"});
+  }
+</script>

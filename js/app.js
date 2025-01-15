@@ -102,6 +102,4 @@
     }
   ])
 
-  
-
 })(window, angular);

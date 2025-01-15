@@ -102,4 +102,4 @@
     }
   ])
 
-})(window, angular);
+})(window, angular); 

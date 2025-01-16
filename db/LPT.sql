@@ -115,7 +115,7 @@ INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `fogyasztas`, `uzemanyag`
 (7, 70, 'Audi A6 4G', 6, 'diesel', 4, 177, 'audiag.jpg', 'manual', 1),
 (8, 80, 'Ford Bronco', 9, 'benzin', 4, 330, 'bronco.jpg', 'automatic', 1),
 (9, 90, 'Ford Bronco Sport', 11, 'benzin', 4, 238, 'broncosport.jpg', 'automatic', 1),
-(10, 100, 'Audi SQ7 SUV', 9, 'benzin', 4, 500, 'audisqsuv.jpg', 'automatic', 1);
+(10, 100, 'Audi SQ7 SUV', 9, 'benzin', 4, 500, 'audisqsuv.jpg', 'automatic', 1),
 (11,110,'renault espace',6,'dizel',5,255,'renaultespace.jpg','manual',1),
 (12,120,'skoda superb',8,'dizel',5,255,'skodasuperb.jpg','automatic',1),
 (13,130,'toyota octavia',7,'benzin',5,255,'toyotaoctavia.jpg','manual',1),

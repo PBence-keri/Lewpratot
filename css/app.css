@@ -4,12 +4,12 @@ body {
     padding: 0;
     background: #f8f9fa;
     color: #f8f9fa;
-    /* color: #333; */
   }
 
 .navbar{
     width: 100% !important;
     background-color: #090909;
+    border: 1px solid red;
 }
 
 #webname{
@@ -66,8 +66,8 @@ body {
 }
 
 .car-card {
-  background: white;
-  border: 1px solid #ddd;
+  background: black;
+  border: 1px solid red;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -83,7 +83,7 @@ body {
 .car-card h3 {
   margin: 0.5rem 0;
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: white;
 }
 
 .car-card p {
@@ -94,14 +94,14 @@ body {
 
 .car-card .price {
   font-size: 1.2rem;
-  color: #27ae60;
+  color: red;
   font-weight: bold;
 }
 
 .car-card button {
-  background: #3498db;
-  color: white;
-  border: none;
+  background: white;
+  color: red;
+  border: 1px solid red;
   padding: 0.5rem 1rem;
   margin: 1rem 0;
   cursor: pointer;
@@ -110,11 +110,11 @@ body {
 }
 
 .car-card button:hover {
-  background: #2980b9;
+  background: black;
 }
 
 .loginText {
-  background: #1b1b1b;
+  background: white;
   }
 
 #loginLogo {
@@ -127,10 +127,12 @@ body {
 }
 
 .bckground{
-  background-image: url(../img/background.jpg);
+  background-image: url(../img/ok.jpg);
   backdrop-filter: brightness(50%);;
 }
 
 .btn{
   background-color: #090909;
 }
+
+

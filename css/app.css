@@ -3,7 +3,8 @@ body {
     margin: 0;
     padding: 0;
     background: #f8f9fa;
-    color: #333;
+    color: #f8f9fa;
+    /* color: #333; */
   }
 
 .navbar{
@@ -123,4 +124,13 @@ body {
 
 #jellemzok{
   margin-top: 5rem;
+}
+
+.bckground{
+  background-image: url(../img/background.jpg);
+  backdrop-filter: brightness(50%);;
+}
+
+.btn{
+  background-color: #090909;
 }

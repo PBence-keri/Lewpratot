@@ -162,6 +162,8 @@ CREATE TABLE `user` (
   `jelsz` varchar(12) NOT NULL,
   `email` varchar(20) NOT NULL,
   `nev` varchar(100) NOT NULL,
+  `szulev` date NOT NULL,
+  `nem` char(1) NOT NULL,
   `cim` varchar(100) NOT NULL,
   `iranyitoszam` int(4) NOT NULL,
   `varos` varchar(50) NOT NULL,

@@ -9,6 +9,7 @@ body {
 .navbar{
     width: 100% !important;
     background-color: #090909;
+    border-bottom: 2px solid red;
 }
 
 #webname{
@@ -66,7 +67,7 @@ body {
 
 .car-card {
   background: black;
-  border: 1px solid red;
+  border: 2px solid red;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -100,7 +101,7 @@ body {
 .car-card button {
   background: white;
   color: red;
-  border: 1px solid red;
+  border: 2px solid red;
   padding: 0.5rem 1rem;
   margin: 1rem 0;
   cursor: pointer;
@@ -132,4 +133,16 @@ body {
 
 .btn{
   background-color: #090909;
+}
+
+.nav-link:hover{
+  border-bottom: 1px solid red;
+}
+
+.footer{
+  border-top: 2px solid red;
+}
+
+.card-body:hover{
+  box-shadow: 5px 5px 5px red;
 }

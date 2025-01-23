@@ -28,45 +28,38 @@
             }
           }
         })
-
         .state('home', {
           url: '/',
           parent: 'root',
           templateUrl: './html/home.html',
           controller: 'homeController'
+        })
+        .state('page1', {
+          url: '/page1',
+          parent: 'root',
+          templateUrl: './html/page1.html',
+          controller: 'page1Controller'
+        })
+        .state('page2', {
+          url: '/page2',
+          parent: 'root',
+          templateUrl: './html/page2.html',
+        })
+        .state('page3', {
+          url: '/page3',
+          parent: 'root',
+          templateUrl: './html/page3.html',
+        })
+        .state('login', {
+          url: '/login',
+          parent: 'root',
+          templateUrl: './html/login.html',
+        })
+        .state('register', {
+          url: '/register',
+          parent: 'root',
+          templateUrl: './html/register.html',
         });
-
-        $stateProvider
-          .state('page1', {
-            url: '/page1',
-            parent: 'root',
-            templateUrl: './html/page1.html',
-            controller: 'page1Controller'
-          })
-
-          .state('page2', {
-            url: '/page2',
-            parent: 'root',
-            templateUrl: './html/page2.html',
-          })
-
-          .state('page3', {
-            url: '/page3',
-            parent: 'root',
-            templateUrl: './html/page3.html',
-          })
-
-          .state('login', {
-            url: '/login',
-            parent: 'root',
-            templateUrl: './html/login.html',
-          })
-
-          .state('register', {
-            url: '/register',
-            parent: 'root',
-            templateUrl: './html/register.html',
-          });
         
       $urlRouterProvider.otherwise('/');
     }

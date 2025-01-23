@@ -2,11 +2,20 @@
   <section id="cars">
     <h2>Bérelhető Autók</h2>
     <form class="d-flex mb-3" role="search">
-      <input class="form-control me-2" type="search" placeholder="Keressen egy autót" aria-label="Search">
-      <button class="btn btn-outline-light" type="submit">Keresés</button>
+      <input class="form-control me-2" 
+             type="search"
+             ng-model="carFilter" 
+             placeholder="Keressen egy autót" 
+             aria-label="Search">
+      <!-- <button class="btn btn-outline-light" type="submit">Keresés</button> -->
     </form>
     <div class="car-grid">
-      <div class="car-card" ng-repeat="car in cars">
+      <div class="car-card" 
+           ng-repeat="car in cars"
+           ng-if="!carFilter || 
+                   car.autonev.toLowerCase().substr(0, carFilter.length) ===
+                   carFilter.toLowerCase()">
+              <!-- car.autonev.toLowerCase().includes(carFilter.toLowerCase()) -->
         <img ng-src="./img/{{car.kep}}">
         <h3 class="carcolor">{{car.autonev}}</h3>
         <p>Lóerő: {{car.loero}} <br> Az autó fogyasztása 100km-eren: {{car.fogyasztas}} liter<br> Az autó váltója: {{car.valtos}} <br> Az autó üzemanyaga: {{car.uzemanyag}}</p>

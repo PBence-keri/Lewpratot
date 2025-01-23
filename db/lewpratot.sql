@@ -1,9 +1,9 @@
-
+-- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Dec 03. 10:22
+-- Létrehozás ideje: 2025. Jan 23. 08:25
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -46,7 +46,15 @@ INSERT INTO `dijak` (`dijid`, `ar`) VALUES
 (70, 94000),
 (80, 91000),
 (90, 93000),
-(100, 100000);
+(100, 100000),
+(110, 92000),
+(120, 110000),
+(130, 87000),
+(140, 93000),
+(150, 95000),
+(160, 78000),
+(170, 87000),
+(180, 93000);
 
 -- --------------------------------------------------------
 
@@ -112,18 +120,18 @@ INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `fogyasztas`, `uzemanyag`
 (4, 40, 'Toyota Corolla', 8, 'benzin', 4, 169, 'toyotacorolla.jpg', 'automatic', 1),
 (5, 50, 'MERCEDES-AMG', 7, 'benzin', 4, 250, 'mercedesamg.jpg', 'automatic', 1),
 (6, 60, 'Ford Focus', 8, 'benzin', 4, 160, 'fordfocus.jpg', 'manual', 0),
-(7, 70, 'Audi A6 4G', 6, 'diesel', 4, 177, 'audiag.jpg', 'manual', 1),
+(7, 70, 'Audi A6 4G', 6, 'dizel', 4, 177, 'audia8.jpg', 'manual', 1),
 (8, 80, 'Ford Bronco', 9, 'benzin', 4, 330, 'bronco.jpg', 'automatic', 1),
 (9, 90, 'Ford Bronco Sport', 11, 'benzin', 4, 238, 'broncosport.jpg', 'automatic', 1),
 (10, 100, 'Audi SQ7 SUV', 9, 'benzin', 4, 500, 'audisqsuv.jpg', 'automatic', 1),
-(11,110,'renault espace',6,'dizel',5,255,'renaultespace.jpg','manual',1),
-(12,120,'skoda superb',8,'dizel',5,255,'skodasuperb.jpg','automatic',1),
-(13,130,'toyota octavia',7,'benzin',5,255,'toyotaoctavia.jpg','manual',1),
-(14,140,'opel corsa astra',8,'benzin',5,255,'opelcorsaastra.jpg','manual',1),
-(15,150,'audi a6',6,'dizel',5,255,'audia6.jpg','manual',1),
-(16,160,'renault megane',7,'dizel',5,255,'renaultmegane,jpg','manual',1),
-(17,170,'bmw g30',7,'dizel',5,255,'bmwg30.jpg','manual',1),
-(18,180,'audi 80',8,'dizel',5,255,'audi80.jpg','manual',1);
+(11, 110, 'renault espace', 6, 'dizel', 5, 255, 'renaultespace.jpg', 'manual', 1),
+(12, 120, 'skoda superb', 8, 'dizel', 5, 255, 'skodasuperb.jpg', 'automatic', 1),
+(13, 130, 'toyota octavia', 7, 'benzin', 5, 255, 'toyotaoctavia.jpg', 'manual', 1),
+(14, 140, 'opel corsa', 8, 'benzin', 5, 255, 'opelcorsa.jpg', 'manual', 1),
+(15, 150, 'audi a6', 6, 'dizel', 5, 255, 'audia6.jpg', 'manual', 1),
+(16, 160, 'renault megane', 7, 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1),
+(17, 170, 'bmw g30', 7, 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1),
+(18, 180, 'audi 80', 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1);
 
 -- --------------------------------------------------------
 
@@ -234,7 +242,7 @@ ALTER TABLE `fizetes`
 -- AUTO_INCREMENT a táblához `jarmuvek`
 --
 ALTER TABLE `jarmuvek`
-  MODIFY `jarmuid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `jarmuid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT a táblához `user`

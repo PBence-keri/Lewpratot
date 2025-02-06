@@ -59,6 +59,11 @@
           url: '/register',
           parent: 'root',
           templateUrl: './html/register.html',
+        })
+        .state('rent', {
+          url: '/rent',
+          parent: 'root',
+          templateUrl: './html/rent.html',
         });
         
       $urlRouterProvider.otherwise('/');

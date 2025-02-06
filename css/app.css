@@ -53,97 +53,97 @@ body {
 }
 
 .container {
-max-width: 1200px;
-margin: 2rem auto;
-padding: 1rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
 }
 
 
 .car-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
 }
 
 .car-card {
-background: black;
-border: 2px solid red;
-border-radius: 8px;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-overflow: hidden;
-text-align: center;
+  background: black;
+  border: 2px solid red;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
 }
 
 .car-card img {
-width: 100%;
-height: auto;
-display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .car-card h3 {
-margin: 0.5rem 0;
-font-size: 1.5rem;
-color: white;
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  color: white;
 }
 
 .car-card p {
-margin: 0.5rem 0;
-font-size: 1rem;
-color: #7f8c8d;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #7f8c8d;
 }
 
 .car-card .price {
-font-size: 1.2rem;
-color: red;
-font-weight: bold;
+  font-size: 1.2rem;
+  color: red;
+  font-weight: bold;
 }
 
 .car-card button {
-background: white;
-color: red;
-border: 2px solid red;
-padding: 0.5rem 1rem;
-margin: 1rem 0;
-cursor: pointer;
-font-size: 1rem;
-border-radius: 4px;
+  background: white;
+  color: red;
+  border: 2px solid red;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
 }
 
 .car-card button:hover {
-background: black;
+  background: black;
 }
 
 .loginText {
-background: black;
+  background: black;
 }
 
 #loginLogo {
-width: 6rem;
-border-radius: 10%;
+  width: 6rem;
+  border-radius: 10%;
 }
 
 #jellemzok{
-margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .bckground{
-background-image: url(../img/ok.jpg);
-backdrop-filter: brightness(50%);
+  background-image: url(../img/ok.jpg);
+  backdrop-filter: brightness(50%);
 }
 
 .btn{
-background-color: #090909;
+  background-color: #090909;
 }
 
 .nav-link:hover{
-border-bottom: 1px solid red;
+  border-bottom: 1px solid red;
 }
 
 .footer{
-border-top: 2px solid red;
-background-color: #090909;
+  border-top: 2px solid red;
+  background-color: #090909;
 }
 
 .card-body:hover{
-box-shadow: 5px 5px 5px red;
+  box-shadow: 5px 5px 5px red;
 }

@@ -64,6 +64,10 @@
           url: '/rent',
           parent: 'root',
           templateUrl: './html/rent.html',
+          controller: 'rentController',
+          params: {
+            data: null
+          }
         });
         
       $urlRouterProvider.otherwise('/');
@@ -97,6 +101,24 @@
         $scope.$applyAsync();
       })
       .catch(e=>console.log(e));
+    }
+  ])
+
+  // Rent controller
+  .controller('rentController', [
+    '$state',
+    '$scope',
+		'$stateParams',
+    function($state, $scope, $stateParams) {
+
+			// Get/Check parameters
+      $scope.data = $stateParams.data;
+      if (!$scope.data) {
+        $state.go('home');
+        return;
+      }
+
+      console.log($scope.data);
     }
   ])
 

@@ -1,49 +1,57 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 image mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4 image mt-12 w-auto mt-5">
       <div class="card text-white">
         <img src="./img/{{data.kep}}" class="card-img">
       </div>
     </div>
-    <div class="col-md-6">
-      <section class="loginForm">
-        <div class="container">
-          <div class="row d-flex justify-content-center align-items-center">
-            <div class="text">
-              <div class="card rounded-3 text-black card-body">
-                <div class="row g-0">
-                  <div class="col-lg-12">
-                    <div>
-                      <div class="text-center">
-                        <img src="./img/Logo2.png" alt="logo" id="loginLogo">
-                        <h4 class="mt-1 mb-5 pb-1">LPT</h4>
-                      </div>
-                      <form>
-                        <div data-input-init class="form-outline mb-4">
-                          <label class="form-label" for="name">Felvétel helye</label>
-                          <input type="text" id="name" class="form-control" placeholder="Pl.: Makó, Posta utca 4-6.">
-                        </div>
-                        <div data-input-init class="form-outline mb-4">
-                          <label class="form-label" for="email">Leadás helye</label>
-                          <input type="email" id="email" class="form-control" placeholder="Pl.: Makó, Posta utca 4-6.">
-                        </div>
-                        <div data-input-init class="form-outline mb-4">
-                          <label class="form-label" for="born">Felvétel dátuma</label>
-                          <input type="date" id="born" class="form-control">
-                        </div>
-                        <div data-input-init class="form-outline mb-4">
-                          <label class="form-label" for="born">Leadás dátuma</label>
-                          <input type="date" id="born" class="form-control">
-                        </div>
-                        <div class="text-center pt-1 mb-5 pb-1">
-                          <button data-button-init class="btn btn-dark mt-3" type="button">Bérlés</button>
-                        </div>
-                      </form>
+    <div class="card w-auto mt-5">
+        <p>Az autó lóereje: {{data.loero}}hp <br> Az autó fogyasztása 100km-eren: {{data.fogyasztas}} liter<br> Az autó váltója: {{data.valtos}} <br> Az autó üzemanyaga: {{data.uzemanyag}}</p>
+        <p class="price">{{data.ar}} Ft/hónap</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center align-items-center mt-5">
+    <button class="btn btn-danger col-md-12 w-auto" ui-sref="page1">Vissza</button>
+  </div>
+  <div class="col-md-12">
+    <section class="loginForm">
+      <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="text">
+            <div class="card rounded-3 text-black card-body">
+              <div class="row g-0">
+                <div class="col-lg-12">
+                  <div>
+                    <div class="text-center">
+                      <img src="./img/Logo2.png" alt="logo" id="loginLogo">
+                      <h4 class="mt-1 mb-5 pb-1">LPT</h4>
                     </div>
+                    <form>
+                      <div data-input-init class="form-outline mb-4">
+                        <label class="form-label" for="name">Felvétel helye</label>
+                        <input type="text" id="name" class="form-control" placeholder="Pl.: Makó, Posta utca 4-6.">
+                      </div>
+                      <div data-input-init class="form-outline mb-4">
+                        <label class="form-label" for="email">Leadás helye</label>
+                        <input type="email" id="email" class="form-control" placeholder="Pl.: Makó, Posta utca 4-6.">
+                      </div>
+                      <div data-input-init class="form-outline mb-4">
+                        <label class="form-label" for="born">Felvétel dátuma</label>
+                        <input type="date" id="born" class="form-control">
+                      </div>
+                      <div data-input-init class="form-outline mb-4">
+                        <label class="form-label" for="born">Leadás dátuma</label>
+                        <input type="date" id="born" class="form-control">
+                      </div>
+                      <div class="text-center pt-1 mb-5 pb-1">
+                        <button data-button-init class="btn btn-dark mt-3" type="button">Bérlés</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>

@@ -147,3 +147,8 @@ body {
 .card-body:hover{
   box-shadow: 5px 5px 5px red;
 }
+
+
+.alma{
+  background-image: url(../img/bronco.jpg);
+}

@@ -122,4 +122,102 @@
     }
   ])
 
+  //Register controller
+  .controller('registerController', [
+    '$state',
+    '$rootScope',
+    '$scope',
+    'form',
+    'trans',
+    'msg',
+    'util',
+    'http',
+    'user',
+    function($state, $rootScope, $scope, form, trans, msg, util, http, user) {
+
+      // Set local methods
+      let methods = {
+
+        // Initialize
+        init: () => {
+
+          // Set focus
+					form.focus();
+        }
+      };
+
+      // Set helper
+			$scope.helper = {
+				maxBorn: moment().subtract( 16, 'years').format('YYYY-MM-DD'),
+				minBorn: moment().subtract(130, 'years').format('YYYY-MM-DD')
+			}
+
+      // Set scope methods
+      $scope.methods = {
+
+        // Register
+        register: () => {
+
+          // Remove unnecessary data
+          let data  = util.objFilterByKeys($scope.model, [
+                        'showPassword', 
+                        'emailConfirm',
+                        'passwordConfirm'
+                      ], false);
+
+          // Check data has born property
+          if (util.isObjectHasKey(data, 'born') && data.born)
+            data.born = moment(data.born).format('YYYY-MM-DD');
+
+          // Http request
+          http.request({
+            method: "POST",
+            url: "./php/register.php",
+            data: data
+          })
+          .then(response => {
+
+            // Check response
+            if (response.affectedRows) {
+
+              // Remove unnecessary data
+              delete data.password;
+              delete data.born;
+
+              // Initialize missing data
+              data.id   = response.lastInsertId;
+              data.type = "U";
+
+              // Set user properties, and save email address
+              user.set(data);
+              util.localStorage('set', 'email', data.email);
+
+              // Show result
+              msg.show({
+                icon      : "text-success fa-solid fa-check",
+                content   : "Sikeres regisztráció!",
+                callback  : () => {
+
+                  // Go to dafault page
+                  $state.go($rootScope.state.default);
+                }
+              });
+            } else msg.error("Sikertelen regisztráció!");
+          })
+          .catch(e => msg.error(e));
+        },
+
+        // Cancel
+        cancel: () => {
+          if ($rootScope.state.prev !== 'login')
+                trans.preventState();
+          else  $state.go($rootScope.state.default);
+        }
+      };
+
+      // Initialize
+      methods.init();
+    }
+  ])
+
 })(window, angular); 

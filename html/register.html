@@ -13,11 +13,36 @@
                   <img src="./img/Logo2.png" alt="logo" id="loginLogo">
                   <h4 class="mt-1 mb-5 pb-1">LPT</h4>
                 </div>
-                <form>
-                  <div data-input-init class="form-outline mb-4">
-                    <label class="form-label" for="name">Vezetéknév</label>
-                    <input type="text" id="name" class="form-control" placeholder="Vezetéknév">
+
+                <form name="reigsterForm">
+                  <div class="row mb-3">
+                    <label for="register-first_name" 
+                          class="col-form-label col-12 col-md-5 text-md-end">
+                      <i class="fa-solid fa-user fa-2xl me-1"></i>
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize">Vezetéknév</span>
+                    </label>
+                    <div class="col-11 col-md-6 position-relative">
+                      <input id="register-first_name"
+                             class="form-control"
+                             name="first_name" 
+                             type="text"
+                             placeholder="first name"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="100"
+                             ng-init="model.first_name=null"
+                             ng-model="model.first_name"
+                             ng-clear-icon>
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                      <span class="fw-bolder text-success"
+                            ng-class="{'invisible': registerForm.first_name.$invalid}">
+                      </span>
+                    </div>
                   </div>
+                  
                   <div data-input-init class="form-outline mb-4">
                     <label class="form-label" for="name">Középső név</label>
                     <input type="text" id="name" class="form-control" placeholder="Középső név">
@@ -27,12 +52,12 @@
                     <input type="text" id="name" class="form-control" placeholder="Keresztnév">
                   </div>
                   <div data-input-init class="form-outline mb-4">
-                    <label class="form-label" for="email">Email-cím</label>
-                    <input type="email" id="email" class="form-control" placeholder="Email-cím">
-                  </div>
-                  <div data-input-init class="form-outline mb-4">
                     <label class="form-label" for="born">Születési év</label>
                     <input type="date" id="born" class="form-control">
+                  </div>
+                  <div data-input-init class="form-outline mb-4">
+                    <label class="form-label" for="email">Email-cím</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email-cím">
                   </div>
                   <div data-input-init class="form-outline mb-4">
                     <label class="form-label" for="password">Jelszó</label>

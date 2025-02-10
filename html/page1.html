@@ -9,6 +9,16 @@
              aria-label="Search">
       <!-- <button class="btn btn-outline-light" type="submit">Keresés</button> -->
     </form>
+    <div class="dropdown mb-2">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
     <div class="car-grid">
       <div class="car-card" 
            ng-repeat="car in cars"x
@@ -20,7 +30,7 @@
         <h3 class="carcolor">{{car.autonev}}</h3>
         <p>Lóerő: {{car.loero}} <br> Az autó fogyasztása 100km-eren: {{car.fogyasztas}} liter<br> Az autó váltója: {{car.valtos}} <br> Az autó üzemanyaga: {{car.uzemanyag}}</p>
         <p class="price">{{car.ar}} Ft/hónap</p>
-        <button ui-sref="rent">Bérlés</button>
+        <button ui-sref="rent({'data': car})">Bérlés</button>
       </div>
     </div>
   </section>

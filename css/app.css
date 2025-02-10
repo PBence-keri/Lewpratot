@@ -99,7 +99,7 @@ body {
 }
 
 .car-card button {
-  background: white;
+  background: black;
   color: red;
   border: 2px solid red;
   padding: 0.5rem 1rem;
@@ -110,7 +110,7 @@ body {
 }
 
 .car-card button:hover {
-  background: black;
+  background: white;
 }
 
 .loginText {

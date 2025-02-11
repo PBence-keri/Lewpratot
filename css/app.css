@@ -148,6 +148,9 @@ body {
   box-shadow: 5px 5px 5px red;
 }
 
+*{
+  user-select: none;
+}
 
 hr{
   color: red;

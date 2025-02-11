@@ -5,7 +5,10 @@
   // Application module
   angular.module('myApp', [
     'ui.router',
-    'app.common'
+    'app.common',
+    'app.message',
+    'app.user',
+		'app.form'
   ])
 
   // Application config
@@ -59,6 +62,7 @@
           url: '/register',
           parent: 'root',
           templateUrl: './html/register.html',
+          controller: 'registerController'
         })
         .state('rent', {
           url: '/rent',
@@ -146,12 +150,6 @@
         }
       };
 
-      // Set helper
-			$scope.helper = {
-				maxBorn: moment().subtract( 16, 'years').format('YYYY-MM-DD'),
-				minBorn: moment().subtract(130, 'years').format('YYYY-MM-DD')
-			}
-
       // Set scope methods
       $scope.methods = {
 
@@ -161,13 +159,15 @@
           // Remove unnecessary data
           let data  = util.objFilterByKeys($scope.model, [
                         'showPassword', 
-                        'emailConfirm',
-                        'passwordConfirm'
+                        'megerosites'
                       ], false);
 
           // Check data has born property
-          if (util.isObjectHasKey(data, 'born') && data.born)
-            data.born = moment(data.born).format('YYYY-MM-DD');
+          if (util.isObjectHasKey(data, 'szulev') && data.szulev)  
+            data.szulev = moment(data.szulev).format('YYYY-MM-DD');
+
+          console.log(data);
+
 
           // Http request
           http.request({
@@ -181,12 +181,12 @@
             if (response.affectedRows) {
 
               // Remove unnecessary data
-              delete data.password;
-              delete data.born;
+              delete data.jelsz;
+              delete data.szulev;
 
               // Initialize missing data
               data.id   = response.lastInsertId;
-              data.type = "U";
+
 
               // Set user properties, and save email address
               user.set(data);
@@ -206,15 +206,7 @@
           })
           .catch(e => msg.error(e));
         },
-
-        // Cancel
-        cancel: () => {
-          if ($rootScope.state.prev !== 'login')
-                trans.preventState();
-          else  $state.go($rootScope.state.default);
-        }
       };
-
       // Initialize
       methods.init();
     }

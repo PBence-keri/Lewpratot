@@ -1,30 +1,32 @@
 <?php
-declare(strict_types=1);
 
-// Include environment
-require_once("./environment.php");
+// Set environment
+require_once('./environment.php');
+
 
 // Get arguments
 $args = Util::getArgs();
 
-// Set SQL command
-$query = "SELECT 	`felhaszid`
-						 FROM `user` 
-						WHERE `email` = ?
-						LIMIT 1";
-
-// Connect to MySQL server
+// Connect to database
 $db = new Database();
 
-// Execute SQL command
-$result = $db->execute($query, array($args['email']));
-
-// Check email exist
-if (!is_null($result))
-	Util::setError("Felhasználó már létezik ezen az e-mail címen!");
+// Merge arguments with default
+$args = Util::objMerge(array(
+  "vezeteknev" => null,
+  "keresztnev" => null,
+  "kozepsonev" => null,
+  "szulev" => null,
+  "email" => null,
+  "jelsz" => null,
+  "nem" => null,
+  "cim" => null,
+  "iranyitoszam" => null,
+  "varos" => null,
+  "megye" => null
+), $args, true);  
 
 // Set SQL command
-$query = $db->preparateInsert ("users", $args);
+$query = $db->preparateInsert ("user", $args);
 
 // Execute SQL command
 $result = $db->execute($query, array_values($args));
@@ -32,5 +34,11 @@ $result = $db->execute($query, array_values($args));
 // Close connection
 $db = null;
 
-// Ser response
+// Check not success
+if (!$result['affectedRows']) {
+  // Set error
+  Util::setError('A regisztráció sikertelen!');
+}
+
+// Set response
 Util::setResponse($result);

@@ -112,6 +112,77 @@
                              ng-disable-space>
                     </div>
                   </div>
+
+                  <!-- Város -->
+                  <div class="row mb-3">
+                    <label for="register-varos" 
+                           class="col-form-label">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize">város</span>
+                    </label>
+                    <div>
+                      <input id="register-varos"
+                             class="form-control"
+                             name="cim" 
+                             type="text"
+                             placeholder="Város"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="100"
+                             ng-init="model.varos=null"
+                             ng-model="model.varos">
+                    </div>
+                  </div>
+
+                  <!-- Lakcím -->
+                  <div class="row mb-3">
+                    <label for="register-cim" 
+                           class="col-form-label">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize">lakcím</span>
+                    </label>
+                    <div>
+                      <input id="register-cim"
+                             class="form-control"
+                             name="cim" 
+                             type="text"
+                             placeholder="Lakcím"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="100"
+                             ng-init="model.cim=null"
+                             ng-model="model.cim">
+                    </div>
+                  </div>
+
+                  <!-- Irányítószám -->
+                  <div class="row mb-3">
+                    <label for="register-iranyitoszam" 
+                           class="col-form-label">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize">irányítószám</span>
+                    </label>
+                    <div>
+                      <input id="register-iranyitoszam"
+                             class="form-control"
+                             name="cim" 
+                             type="text"
+                             placeholder="Irányítószám"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="100"
+                             ng-init="model.iranyitoszam=null"
+                             ng-model="model.iranyitoszam">
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                      <span class="fw-bolder text-success"
+                            ng-class="{'invisible': registerForm.cim.$invalid}">
+                      </span>
+                    </div>
+                  </div>
                   
                   <!-- Nem -->
                   <fieldset class="row input-row mb-3">
@@ -232,7 +303,7 @@
 
                   <!-- Jelszó megjelenítés -->
 				          <div class="row mb-4">
-				          	<div class="col-form-label d-none d-md-block text-md-end">
+				          	<div class="col-form-label d-none d-md-block">
 				          	<div class="col-12 col-md-7">
 				          		<input id="register-showPassword"
 				          					 class="form-check-input"
@@ -247,7 +318,7 @@
 				          </div>
                   
                   <!-- Regisztráció gomb -->
-                  <div class="row mb-3 justify-content-center">
+                  <div class="row mb-3 justify-content-center mt-3 ms-2">
                     <div class="w-auto">
                       <button type="button"
                               class="btn btn-dark w-auto me-3 text-capitalize"
@@ -258,7 +329,7 @@
                     </div>
                   </div>
 
-                  <div class="d-flex align-items-center justify-content-center pb-4">
+                  <div class="d-flex align-items-center justify-content-center pb-4 mt-3">
                     <p class="mb-0 me-2">Van már fiókja?</p>
                     <button  type="button" data-button-init class="btn btn-outline-danger" ui-sref="login">Belépés</button>
                   </div>

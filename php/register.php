@@ -21,8 +21,7 @@ $args = Util::objMerge(array(
   "nem" => null,
   "cim" => null,
   "iranyitoszam" => null,
-  "varos" => null,
-  "megye" => null
+  "varos" => null
 ), $args, true);  
 
 // Set SQL command

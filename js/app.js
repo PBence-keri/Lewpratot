@@ -132,12 +132,11 @@
     '$rootScope',
     '$scope',
     'form',
-    'trans',
     'msg',
     'util',
     'http',
     'user',
-    function($state, $rootScope, $scope, form, trans, msg, util, http, user) {
+    function($state, $rootScope, $scope, form, msg, util, http, user) {
 
       // Set local methods
       let methods = {
@@ -175,6 +174,7 @@
             url: "./php/register.php",
             data: data
           })
+
           .then(response => {
 
             // Check response
@@ -185,8 +185,7 @@
               delete data.szulev;
 
               // Initialize missing data
-              data.id   = response.lastInsertId;
-
+              data.id = response.lastInsertId;
 
               // Set user properties, and save email address
               user.set(data);

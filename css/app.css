@@ -286,7 +286,7 @@ hr{
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  background-color: #146132;
+  background-color: black;
   font-size: 18px;
   font-weight: 600;
   color: white;
@@ -298,15 +298,16 @@ hr{
   border-right-style: none;
   border-bottom-style: none;
   border-left-style: none;
-  border-top-color: #146132;
-  border-right-color: #146132;
-  border-bottom-color: #146132;
-  border-left-color: #146132;
+  border-top-color: red;
+  border-right-color: red;
+  border-bottom-color: red;
+  border-left-color: red;
   border-image-source: initial;
   border-image-slice: initial;
   border-image-width: initial;
   border-image-outset: initial;
   border-image-repeat: initial;
+  border: 2px solid red;
 }
 
 .landing_page .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-desk-6.wk-ipadp-6.emial {
@@ -462,4 +463,14 @@ hr{
 
 li::marker{
   color: red;
+}
+
+
+.form-box{
+  border: solid red;
+  border-radius: 20px;
+}
+
+.rent3:hover{
+  color: white;
 }

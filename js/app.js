@@ -34,21 +34,21 @@
           templateUrl: './html/home.html',
           controller: 'homeController'
         })
-        .state('page1', {
-          url: '/page1',
+        .state('rental', {
+          url: '/rental',
           parent: 'root',
-          templateUrl: './html/page1.html',
+          templateUrl: './html/rental.html',
           controller: 'page1Controller'
         })
-        .state('page2', {
-          url: '/page2',
+        .state('connection', {
+          url: '/connection',
           parent: 'root',
-          templateUrl: './html/page2.html',
+          templateUrl: './html/connection.html',
         })
-        .state('page3', {
-          url: '/page3',
+        .state('blog', {
+          url: '/blog',
           parent: 'root',
-          templateUrl: './html/page3.html',
+          templateUrl: './html/blog.html',
         })
         .state('login', {
           url: '/login',

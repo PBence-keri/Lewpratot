@@ -152,12 +152,16 @@ CREATE TABLE `kolcsonzeselemek` (
 CREATE TABLE `user` (
   `felhaszid` int(11) NOT NULL,
   `jelsz` varchar(12) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `nev` varchar(100) NOT NULL,
-  `cim` varchar(100) NOT NULL,
-  `iranyitoszam` int(4) NOT NULL,
-  `varos` varchar(50) NOT NULL,
-  `megye` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `vezeteknev` varchar(100) NOT NULL,
+  `keresztnev` varchar(100) NOT NULL,
+  `kozepsonev` varchar(100) DEFAULT NULL,
+  `szulev` date NOT NULL,
+  `nem` char(1) NOT NULL,
+  `cim` varchar(100) DEFAULT NULL,
+  `iranyitoszam` int(4) DEFAULT NULL,
+  `varos` varchar(50) DEFAULT NULL,
+  `megye` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --

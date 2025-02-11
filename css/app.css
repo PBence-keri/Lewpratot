@@ -210,8 +210,8 @@ hr{
 }
 
 .landing_page .text-blk.contactus-subhead {
-  color: #d4d4d4;
-  margin-top: 0px;
+  color: #b6b6b6;
+  margin-top: 10px;
   margin-right: 0px;
   margin-bottom: 18px;
   margin-left: 0px;
@@ -237,21 +237,18 @@ hr{
   border-right-style: none;
   border-bottom-style: none;
   border-left-style: none;
-  border-top-color: #767676;
-  border-right-color: #767676;
-  border-bottom-color: #767676;
-  border-left-color: #767676;
   border-image-source: initial;
   border-image-slice: initial;
   border-image-width: initial;
   border-image-outset: initial;
   border-image-repeat: initial;
-  background-color: #212223;
+  background-color: black;
   padding: 1px 12.5px 1px 22.5px;
 }
 
 .landing_page .textinput {
-  width: 100%;
+  color: white ;
+  width: 400px;
   height: 233px;
   margin-top: 0px;
   margin-right: 0px;
@@ -262,19 +259,13 @@ hr{
   padding-right: 22px;
   padding-bottom: 22px;
   padding-left: 22px;
-  background-color: #212223;
+  border-radius: 20px;
+  background-color: black;
   border-top-width: 1px;
   border-right-width: 1px;
   border-bottom-width: 1px;
   border-left-width: 1px;
-  border-top-style: none;
-  border-right-style: none;
-  border-bottom-style: none;
-  border-left-style: none;
-  border-top-color: #767676;
-  border-right-color: #767676;
-  border-bottom-color: #767676;
-  border-left-color: #767676;
+  border-style: none;
   border-image-source: initial;
   border-image-slice: initial;
   border-image-width: initial;
@@ -292,7 +283,7 @@ hr{
   background-color: black;
   font-size: 18px;
   font-weight: 600;
-  color: white;
+  color: red;
   border-top-width: 2px;
   border-right-width: 2px;
   border-bottom-width: 2px;
@@ -329,7 +320,7 @@ hr{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  color: white;
+  color: red;
 }
 
 .landing_page .text-blk.section-subhead {
@@ -472,8 +463,4 @@ li::marker{
 .form-box{
   border: solid red;
   border-radius: 20px;
-}
-
-.rent3:hover{
-  color: white;
 }

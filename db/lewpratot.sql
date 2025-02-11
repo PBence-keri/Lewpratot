@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Jan 23. 08:25
+-- Létrehozás ideje: 2025. Feb 11. 10:59
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -124,14 +124,14 @@ INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `fogyasztas`, `uzemanyag`
 (8, 80, 'Ford Bronco', 9, 'benzin', 4, 330, 'bronco.jpg', 'automatic', 1),
 (9, 90, 'Ford Bronco Sport', 11, 'benzin', 4, 238, 'broncosport.jpg', 'automatic', 1),
 (10, 100, 'Audi SQ7 SUV', 9, 'benzin', 4, 500, 'audisqsuv.jpg', 'automatic', 1),
-(11, 110, 'renault espace', 6, 'dizel', 5, 255, 'renaultespace.jpg', 'manual', 1),
-(12, 120, 'skoda superb', 8, 'dizel', 5, 255, 'skodasuperb.jpg', 'automatic', 1),
-(13, 130, 'toyota octavia', 7, 'benzin', 5, 255, 'toyotaoctavia.jpg', 'manual', 1),
-(14, 140, 'opel corsa', 8, 'benzin', 5, 255, 'opelcorsa.jpg', 'manual', 1),
-(15, 150, 'audi a6', 6, 'dizel', 5, 255, 'audia6.jpg', 'manual', 1),
-(16, 160, 'renault megane', 7, 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1),
-(17, 170, 'bmw g30', 7, 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1),
-(18, 180, 'audi 80', 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1);
+(11, 110, 'Renault Espace', 6, 'dizel', 5, 255, 'renaultespace.jpg', 'manual', 1),
+(12, 120, 'Skoda Superb', 8, 'dizel', 5, 255, 'skodasuperb.jpg', 'automatic', 1),
+(13, 130, 'Skoda Octavia', 7, 'benzin', 5, 255, 'toyotaoctavia.jpg', 'manual', 1),
+(14, 140, 'Opel Corsa', 8, 'benzin', 5, 255, 'opelcorsa.jpg', 'manual', 1),
+(15, 150, 'Audi A6', 6, 'dizel', 5, 255, 'audia6.jpg', 'manual', 1),
+(16, 160, 'Renault Megane', 7, 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1),
+(17, 170, 'BMW 5 G30', 7, 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1),
+(18, 180, 'Audi 80', 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1);
 
 -- --------------------------------------------------------
 
@@ -168,14 +168,16 @@ CREATE TABLE `kolcsonzeselemek` (
 CREATE TABLE `user` (
   `felhaszid` int(11) NOT NULL,
   `jelsz` varchar(12) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `nev` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `vezeteknev` varchar(100) NOT NULL,
+  `keresztnev` varchar(100) NOT NULL,
+  `kozepsonev` varchar(100) DEFAULT NULL,
   `szulev` date NOT NULL,
   `nem` char(1) NOT NULL,
-  `cim` varchar(100) NOT NULL,
-  `iranyitoszam` int(4) NOT NULL,
-  `varos` varchar(50) NOT NULL,
-  `megye` varchar(100) NOT NULL
+  `cim` varchar(100) DEFAULT NULL,
+  `iranyitoszam` int(4) DEFAULT NULL,
+  `varos` varchar(50) DEFAULT NULL,
+  `megye` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -248,7 +250,7 @@ ALTER TABLE `jarmuvek`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

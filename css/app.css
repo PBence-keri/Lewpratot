@@ -147,3 +147,7 @@ body {
 .card-body:hover{
   box-shadow: 5px 5px 5px red;
 }
+
+*{
+  user-select: none;
+}

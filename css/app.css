@@ -6,6 +6,15 @@ body {
   color: #f8f9fa;
 }
 
+.kereses{
+  border: 2px solid red !important;
+  width: 100% !important;
+  background-color: #090909 !important;
+  width: 400px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
 .navbar{
   width: 100% !important;
   background-color: #090909;
@@ -107,6 +116,21 @@ body {
   cursor: pointer;
   font-size: 1rem;
   border-radius: 4px;
+}
+
+.car-card2 button {
+  background: black;
+  color: red;
+  border: 2px solid red;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+
+}
+
+.car-card2 button:hover {
+  background: white;
 }
 
 .car-card button:hover {
@@ -271,6 +295,9 @@ hr{
   border-image-width: initial;
   border-image-outset: initial;
   border-image-repeat: initial;
+}
+.submit-btn button:hover{
+  background-color: white;
 }
 
 .landing_page .submit-btn {

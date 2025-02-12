@@ -1,7 +1,7 @@
 <div class="container">
   <section id="cars">
     <h2>Bérelhető Autók</h2>
-    <form class="d-flex mb-3" role="search">
+    <form class="d-flex" role="search">
       <input class="form-control me-2" 
              type="search"
              ng-model="carFilter" 
@@ -9,19 +9,35 @@
              aria-label="Search">
       <!-- <button class="btn btn-outline-light" type="submit">Keresés</button> -->
     </form>
-    <div class="dropdown mb-2">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown button
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-      </ul>
+    <div class="kereses mt-3">
+        <div class="ms-5">
+          <div class="gombok">
+            <label for="gomb1">bmw</label>
+            <input type="radio" id="gomb1">
+    
+            <label for="gomb2">ford</label>
+            <input type="radio" id="gomb2">
+          </div>
+          <div>
+            <label for="gomb3">audi</label>
+            <input type="radio" id="gomb3">
+          </div>
+          <div>
+            <label for="gomb3">bronco</label>
+            <input type="radio" id="gomb4">
+          </div>
+        </div>
     </div>
-    <div class="car-grid">
+
+
+    <div class="car-card2">
+      <button>Menü</button>
+    </div>
+
+      
+    <div class="car-grid ">
       <div class="car-card" 
-           ng-repeat="car in cars"x
+           ng-repeat="car in cars"  
            ng-if="!carFilter || 
                   car.autonev.toLowerCase().includes(carFilter.toLowerCase())">
                    <!-- car.autonev.toLowerCase().substr(0, carFilter.length) ===

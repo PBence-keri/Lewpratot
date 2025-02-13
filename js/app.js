@@ -28,7 +28,10 @@
             }, 
             'footer@root': {
               templateUrl: './html/footer.html'
-            }
+            },
+            'modal@root': {
+              template: `<ng-message></ng-message>`
+          }
           }
         })
         .state('home', {
@@ -82,8 +85,10 @@
   // Application run
   .run([  
     '$rootScope',
-    ($rootScope) => {
-      
+    'user',
+    ($rootScope, user) => {
+
+      user.init();
     }
   ])
 
@@ -220,8 +225,6 @@
           if (util.isObjectHasKey(data, 'szulev') && data.szulev)  
             data.szulev = moment(data.szulev).format('YYYY-MM-DD');
 
-          console.log(data);
-
           // Http request
           http.request({
             method: "POST",
@@ -239,10 +242,12 @@
               delete data.szulev;
 
               // Initialize missing data
-              data.id = response.lastInsertId;
+              data.felhaszid = response.lastInsertId;
 
-              // Set user properties, and save email address
+              // Set user properties
               user.set(data);
+
+              // Svave user email address
               util.localStorage('set', 'email', data.email);
 
               // Show result
@@ -252,7 +257,7 @@
                 callback  : () => {
 
                   // Go to dafault page
-                  $state.go($rootScope.state.default);
+                  $state.go('home');
                 }
               });
             } else msg.error("Sikertelen regisztráció!");

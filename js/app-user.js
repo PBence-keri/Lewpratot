@@ -22,12 +22,11 @@
         // Default user properties
         default: () => {
           return {
-            id          : null,
-            type        : null,
-            first_name  : null,
-            middle_name : null,
-            last_name   : null,
-            gender      : null,
+            felhaszid   : null,
+            vezeteknev  : null,
+            kozepsonev  : null,
+            keresztnev  : null,
+            nem         : null,
             email       : null 
           };
         }
@@ -71,7 +70,7 @@
           callback  : (response) => {
             if (response === 'ok') {
               service.reset('email');
-              if ($rootScope.state.disabled.includes($rootScope.state.id))
+              if ($rootScope.state.disabled.includes($rootScope.state.felhaszid))
                 $state.go($rootScope.state.default);
             }
           }

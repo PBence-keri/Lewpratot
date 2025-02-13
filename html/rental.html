@@ -10,7 +10,7 @@
              aria-label="Search">
       <!-- <button class="btn btn-outline-light" type="submit">Keresés</button> -->
     </form>
-    <div class="row kereses mt-3" ng-model="carFilter">
+    <div class="row kereses mt-3" ng-if="clicked" class="animate-if">
         <div>
           <div>
             <table class="col-12 mt-2">
@@ -131,8 +131,8 @@
     </div>
 
 
-    <div class="car-card2" ng-click="kattitas">
-      <button>Menü</button>
+    <div class="car-card2" >
+      <button ng-model="click" ng-init="clicked=true">Menü</button>
     </div>
 
       

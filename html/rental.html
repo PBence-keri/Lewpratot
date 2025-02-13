@@ -1,3 +1,4 @@
+
 <div class="container">
   <section id="cars">
     <h2>Bérelhető Autók</h2>
@@ -9,29 +10,129 @@
              aria-label="Search">
       <!-- <button class="btn btn-outline-light" type="submit">Keresés</button> -->
     </form>
-    <div class="kereses mt-3">
-        <div class="ms-5">
-          <div class="gombok">
-            <label for="gomb1">bmw</label>
-            <input type="radio" id="gomb1">
-    
-            <label for="gomb2">ford</label>
-            <input type="radio" id="gomb2">
-          </div>
+    <div class="row kereses mt-3" ng-if="clicked" class="animate-if">
+        <div>
           <div>
-            <label for="gomb3">audi</label>
-            <input type="radio" id="gomb3">
+            <table class="col-12 mt-2">
+              <thead>
+                <tr>
+                  <th>
+                    <strong>Autó Márkák:</strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="gombok">
+                <tr>
+                  <td>
+                    <div class="">
+                      <label for="gomb1">BMW</label>
+                      <input type="radio" id="gomb1" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="">
+                      <label for="gomb2">Ford</label>
+                      <input type="radio" id="gomb2" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="">
+                      <label for="gomb3">Renault</label>
+                      <input type="radio" id="gomb3" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="">
+                      <label for="gomb4" class="ms-3">Toyota</label>
+                      <input type="radio" id="gomb4" name="gombok2">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="">
+                      <label for="gomb5">Audi</label>
+                      <input type="radio" id="gomb5" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="">
+                      <label class="ms-2" for="gomb6">Mercedes</label>
+                    <input type="radio" id="gomb6" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div class="">
+                      <label for="gomb7">Opel</label>
+                      <input type="radio" id="gomb7" name="gombok2">
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div>
+                      <label for="gomb8">Bronco</label>
+                      <input type="radio" id="gomb8" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <label for="gomb9">Honda</label>
+                      <input type="radio" id="gomb9" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <label for="gomb10">Skoda</label>
+                      <input type="radio" id="gomb10" name="gombok2">
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <label for="gomb11">Semmi</label>
+                      <input type="radio" id="gomb11" name="gombok2">
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div>
-            <label for="gomb3">bronco</label>
-            <input type="radio" id="gomb4">
+
+          <div class="">
+            <table class="col-12">
+              <thead class="mt-5">
+                <tr class="text-center mt-5">
+                  <th class="">
+                    Árak:
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr>
+                  <td>
+                    <div class="range ">
+                      <div class="range-input ">
+                        <input id="inp" type="range" class="min" min="0" max="100000" value="100000" step="1000"> 
+                        <input type="range" class=" max" min="0" max="100000" value="100000" step="1000">
+                      </div>
+                      <div class="range-price mb-3">      
+                        <label for="min">Min</label>
+                        <input type="text" name="min" value="0" min="0" disabled style="background-color: white;">      
+                        <label for="max">Max</label>
+                        <input type="text" name="max" value="100000" disabled style="background-color: white;">      
+                      </div>
+                    </div> 
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
     </div>
 
 
-    <div class="car-card2">
-      <button>Menü</button>
+    <div class="car-card2" >
+      <button ng-model="click" ng-init="clicked=true">Menü</button>
     </div>
 
       
@@ -39,7 +140,7 @@
       <div class="car-card" 
            ng-repeat="car in cars"  
            ng-if="!carFilter || 
-                  car.autonev.toLowerCase().includes(carFilter.toLowerCase())">
+                  car.autonev.toLowerCase().includes(carFilter.toLowerCase()) ">
                    <!-- car.autonev.toLowerCase().substr(0, carFilter.length) ===
                    carFilter.toLowerCase() -->
         <img ng-src="./img/{{car.kep}}">
@@ -51,3 +152,45 @@
     </div>
   </section>
 </div>
+
+<script>
+  let rangeMin = 100;
+  const range = document.querySelector(".range-selected");
+  const rangeInput = document.querySelectorAll(".range-input input");
+  const rangePrice = document.querySelectorAll(".range-price input");
+
+  rangeInput.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minRange = parseInt(rangeInput[0].value);
+    let maxRange = parseInt(rangeInput[1].value);
+    if (maxRange - minRange < rangeMin) {     
+      if (e.target.className === "min") {
+        rangeInput[0].value = maxRange - rangeMin;        
+      } else {
+        rangeInput[1].value = minRange + rangeMin;        
+      }
+    } else {
+      rangePrice[0].value = minRange;
+      rangePrice[1].value = maxRange;
+      range.style.left = (minRange / rangeInput[0].max) * 100 + "%";
+      range.style.right = 100 - (maxRange / rangeInput[1].max) * 100 + "%";
+    }
+  });
+});
+
+rangePrice.forEach((input) => {
+  input.addEventListener("input", (e) => {
+    let minPrice = rangePrice[0].value;
+    let maxPrice = rangePrice[1].value;
+    if (maxPrice - minPrice >= rangeMin && maxPrice <= rangeInput[1].max) {
+      if (e.target.className === "min") {
+        rangeInput[0].value = minPrice;
+        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
+      } else {
+        rangeInput[1].value = maxPrice;
+        range.style.right = 1000 - (maxPrice / rangeInput[1].max) * 100 + "%";
+      }
+    }
+  });
+});
+</script>

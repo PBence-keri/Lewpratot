@@ -57,6 +57,7 @@
           url: '/login',
           parent: 'root',
           templateUrl: './html/login.html',
+          controller: 'loginController'
         })
         .state('register', {
           url: '/register',
@@ -123,6 +124,61 @@
       }
 
       console.log($scope.data);
+    }
+  ])
+
+  // Login
+  .controller('loginController', [
+    '$state',
+    '$rootScope',
+    '$scope',
+    'form',
+    'user',
+    'util',
+    'http',
+    'trans',
+    'msg',
+    function($state, $rootScope, $scope, form, user, util, http, trans, msg) {
+
+      // Set local methods
+      let methods = {
+
+        // Initialize
+        init: () => {
+
+          // Set email address from local storage if exist
+          $scope.model = {email: util.localStorage('get', 'email')};
+
+          // Set focus
+					form.focus();
+        }
+      };
+
+      // Set scope methods
+      $scope.methods = {
+
+        login: () => {
+          // Set request
+          http.request({
+            url: "./php/login.php",
+            data: util.objFilterByKeys($scope.model, 'showPassword', false)
+          })
+          .then(response => {
+            response.email = $scope.model.email;
+            user.set(response);
+            util.localStorage('set', 'email', response.email);
+            console.log("asd");
+            trans.preventState();
+          })
+          .catch(e => {
+            $scope.model.password = null;
+            msg.error(e);
+          });
+        },
+      };
+
+      // Initialize
+      methods.init();
     }
   ])
 

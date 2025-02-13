@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 11. 12:05
+-- Létrehozás ideje: 2025. Feb 13. 11:29
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -183,6 +183,13 @@ CREATE TABLE `user` (
 -- A tábla adatainak kiíratása `user`
 --
 
+INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `kozepsonev`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
+(1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', NULL, '2005-07-06', 'M', 'Árpád u. 12', 5948, 'Kaszaper');
+
+--
+-- Indexek a kiírt táblákhoz
+--
+
 --
 -- A tábla indexei `dijak`
 --
@@ -249,7 +256,7 @@ ALTER TABLE `jarmuvek`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

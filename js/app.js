@@ -235,7 +235,6 @@
 
           console.log(data);
 
-
           // Http request
           http.request({
             method: "POST",
@@ -266,7 +265,7 @@
                 callback  : () => {
 
                   // Go to dafault page
-                  $state.go($rootScope.state.default);
+                  $state.go('home');
                 }
               });
             } else msg.error("Sikertelen regisztráció!");

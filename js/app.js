@@ -167,7 +167,6 @@
             response.email = $scope.model.email;
             user.set(response);
             util.localStorage('set', 'email', response.email);
-            console.log("asd");
             trans.preventState();
           })
           .catch(e => {
@@ -253,7 +252,7 @@
                 callback  : () => {
 
                   // Go to dafault page
-                  $state.go('home');
+                  $state.go($rootScope.state.default);
                 }
               });
             } else msg.error("Sikertelen regisztráció!");
@@ -267,5 +266,3 @@
   ])
 
 })(window, angular); 
-
-

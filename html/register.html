@@ -50,7 +50,7 @@
                     <span class="text-capitalize">középső</span>
                     <span>név:</span>
                   </label>
-                  <div class="col-11">
+                  <div class="col-11 position-relative">
                     <input id="register-kozepsonev"
                            class="form-control"
                            name="kozepsonev" 
@@ -72,7 +72,7 @@
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
                     <span class="text-capitalize">Keresztnév</span>
                   </label>
-                  <div class="col-11">
+                  <div class="col-11 position-relative">
                     <input id="register-keresztnev"
                            class="form-control"
                            name="keresztnev" 
@@ -117,93 +117,6 @@
                            ng-disable-space>
                   </div>
                 </div>
-
-                <!-- Város -->
-                <div class="row mb-3">
-                  <label for="register-varos" 
-                         class="col-form-label">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">város</span>
-                  </label>
-                  <div class="col-11">
-                    <input id="register-varos"
-                           class="form-control"
-                           name="varos" 
-                           type="text"
-                           placeholder="Város"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           maxlength="100"
-                           ng-init="model.varos=null"
-                           ng-model="model.varos"
-                           ng-clear-icon>
-                  </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.varos.$invalid}">
-                        &check;
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Lakcím -->
-                <div class="row mb-3 position-relative">
-                  <label for="register-cim" 
-                         class="col-form-label">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">lakcím</span>
-                  </label>
-                  <div class="col-11">
-                    <input id="register-cim"
-                           class="form-control"
-                           name="cim" 
-                           type="text"
-                           placeholder="Lakcím"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           maxlength="100"
-                           ng-init="model.cim=null"
-                           ng-model="model.cim"
-                           ng-clear-icon>
-                  </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.cim.$invalid}">
-                        &check;
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Irányítószám -->
-                <div class="row mb-3">
-                  <label for="register-iranyitoszam" 
-                         class="col-form-label">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">irányítószám</span>
-                  </label>
-                  <div class="col-11">
-                    <input id="register-iranyitoszam"
-                           class="form-control"
-                           name="iranyitoszam" 
-                           type="text"
-                           placeholder="Irányítószám"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           maxlength="100"
-                           ng-init="model.iranyitoszam=null"
-                           ng-model="model.iranyitoszam"
-                           ng-clear-icon>
-                  </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.iranyitoszam.$invalid}">
-                          &check;
-                    </span>
-                  </div>
-                </div>
                 
                 <!-- Nem -->
                 <fieldset class="row input-row mb-3">
@@ -239,7 +152,7 @@
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
                     <span>E-mail:</span>
                   </label>
-                  <div class="col-11">
+                  <div class="col-11 position-relative">
                     <input id="register-email"
                            class="form-control"
                            name="email" 
@@ -270,7 +183,7 @@
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
                     <span class="text-capitalize">jelszó:</span>
                   </label>
-                  <div class="col-11">
+                  <div class="col-11 position-relative">
                     <input id="register-jelsz"
                            class="form-control"
                            name="jelsz" 
@@ -302,7 +215,7 @@
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
                     <span>Jelszó megerősítés:</span>
                   </label>
-                  <div class="col-11">
+                  <div class="col-11 position-relative">
                     <input id="register-megerosites"
                            class="form-control"
                            name="megerosites" 
@@ -327,7 +240,7 @@
                     </span>
                   </div>
                 </div>
-                
+
                 <!-- Jelszó megjelenítés -->
 				        <div class="row mb-4">
 				        	<div class="col-form-label d-none d-md-block">

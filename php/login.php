@@ -8,10 +8,10 @@ $args = Util::getArgs();
 
 // Set SQL command
 $query = "SELECT `felhaszid`,
-								 `vezeteknev`,
-								 `keresztnev`,
-								 `kozepsonev`
-							 	 `jelsz`,
+				         `vezeteknev`,
+				         `keresztnev`,
+				         `kozepsonev`
+				         `jelsz`,
           FROM   `user` 
           WHERE  `email` = ?
           LIMIT  1";

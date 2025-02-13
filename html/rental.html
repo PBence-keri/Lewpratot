@@ -10,7 +10,7 @@
              aria-label="Search">
       <!-- <button class="btn btn-outline-light" type="submit">Keresés</button> -->
     </form>
-    <div class="row kereses mt-3" ng-if="clicked" class="animate-if">
+    <div class="row kereses mt-3" ng-if="showDiv" >
         <div>
           <div>
             <table class="col-12 mt-2">
@@ -26,25 +26,25 @@
                   <td>
                     <div class="">
                       <label for="gomb1">BMW</label>
-                      <input type="radio" id="gomb1" name="gombok2">
+                      <input type="radio" id="gomb1" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div class="">
                       <label for="gomb2">Ford</label>
-                      <input type="radio" id="gomb2" name="gombok2">
+                      <input type="radio" id="gomb2" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div class="">
                       <label for="gomb3">Renault</label>
-                      <input type="radio" id="gomb3" name="gombok2">
+                      <input type="radio" id="gomb3" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div class="">
                       <label for="gomb4" class="ms-3">Toyota</label>
-                      <input type="radio" id="gomb4" name="gombok2">
+                      <input type="radio" id="gomb4" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                 </tr>
@@ -52,19 +52,19 @@
                   <td>
                     <div class="">
                       <label for="gomb5">Audi</label>
-                      <input type="radio" id="gomb5" name="gombok2">
+                      <input type="radio" id="gomb5" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div class="">
                       <label class="ms-2" for="gomb6">Mercedes</label>
-                    <input type="radio" id="gomb6" name="gombok2">
+                    <input type="radio" id="gomb6" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div class="">
                       <label for="gomb7">Opel</label>
-                      <input type="radio" id="gomb7" name="gombok2">
+                      <input type="radio" id="gomb7" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                 </tr>
@@ -72,25 +72,25 @@
                   <td>
                     <div>
                       <label for="gomb8">Bronco</label>
-                      <input type="radio" id="gomb8" name="gombok2">
+                      <input type="radio" id="gomb8" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div>
                       <label for="gomb9">Honda</label>
-                      <input type="radio" id="gomb9" name="gombok2">
+                      <input type="radio" id="gomb9" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div>
                       <label for="gomb10">Skoda</label>
-                      <input type="radio" id="gomb10" name="gombok2">
+                      <input type="radio" id="gomb10" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                   <td>
                     <div>
                       <label for="gomb11">Semmi</label>
-                      <input type="radio" id="gomb11" name="gombok2">
+                      <input type="radio" id="gomb11" name="gombok2" ng-model="carFilter">
                     </div>
                   </td>
                 </tr>
@@ -131,8 +131,8 @@
     </div>
 
 
-    <div class="car-card2" >
-      <button ng-model="click" ng-init="clicked=true">Menü</button>
+    <div class="car-card2">
+      <button class="click1" ng-click="toggleDiv()">Menü</button>
     </div>
 
       
@@ -154,7 +154,7 @@
 </div>
 
 <script>
-  let rangeMin = 100;
+    let rangeMin = 100;
   const range = document.querySelector(".range-selected");
   const rangeInput = document.querySelectorAll(".range-input input");
   const rangePrice = document.querySelectorAll(".range-price input");
@@ -192,5 +192,5 @@ rangePrice.forEach((input) => {
       }
     }
   });
-});
+}); 
 </script>

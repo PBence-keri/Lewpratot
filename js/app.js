@@ -8,8 +8,20 @@
     'app.common',
     'app.message',
     'app.user',
-		'app.form'
+		'app.form',
   ])
+
+    .controller('MainCtrl', function($scope) {
+      // Kezdetben rejtve van a div
+      $scope.showDiv = false;
+
+      // Funkció, amely változtatja a div láthatóságát
+      $scope.toggleDiv = function() {
+        $scope.showDiv = !$scope.showDiv;
+      };
+    })
+    
+  
 
   // Application config
   .config([

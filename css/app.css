@@ -15,6 +15,11 @@ body {
   padding: 10px;
 }
 
+.gombok{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .navbar{
   width: 100% !important;
   background-color: #090909;
@@ -495,3 +500,31 @@ li::marker{
 .kep4{
   border-radius: 20px;
 }
+
+.range-slider {
+  height: 5px;
+  position: relative;
+  background-color: red !important;
+  border-radius: 2px;
+  color: red;
+}
+.range-selected {
+  height: 100%;
+  left: 30%;
+  right: 30%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: red !important;
+  color: red;
+}
+
+.max{
+  margin-left: 20px;
+}
+
+.min{
+  
+}
+
+
+

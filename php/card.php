@@ -18,7 +18,9 @@ $query = "SELECT `jarmuid`,
                  `dijak`.`ar` AS `ar`
             FROM `jarmuvek`
       INNER JOIN `dijak`
-              ON `jarmuvek`.`dijid` = `dijak`.`dijid`;";
+              ON `jarmuvek`.`dijid` = `dijak`.`dijid`
+           WHERE `jarmuvek`.`marka` = 2;";
+              
 
 $result['cars'] = $db->execute($query);
 

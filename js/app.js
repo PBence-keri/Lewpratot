@@ -118,11 +118,17 @@
     'http',
     function($scope, http) {
       http.request('./php/card.php')
-      .then(cars => {
-        $scope.cars = cars;
+      .then(response => {
+        $scope.cars = response.cars;
+        $scope.markak = response.markak;
         $scope.$applyAsync();
       })
       .catch(e=>console.log(e));
+
+      $scope.markaChanged = () => {
+        console.log('dsdsdssd')
+        console.log($scope.carFilter);
+      }
     }
   ])
 

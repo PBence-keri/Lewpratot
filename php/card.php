@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 require_once("./environment.php");
 
+$db = new Database();
+
 $query = "SELECT `jarmuid`, 
                  `autonev`, 
+                 `marka`,
                  `fogyasztas`, 
                  `uzemanyag`, 
                  `ajtoszam`, 
@@ -17,9 +20,13 @@ $query = "SELECT `jarmuid`,
       INNER JOIN `dijak`
               ON `jarmuvek`.`dijid` = `dijak`.`dijid`;";
 
-$db = new Database();
+$result['cars'] = $db->execute($query);
 
-$result = $db->execute($query);
+$query = "SELECT `id`, 
+                 `nev`
+            FROM `markak`;";
+
+$result['markak'] = $db->execute($query);
 
 $db = null;
 

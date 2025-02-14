@@ -23,6 +23,26 @@
               </thead>
               <tbody class="gombok">
                 <tr>
+                  <td ng-repeat="x in markak track by $index">
+                    <div class="text-uppercase">
+                      <input type="radio" id="gomb_{{x.nev}}" 
+                             name="gombok" 
+                             ng-model="carFilter"
+                             ng-click="markaChanged()">
+                      <label for="gomb_{{x.nev}}">{{x.nev}}</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <input type="radio" id="gomb_mind" name="gombok" 
+                             ng-model="carFilter"
+                             ng-click="markaChanged()">
+                      <label for="gomb_mind">Összes</label>
+                    </div>
+                  </td>
+                </tr>
+    
+                <!-- <tr>
                   <td>
                     <div class="">
                       <label for="gomb1">BMW</label>
@@ -92,7 +112,7 @@
                       <label for="gomb11">Semmi</label>
                       <input type="radio" id="gomb11" name="gombok2" ng-model="carFilter">
                     </div>
-                  </td>
+                  </td> -->
                 </tr>
               </tbody>
             </table>

@@ -86,7 +86,7 @@
           templateUrl: './html/rent.html',
           controller: 'rentController',
           params: {
-            data: null
+          data: null
           }
         });
         
@@ -150,59 +150,65 @@
     }
   ])
 
-  // Login
-  .controller('loginController', [
-    '$state',
-    '$rootScope',
-    '$scope',
-    'form',
-    'user',
-    'util',
-    'http',
-    'trans',
-    'msg',
-    function($state, $rootScope, $scope, form, user, util, http, trans, msg) {
+  // Login controller
+.controller('loginController', [
+  '$state',
+  '$rootScope',
+  '$scope',
+  'form',
+  'user',
+  'util',
+  'http',
+  'trans',
+  'msg',
+  function($state, $rootScope, $scope, form, user, util, http, trans, msg) {
 
-      // Set local methods
-      let methods = {
+    // Set local methods
+    let methods = {
 
-        // Initialize
-        init: () => {
+      // Initialize
+      init: () => {
+        // Set email address from local storage if exist
+        $scope.model = {email: util.localStorage('get', 'email')};
 
-          // Set email address from local storage if exist
-          $scope.model = {email: util.localStorage('get', 'email')};
+        // Set focus
+        form.focus();
+      }
+    };
 
-          // Set focus
-					form.focus();
-        }
-      };
+    // Set scope methods
+    $scope.methods = {
 
-      // Set scope methods
-      $scope.methods = {
-
-        login: () => {
-          // Set request
-          http.request({
-            url: "./php/login.php",
-            data: util.objFilterByKeys($scope.model, 'showPassword', false)
-          })
-          .then(response => {
+      login: () => {
+        // Set request
+        http.request({
+          method: 'POST',  // Ensure the method is set to POST
+          url: "./php/login.php",
+          data: util.objFilterByKeys($scope.model, ['showPassword'], false)
+        })
+        .then(response => {
+          if (response.success) {  // Check for a success flag in the response
             response.email = $scope.model.email;
             user.set(response);
             util.localStorage('set', 'email', response.email);
             trans.preventState();
-          })
-          .catch(e => {
-            $scope.model.password = null;
-            msg.error(e);
-          });
-        },
-      };
+            $state.go('home');  // Redirect to home page on successful login
+          } else {
+            throw new Error(response.message || 'Login failed');
+          }
+        })
+        .catch(e => {
+          $scope.model.password = null;
+          msg.error(e.message || e);
+        });
+      },
+    };
 
-      // Initialize
-      methods.init();
-    }
-  ])
+    // Initialize
+    methods.init();
+  }
+])
+
 
   //Register controller
   .controller('registerController', [
@@ -265,7 +271,7 @@
               // Set user properties
               user.set(data);
 
-              // Svave user email address
+              // Save user email address
               util.localStorage('set', 'email', data.email);
 
               // Show result

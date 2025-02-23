@@ -3,7 +3,6 @@
 // Set environment
 require_once('./environment.php');
 
-
 // Get arguments
 $args = Util::getArgs();
 

@@ -1,20 +1,19 @@
 <?php
 
 // Include environment
-require_once("./environment.php");
+require_once('./environment.php');
 
 // Get arguments
 $args = Util::getArgs();
 
 // Set SQL command
 $query = "SELECT `felhaszid`,
-				         `vezeteknev`,
-				         `keresztnev`,
-				         `kozepsonev`
-				         `jelsz`,
+				 `vezeteknev`,
+				 `keresztnev`,
+				 `masodiknev`,
+				 `jelsz`,
           FROM   `user` 
-          WHERE  `email` = ?
-          LIMIT  1";
+          WHERE  `email` = ?";
 
 // Connect to MySQL server
 $db = new Database();

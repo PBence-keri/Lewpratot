@@ -20,6 +20,12 @@ body {
   margin-bottom: 10px;
 }
 
+.ertekelesek-keret {
+  border: 2px solid red;
+  padding: 15px;
+  border-radius: 8px;
+}
+
 .navbar{
   width: 100% !important;
   background-color: #090909;
@@ -480,3 +486,4 @@ li::marker{
 .animate-if.ng-enter.ng-enter-active {
   opacity:1;
 }
+

@@ -19,7 +19,7 @@
                   <label for="register-vezeteknev" 
                          class="col-form-label">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">Vezetéknév</span>
+                    <span class="text-capitalize">Vezetéknév:</span>
                   </label>
                   <div class="col-11 position-relative">
                     <input id="register-vezeteknev"
@@ -42,35 +42,13 @@
                     </span>
                   </div>
                 </div>
-                
-                <!-- Középső név -->
-                <div class="row mb-3">
-                  <label for="register-kozepsonev" 
-                         class="col-form-label col-12 col-md-5">
-                    <span class="text-capitalize">középső</span>
-                    <span>név:</span>
-                  </label>
-                  <div class="col-11 position-relative">
-                    <input id="register-kozepsonev"
-                           class="form-control"
-                           name="kozepsonev" 
-                           type="text"
-                           placeholder="Középsőnév"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           maxlength="100"
-                           ng-init="model.kozepsonev=null"
-                           ng-model="model.kozepsonev"
-                           ng-clear-icon>
-                  </div>
-                </div>
 
                 <!-- Keresztnév -->
                 <div class="row mb-3">
                   <label for="register-keresztnev" 
                          class="col-form-label">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">Keresztnév</span>
+                    <span class="text-capitalize">Keresztnév:</span>
                   </label>
                   <div class="col-11 position-relative">
                     <input id="register-keresztnev"
@@ -91,6 +69,28 @@
                           ng-class="{'invisible': registerForm.keresztnev.$invalid}">
                         &check;
                     </span>
+                  </div>
+                </div>
+
+                <!-- Második név -->
+                <div class="row mb-3">
+                  <label for="register-masodiknev" 
+                         class="col-form-label col-12 col-md-5">
+                    <span class="text-capitalize">második</span>
+                    <span>név:</span>
+                  </label>
+                  <div class="col-11 position-relative">
+                    <input id="register-masodiknev"
+                           class="form-control"
+                           name="masodiknev" 
+                           type="text"
+                           placeholder="Másodiknév"
+                           spellcheck="false" 
+                           autocomplete="off" 
+                           maxlength="100"
+                           ng-init="model.masodiknev=null"
+                           ng-model="model.masodiknev"
+                           ng-clear-icon>
                   </div>
                 </div>
 
@@ -148,7 +148,7 @@
                 <!-- E-mail -->
                 <div class="row mb-3">
                   <label for="register-email" 
-                        class="col-form-label col-12 col-md-5">
+                         class="col-form-label col-12 col-md-5">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
                     <span>E-mail:</span>
                   </label>

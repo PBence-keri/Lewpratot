@@ -24,8 +24,8 @@
           return {
             felhaszid   : null,
             vezeteknev  : null,
-            kozepsonev  : null,
             keresztnev  : null,
+            masodiknev  : null,
             nem         : null,
             email       : null 
           };

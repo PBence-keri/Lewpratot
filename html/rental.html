@@ -24,7 +24,7 @@
               <tbody class="gombok">
                 <tr>
                   <td ng-repeat="x in markak track by $index">
-                    <div class="text-uppercase">
+                    <div class="text-uppercase" ng-if="!carFilter || markaChanged()==true">
                       <input type="radio" id="gomb_{{x.nev}}" 
                              name="gombok" 
                              ng-model="carFilter"
@@ -117,36 +117,6 @@
               </tbody>
             </table>
           </div>
-
-          <div class="">
-            <table class="col-12">
-              <thead class="mt-5">
-                <tr class="text-center mt-5">
-                  <th class="">
-                    Árak:
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="text-center">
-                <tr>
-                  <td>
-                    <div class="range ">
-                      <div class="range-input ">
-                        <input id="inp" type="range" class="min" min="0" max="100000" value="100000" step="1000"> 
-                        <input type="range" class=" max" min="0" max="100000" value="100000" step="1000">
-                      </div>
-                      <div class="range-price mb-3">      
-                        <label for="min">Min</label>
-                        <input type="text" name="min" value="0" min="0" disabled style="background-color: white;">      
-                        <label for="max">Max</label>
-                        <input type="text" name="max" value="100000" disabled style="background-color: white;">      
-                      </div>
-                    </div> 
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
     </div>
 
@@ -173,44 +143,3 @@
   </section>
 </div>
 
-<script>
-    let rangeMin = 100;
-  const range = document.querySelector(".range-selected");
-  const rangeInput = document.querySelectorAll(".range-input input");
-  const rangePrice = document.querySelectorAll(".range-price input");
-
-  rangeInput.forEach((input) => {
-  input.addEventListener("input", (e) => {
-    let minRange = parseInt(rangeInput[0].value);
-    let maxRange = parseInt(rangeInput[1].value);
-    if (maxRange - minRange < rangeMin) {     
-      if (e.target.className === "min") {
-        rangeInput[0].value = maxRange - rangeMin;        
-      } else {
-        rangeInput[1].value = minRange + rangeMin;        
-      }
-    } else {
-      rangePrice[0].value = minRange;
-      rangePrice[1].value = maxRange;
-      range.style.left = (minRange / rangeInput[0].max) * 100 + "%";
-      range.style.right = 100 - (maxRange / rangeInput[1].max) * 100 + "%";
-    }
-  });
-});
-
-rangePrice.forEach((input) => {
-  input.addEventListener("input", (e) => {
-    let minPrice = rangePrice[0].value;
-    let maxPrice = rangePrice[1].value;
-    if (maxPrice - minPrice >= rangeMin && maxPrice <= rangeInput[1].max) {
-      if (e.target.className === "min") {
-        rangeInput[0].value = minPrice;
-        range.style.left = (minPrice / rangeInput[0].max) * 100 + "%";
-      } else {
-        rangeInput[1].value = maxPrice;
-        range.style.right = 1000 - (maxPrice / rangeInput[1].max) * 100 + "%";
-      }
-    }
-  });
-}); 
-</script>

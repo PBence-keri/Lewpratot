@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Feb 14. 12:19
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.1.17
+-- Létrehozás ideje: 2025. Feb 26. 20:26
+-- Kiszolgáló verziója: 10.4.24-MariaDB
+-- PHP verzió: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `dijak` (
   `dijid` int(10) NOT NULL,
   `ar` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `dijak`
@@ -65,7 +65,7 @@ INSERT INTO `dijak` (`dijid`, `ar`) VALUES
 CREATE TABLE `fizetes` (
   `fizid` int(11) NOT NULL,
   `megnev` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `fizetes`
@@ -88,7 +88,7 @@ CREATE TABLE `foglalas` (
   `datum` date NOT NULL,
   `felhaszid` int(11) NOT NULL,
   `megjegyzes` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -108,31 +108,31 @@ CREATE TABLE `jarmuvek` (
   `kep` varchar(50) NOT NULL,
   `valtos` varchar(15) NOT NULL,
   `klima` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `jarmuvek`
 --
 
 INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `marka`, `fogyasztas`, `uzemanyag`, `ajtoszam`, `loero`, `kep`, `valtos`, `klima`) VALUES
-(1, 10, 'Ford Fusion', 2, 8, 'benzin', 4, 141, 'fordfusion.jpg', 'manual', 1),
-(2, 20, 'BMW E30', 0, 7, 'benzin', 4, 192, 'bmwe30.jpg', 'manual', 1),
-(3, 30, 'Honda Civic', 0, 9, 'benzin', 4, 158, 'hondacivic.jpg', 'manual', 0),
-(4, 40, 'Toyota Corolla', 0, 8, 'benzin', 4, 169, 'toyotacorolla.jpg', 'automatic', 1),
-(5, 50, 'MERCEDES-AMG', 0, 7, 'benzin', 4, 250, 'mercedesamg.jpg', 'automatic', 1),
-(6, 60, 'Ford Focus', 2, 8, 'benzin', 4, 160, 'fordfocus.jpg', 'manual', 0),
-(7, 70, 'Audi A6 4G', 0, 6, 'dizel', 4, 177, 'audia8.jpg', 'manual', 1),
-(8, 80, 'Ford Bronco', 2, 9, 'benzin', 4, 330, 'bronco.jpg', 'automatic', 1),
-(9, 90, 'Ford Bronco Sport', 2, 11, 'benzin', 4, 238, 'broncosport.jpg', 'automatic', 1),
-(10, 100, 'Audi SQ7 SUV', 0, 9, 'benzin', 4, 500, 'audisqsuv.jpg', 'automatic', 1),
-(11, 110, 'Renault Espace', 0, 6, 'dizel', 5, 255, 'renaultespace.jpg', 'manual', 1),
-(12, 120, 'Skoda Superb', 0, 8, 'dizel', 5, 255, 'skodasuperb.jpg', 'automatic', 1),
-(13, 130, 'Skoda Octavia', 0, 7, 'benzin', 5, 255, 'toyotaoctavia.jpg', 'manual', 1),
-(14, 140, 'Opel Corsa', 0, 8, 'benzin', 5, 255, 'opelcorsa.jpg', 'manual', 1),
-(15, 150, 'Audi A6', 0, 6, 'dizel', 5, 255, 'audia6.jpg', 'manual', 1),
-(16, 160, 'Renault Megane', 0, 7, 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1),
-(17, 170, 'BMW 5 G30', 0, 7, 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1),
-(18, 180, 'Audi 80', 0, 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1);
+(1, 10, 'Ford Fusion', 2, '8', 'benzin', 4, 141, 'fordfusion.jpg', 'manual', 1),
+(2, 20, 'BMW E30', 0, '7', 'benzin', 4, 192, 'bmwe30.jpg', 'manual', 1),
+(3, 30, 'Honda Civic', 0, '9', 'benzin', 4, 158, 'hondacivic.jpg', 'manual', 0),
+(4, 40, 'Toyota Corolla', 0, '8', 'benzin', 4, 169, 'toyotacorolla.jpg', 'automatic', 1),
+(5, 50, 'MERCEDES-AMG', 0, '7', 'benzin', 4, 250, 'mercedesamg.jpg', 'automatic', 1),
+(6, 60, 'Ford Focus', 2, '8', 'benzin', 4, 160, 'fordfocus.jpg', 'manual', 0),
+(7, 70, 'Audi A6 4G', 0, '6', 'dizel', 4, 177, 'audia8.jpg', 'manual', 1),
+(8, 80, 'Ford Bronco', 2, '9', 'benzin', 4, 330, 'bronco.jpg', 'automatic', 1),
+(9, 90, 'Ford Bronco Sport', 2, '11', 'benzin', 4, 238, 'broncosport.jpg', 'automatic', 1),
+(10, 100, 'Audi SQ7 SUV', 0, '9', 'benzin', 4, 500, 'audisqsuv.jpg', 'automatic', 1),
+(11, 110, 'Renault Espace', 0, '6', 'dizel', 5, 255, 'renaultespace.jpg', 'manual', 1),
+(12, 120, 'Skoda Superb', 0, '8', 'dizel', 5, 255, 'skodasuperb.jpg', 'automatic', 1),
+(13, 130, 'Skoda Octavia', 0, '7', 'benzin', 5, 255, 'toyotaoctavia.jpg', 'manual', 1),
+(14, 140, 'Opel Corsa', 0, '8', 'benzin', 5, 255, 'opelcorsa.jpg', 'manual', 1),
+(15, 150, 'Audi A6', 0, '6', 'dizel', 5, 255, 'audia6.jpg', 'manual', 1),
+(16, 160, 'Renault Megane', 0, '7', 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1),
+(17, 170, 'BMW 5 G30', 0, '7', 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1),
+(18, 180, 'Audi 80', 0, '8', 'dizel', 5, 255, 'audi80.jpg', 'manual', 1);
 
 -- --------------------------------------------------------
 
@@ -146,7 +146,7 @@ CREATE TABLE `kolcsonzes` (
   `vegosszeg` int(11) NOT NULL,
   `kolcskezdet` date NOT NULL,
   `kolcsonzestartama` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,7 @@ CREATE TABLE `kolcsonzeselemek` (
   `kolcsonzesid` int(25) NOT NULL,
   `jarmuid` int(10) NOT NULL,
   `darab` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -169,7 +169,7 @@ CREATE TABLE `kolcsonzeselemek` (
 CREATE TABLE `markak` (
   `id` int(11) NOT NULL,
   `nev` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- A tábla adatainak kiíratása `markak`
@@ -199,19 +199,19 @@ CREATE TABLE `user` (
   `email` varchar(100) NOT NULL,
   `vezeteknev` varchar(100) NOT NULL,
   `keresztnev` varchar(100) NOT NULL,
-  `kozepsonev` varchar(100) DEFAULT NULL,
+  `masodiknev` varchar(100) DEFAULT NULL,
   `szulev` date NOT NULL,
   `nem` char(1) NOT NULL,
   `cim` varchar(100) DEFAULT NULL,
   `iranyitoszam` int(4) DEFAULT NULL,
   `varos` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `user`
 --
 
-INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `kozepsonev`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
+INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `masodiknev`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
 (1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', NULL, '2005-07-06', 'M', NULL, NULL, NULL),
 (4, '1234Aa', 'as@asd.dd', 'asd', 'asd', NULL, '1999-12-12', 'M', NULL, NULL, NULL);
 

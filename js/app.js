@@ -56,7 +56,7 @@
           url: '/rental',
           parent: 'root',
           templateUrl: './html/rental.html',
-          controller: 'page1Controller'
+          controller: 'rentalController'
         })
         .state('connection', {
           url: '/connection',
@@ -112,11 +112,12 @@
     }
   ])
 
-  // Page1 controller
-  .controller('page1Controller', [
+  // Rental controller
+  .controller('rentalController', [
     '$scope',
     'http',
     function($scope, http) {
+      
       http.request('./php/card.php')
       .then(response => {
         $scope.cars = response.cars;
@@ -127,7 +128,7 @@
 
       $scope.markaChanged = () => {
         console.log('dsdsdssd')
-        console.log($scope.carFilter);
+        console.log($scope.name);
       }
     }
   ])
@@ -153,15 +154,13 @@
   // Login controller
 .controller('loginController', [
   '$state',
-  '$rootScope',
   '$scope',
   'form',
   'user',
   'util',
   'http',
-  'trans',
   'msg',
-  function($state, $rootScope, $scope, form, user, util, http, trans, msg) {
+  function($state, $scope, form, user, util, http, msg) {
 
     // Set local methods
     let methods = {
@@ -192,7 +191,7 @@
             $state.go('home');  // Redirect to home page on successful login
         })
         .catch(e => {
-          $scope.model.password = null;
+          $scope.model.jelsz = null;
           msg.error(e.message || e);
         });
       }

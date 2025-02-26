@@ -2,13 +2,8 @@
 declare(strict_types=1);
 
 $_POST['data'] = '{
-    "vezeteknev": "xx",
-    "keresztnev": "x",
-    "masodiknev": null,
-    "szulev": "2025-02-14",
-    "nem": "M",
-    "email": "a@a.aa",
+    "email": "pragai.bence-2020@keri.mako.hu",
     "jelsz": "1234Aa"
 }';
 
-require_once('./register.php');
+require_once('./login.php');

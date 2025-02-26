@@ -24,95 +24,25 @@
               <tbody class="gombok">
                 <tr>
                   <td ng-repeat="x in markak track by $index">
-                    <div class="text-uppercase" ng-if="!carFilter || markaChanged()==true">
-                      <input type="radio" id="gomb_{{x.nev}}" 
+                    <div class="text-uppercase">
+                      <input type="radio" 
+                             id="gomb_{{x.nev}}" 
                              name="gombok" 
-                             ng-model="carFilter"
-                             ng-click="markaChanged()">
+                             ng-model="name"
+                             ng-change="markaChanged()">
                       <label for="gomb_{{x.nev}}">{{x.nev}}</label>
                     </div>
                   </td>
                   <td>
                     <div>
-                      <input type="radio" id="gomb_mind" name="gombok" 
-                             ng-model="carFilter"
-                             ng-click="markaChanged()">
+                      <input type="radio" 
+                             id="gomb_mind" 
+                             name="gombok" 
+                             ng-model="name"
+                             ng-change="markaChanged()">
                       <label for="gomb_mind">Összes</label>
                     </div>
                   </td>
-                </tr>
-    
-                <!-- <tr>
-                  <td>
-                    <div class="">
-                      <label for="gomb1">BMW</label>
-                      <input type="radio" id="gomb1" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="">
-                      <label for="gomb2">Ford</label>
-                      <input type="radio" id="gomb2" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="">
-                      <label for="gomb3">Renault</label>
-                      <input type="radio" id="gomb3" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="">
-                      <label for="gomb4" class="ms-3">Toyota</label>
-                      <input type="radio" id="gomb4" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="">
-                      <label for="gomb5">Audi</label>
-                      <input type="radio" id="gomb5" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="">
-                      <label class="ms-2" for="gomb6">Mercedes</label>
-                    <input type="radio" id="gomb6" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div class="">
-                      <label for="gomb7">Opel</label>
-                      <input type="radio" id="gomb7" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div>
-                      <label for="gomb8">Bronco</label>
-                      <input type="radio" id="gomb8" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <label for="gomb9">Honda</label>
-                      <input type="radio" id="gomb9" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <label for="gomb10">Skoda</label>
-                      <input type="radio" id="gomb10" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td>
-                  <td>
-                    <div>
-                      <label for="gomb11">Semmi</label>
-                      <input type="radio" id="gomb11" name="gombok2" ng-model="carFilter">
-                    </div>
-                  </td> -->
                 </tr>
               </tbody>
             </table>

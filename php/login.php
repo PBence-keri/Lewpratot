@@ -13,14 +13,14 @@ $query = "SELECT `felhaszid`,
 				 `masodiknev`,
 				 `jelsz`
           FROM   `user` 
-          WHERE  `email` = '?'
+          WHERE  `email` = ?
           LIMIT  1";
 
 // Connect to MySQL server
 $db = new Database();
 
 // Execute SQL command
-$result = $db->execute($query, array($args['email']));
+$result = $db->execute($query, [$args['email']]);
 
 // Close connection
 $db = null;

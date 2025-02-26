@@ -11,9 +11,10 @@ $query = "SELECT `felhaszid`,
 				 `vezeteknev`,
 				 `keresztnev`,
 				 `masodiknev`,
-				 `jelsz`,
+				 `jelsz`
           FROM   `user` 
-          WHERE  `email` = ?";
+          WHERE  `email` = '?'
+          LIMIT  1";
 
 // Connect to MySQL server
 $db = new Database();
@@ -34,7 +35,6 @@ $result = $result[0];
 // Check password
 if ($result['jelsz'] !== $args['jelsz']) {
     Util::setError("Helytelen jelszó!");
-    return;
 }
 
 // Remove password property

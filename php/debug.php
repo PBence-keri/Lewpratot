@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 $_POST['data'] = '{
     "vezeteknev": "xx",
-    "kozepsonev": null,
     "keresztnev": "x",
+    "masodiknev": null,
     "szulev": "2025-02-14",
     "nem": "M",
     "email": "a@a.aa",

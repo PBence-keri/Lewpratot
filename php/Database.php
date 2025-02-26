@@ -58,7 +58,7 @@ class Database {
 													PDO::ATTR_STRINGIFY_FETCHES        => false
 												));
 		} catch (Exception $e) {
-			Util::setError("Unable to conect to MySQL server!");
+			Util::setError("Unable to connect to MySQL server!");
 		}
 	}
 

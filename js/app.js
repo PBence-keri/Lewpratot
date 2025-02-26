@@ -182,26 +182,20 @@
       login: () => {
         // Set request
         http.request({
-          method: 'POST',  // Ensure the method is set to POST
           url: "./php/login.php",
           data: util.objFilterByKeys($scope.model, ['showPassword'], false)
         })
         .then(response => {
-          if (response.success) {  // Check for a success flag in the response
             response.email = $scope.model.email;
             user.set(response);
             util.localStorage('set', 'email', response.email);
-            trans.preventState();
             $state.go('home');  // Redirect to home page on successful login
-          } else {
-            throw new Error(response.message || 'Login failed');
-          }
         })
         .catch(e => {
           $scope.model.password = null;
           msg.error(e.message || e);
         });
-      },
+      }
     };
 
     // Initialize

@@ -2,28 +2,31 @@
   <div class="text-center mt-5 text-decoration-underline">
     <h1>Regisztráció</h1>
   </div>
-  <div class="container moveFromRight delay-50">
+  
+  <div class="container moveFromRight delay-50 col-6">
+    
     <div class="row d-flex justify-content-center align-items-center">
       <div class="col-xl-6 col-lg-6 col-md-8">
-        <div class="card rounded-3 text-black card-body">
-          <div class="row g-0">
-            <div class="col-lg-12">
+        <div class="card rounded-3 text-black register2">
+          
+          <div class="row g-0 col-12">
+            <div class="register col-lg-12 ">
               <div class="text-center">
                 <img src="./img/Logo2.png" alt="logo" id="loginLogo">
                 <h4 class="mt-1 mb-5 pb-1">LPT</h4>
               </div>
 
               <!-- Vezetéknév -->
-              <form name="registerForm">
-                <div class="row mb-3">
+              <form name="registerForm ">
+                <div class="row mb-3  ms-2">
                   <label for="register-vezeteknev" 
                          class="col-form-label">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">Vezetéknév:</span>
+                    <span class="text-capitalize katt ">Vezetéknév:</span>
                   </label>
                   <div class="col-11 position-relative">
                     <input id="register-vezeteknev"
-                           class="form-control"
+                           class="form-control text2"
                            name="vezeteknev" 
                            type="text"
                            placeholder="Vezetéknév"
@@ -35,7 +38,7 @@
                            ng-model="model.vezeteknev"
                            ng-clear-icon>
                   </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                  <div class=" col-1 d-flex align-items-center justify-content-start ps-1">
                     <span class="fw-bolder text-success"
                           ng-class="{'invisible': registerForm.vezeteknev.$invalid}">
                         &check;
@@ -44,15 +47,15 @@
                 </div>
 
                 <!-- Keresztnév -->
-                <div class="row mb-3">
+                <div class="row mb-3 ms-2">
                   <label for="register-keresztnev" 
                          class="col-form-label">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">Keresztnév:</span>
+                    <span class="text-capitalize katt">Keresztnév:</span>
                   </label>
                   <div class="col-11 position-relative">
                     <input id="register-keresztnev"
-                           class="form-control"
+                           class="form-control text2"
                            name="keresztnev" 
                            type="text"
                            placeholder="Keresztnév"
@@ -73,15 +76,14 @@
                 </div>
 
                 <!-- Második név -->
-                <div class="row mb-3">
+                <div class="row mb-3 ms-2">
                   <label for="register-masodiknev" 
                          class="col-form-label col-12 col-md-5">
-                    <span class="text-capitalize">második</span>
-                    <span>név:</span>
+                    <span class="text-capitalize katt">második név:</span>
                   </label>
                   <div class="col-11 position-relative">
                     <input id="register-masodiknev"
-                           class="form-control"
+                           class="form-control text2"
                            name="masodiknev" 
                            type="text"
                            placeholder="Másodiknév"
@@ -95,15 +97,15 @@
                 </div>
 
                 <!-- Születési dátum -->
-                <div class="row mb-3">
+                <div class="row mb-3 ms-2">
                   <label for="register-szulev" 
                         class="col-form-label col-12 col-md-5">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span>Születési dátum:</span>
+                    <span class="katt">Születési dátum:</span>
                   </label>
                   <div class="col-11">
                     <input id="register-szulev"
-                           class="form-control"
+                           class="form-control text2"
                            name="szulev" 
                            type="date"
                            placeholder="Születési dátum"
@@ -119,11 +121,11 @@
                 </div>
                 
                 <!-- Nem -->
-                <fieldset class="row input-row mb-3">
+                <fieldset class="row input-row mb-3 ms-2">
                   <legend class="col-form-label col-12">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">
-                      nem:
+                    <span class="text-capitalize katt">
+                      neme:
                     </span>
                   </legend>
                   <div class="col-11 col-md-6 position-relative d-flex align-items-center"
@@ -134,7 +136,7 @@
                             name="nem" 
                             type="radio"
                             ng-value="x === 'Nő' ? 'F' : 'M'"
-                            class="form-check-input"
+                            class="form-check-input text2"
                             ng-model="model.nem" 
                             required>
                         <label for="register-{{x}}" 
@@ -146,15 +148,15 @@
                 </fieldset>
 
                 <!-- E-mail -->
-                <div class="row mb-3">
+                <div class="row mb-3 ms-2">
                   <label for="register-email" 
                          class="col-form-label col-12 col-md-5">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span>E-mail:</span>
+                    <span class="katt">E-mail:</span>
                   </label>
                   <div class="col-11 position-relative">
                     <input id="register-email"
-                           class="form-control"
+                           class="form-control text2"
                            name="email" 
                            type="text"
                            placeholder="E-mail"
@@ -177,15 +179,15 @@
                 </div>
 
                 <!-- Jelszó -->
-                <div class="row mb-3">
+                <div class="row mb-3 ms-2">
                   <label for="register-jelsz" 
                         class="col-form-label col-12 col-md-5">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize">jelszó:</span>
+                    <span class="text-capitalize katt">jelszó:</span>
                   </label>
                   <div class="col-11 position-relative">
                     <input id="register-jelsz"
-                           class="form-control"
+                           class="form-control text2"
                            name="jelsz" 
                            type="{{model.showPassword ? 'text' : 'password'}}"
                            placeholder="Jelszó"
@@ -209,15 +211,15 @@
                 </div>
 
                 <!-- Jelszó megerősítés -->
-                <div class="row mb-3">
+                <div class="row mb-3 ms-2">
                   <label for="register-megerosites" 
                         class="col-form-label col-12 col-md-5">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span>Jelszó megerősítés:</span>
+                    <span class="katt">Jelszó megerősítés:</span>
                   </label>
-                  <div class="col-11 position-relative">
+                  <div class=" col-11 position-relative">
                     <input id="register-megerosites"
-                           class="form-control"
+                           class="form-control text2"
                            name="megerosites" 
                            type="{{model.showPassword ? 'text' : 'password'}}"
                            placeholder="Jelszó megerősítes"
@@ -242,16 +244,16 @@
                 </div>
 
                 <!-- Jelszó megjelenítés -->
-				        <div class="row mb-4">
+				        <div class="row mb-4 ms-2">
 				        	<div class="col-form-label d-none d-md-block">
 				        	<div class="col-12 col-md-7">
 				        		<input id="register-showPassword"
-				        					 class="form-check-input"
+				        					 class="form-check-input text2"
 				        					 type="checkbox"
 				        					 ng-init="model.showPassword=false"
 				        					 ng-model="model.showPassword">
 				        		<label for="register-showPassword"
-				        					class="form-check-label ms-1">
+				        					class="form-check-label ms-1 katt">
 				        			Jelszó megjelenítése
 				        		</label>
 				        	</div>
@@ -261,7 +263,7 @@
                 <div class="row mb-3 justify-content-center mt-3 ms-2">
                   <div class="w-auto">
                     <button type="button"
-                            class="btn btn-dark w-auto me-3 text-capitalize"
+                            class="btn btn-dark w-auto me-3 text-capitalize katt"
                             ng-disabled="registerForm.$invalid"
                             ng-click="methods.register()">
                       regisztráció
@@ -269,12 +271,11 @@
                   </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-center pb-4 mt-3">
-                  <p class="mb-0 me-2">Van már fiókja?</p>
-                  <button  type="button" data-button-init class="btn btn-outline-danger" ui-sref="login">Belépés</button>
+                  <p class="mb-0 me-2 katt">Van már fiókja?</p>
+                  <button  type="button" data-button-init class="btn btn-outline-danger katt" ui-sref="login">Belépés</button>
                 </div>
               </form>
             </div>
-          </div>
         </div>
       </div>
     </div>

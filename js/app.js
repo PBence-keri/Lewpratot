@@ -88,6 +88,12 @@
           params: {
           data: null
           }
+        })
+        .state('profile', {
+          url: '/profile',
+          parent: 'root',
+          templateUrl: './html/profile.html',
+          controller: 'profileController'
         });
         
       $urlRouterProvider.otherwise('/');

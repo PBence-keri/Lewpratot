@@ -509,3 +509,11 @@ li::marker{
   color: white;
 }
 
+video{
+  border: 2px solid white;
+}
+
+#profil{
+  background-color: white;
+  color: black;
+}

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once("./environment.php");
+require_once("../../common/php/environment.php");
 
 $db = new Database();
 
@@ -25,9 +25,15 @@ $result['cars'] = $db->execute($query);
 
 $query = "SELECT `id`, 
                  `nev`
-            FROM `markak`;";
+            FROM `markak`
+        ORDER BY `id`;";
 
 $result['markak'] = $db->execute($query);
+
+array_push($result['markak'], [
+     'id'  => 0,
+     'nev' => 'Összes'
+]);
 
 $db = null;
 

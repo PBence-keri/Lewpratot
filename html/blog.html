@@ -1,12 +1,12 @@
 <div class="container mt-5">
-    <h2 class="text-center mb-4">LPT Autókölcsönző Blog</h2>
+    <h2 class="text-center mb-4">Blog</h2>
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">Új Autók Érkeztek!</h5>
-                    <p class="card-text">Nézd meg legújabb autóinkat, amelyek mostantól elérhetők kölcsönzésre.</p>
-                    <a sref="rental.html" class="btn btn-dark">Megnézem</a>
+                    <h5 class="card-title fw-bold fs-4">Új Autók Érkeztek!</h5>
+                    <p class="card-text fs-5">Nézd meg legújabb autóinkat, amelyek mostantól elérhetők kölcsönzésre.</p>
+                    <a ui-sref="rental" class="btn btn-dark">Megnézem</a>
                 </div>
             </div>
         </div>
@@ -14,17 +14,17 @@
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">Tippek Autóbérléshez</h5>
-                    <p class="card-text">Összegyűjtöttük a legjobb tanácsokat, hogy zökkenőmentes legyen a bérlés.</p>
+                    <h5 class="card-title fw-bold fs-4">Tippek Autóbérléshez</h5>
+                    <p class="card-text fs-5">Összegyűjtöttük a legjobb tanácsokat, hogy zökkenőmentes legyen a bérlés.</p>
                     <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#rentalTips">
                         Tovább olvasom
                     </button>
                     <div class="collapse mt-3" id="rentalTips">
-                        <li><strong>Üzemanyag-politika:</strong> Olvasd el a feltételeket, hogy kell-e tele tankkal visszahozni az autót.</li>
-                        <li><strong>Rejtett költségek:</strong> Kérdezd meg az extra díjakat (pl. fiatal sofőr díj, extra kilométerek).</li>
-                        <li><strong>Navigáció:</strong> Ha nem ismered az útvonalat, érdemes GPS-t vagy okostelefon-térképet használni.</li>
-                        <li><strong>Előzetes foglalás:</strong> Foglalj előre online, hogy jobb árat kapj és biztosítsd a kiválasztott járművet.</li>
-                        <li><strong>Bérautó visszaadása:</strong> Ellenőrizd a szerződést, hogy mikor és hol kell visszavinni az autót.</li>
+                        <li class="fs-5"><strong class="text-danger fw-bold">Üzemanyag-politika:</strong> Olvasd el a feltételeket, hogy kell-e tele tankkal visszahozni az autót.</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Rejtett költségek:</strong> Kérdezd meg az extra díjakat (pl. fiatal sofőr díj, extra kilométerek).</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Navigáció:</strong> Ha nem ismered az útvonalat, érdemes GPS-t vagy okostelefon-térképet használni.</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Előzetes foglalás:</strong> Foglalj előre online, hogy jobb árat kapj és biztosítsd a kiválasztott járművet.</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Bérautó visszaadása:</strong> Ellenőrizd a szerződést, hogy mikor és hol kell visszavinni az autót.</li>
                     </div>
                 </div>
             </div>
@@ -33,15 +33,15 @@
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">Akciók és Kedvezmények</h5>
-                    <p class="card-text">Fedezd fel aktuális kedvezményeinket és spórolj a következő bérléseden!</p>
+                    <h5 class="card-title fw-bold fs-4">Akciók és Kedvezmények</h5>
+                    <p class="card-text fs-5">Fedezd fel aktuális kedvezményeinket és spórolj a következő bérléseden!</p>
                     <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#discounts">
                         Tovább olvasom
                     </button>
                     <div class="collapse mt-3" id="discounts">
-                        <img src="./img/audia8.jpg">
+                        <img src="./img/audia8.jpg" style="width: 300px;">
                         <div class="fs-4">
-                            <p>Most 30 % - os leértekelés a hónap autóján!</p>
+                            <p>Most <mark class="text-danger">30% - os</mark> akció a hónap autójára!</p> 
                         </div>
                         <div>
                             <ul>
@@ -54,6 +54,153 @@
             </div>
         </div>
     </div>
+
+    <div>
+        <h2 class="text-center mb-4 mt-5">Mi kell az Autóbérléshez?</h2>
+    </div>
+
+    <div class="container mt-5"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./blog_id.jpg" class="card-img-top" alt="Kártya 1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Érvényes személyazonosító igazolvány.</h5>
+                        <p class="card-text">Ez az első kártya leírása.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Kártya 2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Lakcímet igazoló hatósági igazolvány</h5>
+                        <p class="card-text">Ez a második kártya leírása.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Kártya 3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Vezetői engedély.</h5>
+                        <p class="card-text">Ez a harmadik kártya leírása.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="mt-5">
+        <h3>Értékelések:</h3>
+        <div class="ertekelesek-keret bg-light text-dark p-3 rounded">
+            <h5>Autók:</h5>
+            <p>⭐⭐⭐⭐☆ (4/5) – "Remek állapotú autók, tiszták és jól felszereltek."</p>
+            <p>⭐⭐⭐⭐⭐ (5/5) – "Az autó modern és megbízható, ideális hosszú utakra."</p>
+
+            <h5>Autókölcsönző:</h5>
+            <p>⭐⭐⭐⭐⭐ (5/5) – "Nagyon segítőkész személyzet és gyors ügyintézés!"</p>
+            <p>⭐⭐⭐⭐☆ (4/5) – "Kedvező árak és jó autóválaszték, de a parkoló kissé zsúfolt volt."</p>
+            <p>⭐⭐⭐⭐⭐ (5/5) – "A kedvezményeknek köszönhetően rengeteget spóroltam!"</p>
+            <p>⭐⭐⭐⭐☆ (4.5/5) – "Szuper akciók és barátságos ügyfélszolgálat."</p>
+        </div>
+    </div>
+</div><div class="container mt-5">
+    <h2 class="text-center mb-4">Blog</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold fs-4">Új Autók Érkeztek!</h5>
+                    <p class="card-text fs-5">Nézd meg legújabb autóinkat, amelyek mostantól elérhetők kölcsönzésre.</p>
+                    <a ui-sref="rental" class="btn btn-dark">Megnézem</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold fs-4">Tippek Autóbérléshez</h5>
+                    <p class="card-text fs-5">Összegyűjtöttük a legjobb tanácsokat, hogy zökkenőmentes legyen a bérlés.</p>
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#rentalTips">
+                        Tovább olvasom
+                    </button>
+                    <div class="collapse mt-3" id="rentalTips">
+                        <li class="fs-5"><strong class="text-danger fw-bold">Üzemanyag-politika:</strong> Olvasd el a feltételeket, hogy kell-e tele tankkal visszahozni az autót.</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Rejtett költségek:</strong> Kérdezd meg az extra díjakat (pl. fiatal sofőr díj, extra kilométerek).</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Navigáció:</strong> Ha nem ismered az útvonalat, érdemes GPS-t vagy okostelefon-térképet használni.</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Előzetes foglalás:</strong> Foglalj előre online, hogy jobb árat kapj és biztosítsd a kiválasztott járművet.</li>
+                        <li class="fs-5 "><strong class="text-danger fw-bold">Bérautó visszaadása:</strong> Ellenőrizd a szerződést, hogy mikor és hol kell visszavinni az autót.</li>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold fs-4">Akciók és Kedvezmények</h5>
+                    <p class="card-text fs-5">Fedezd fel aktuális kedvezményeinket és spórolj a következő bérléseden!</p>
+                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#discounts">
+                        Tovább olvasom
+                    </button>
+                    <div class="collapse mt-3" id="discounts">
+                        <img src="./img/audia8.jpg" style="width: 300px;">
+                        <div class="fs-4">
+                            <p>Most <mark class="text-danger">30% - os</mark> akció a hónap autójára!</p> 
+                        </div>
+                        <div>
+                            <ul>
+                                <li><strong>Hétvégi akció:</strong> Bérelj autót péntektől vasárnapig 20% kedvezménnyel!</li>
+                                <li><strong>Új ügyfél kedvezmény:</strong> Az első bérlésed árából 10% kedvezményt biztosítunk.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h2 class="text-center mb-4 mt-5">Mi kell az Autóbérléshez?</h2>
+    </div>
+
+    <div class="container mt-5"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="./blog_id.jpg" class="card-img-top" alt="Kártya 1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Érvényes személyazonosító igazolvány.</h5>
+                        <p class="card-text">Ez az első kártya leírása.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Kártya 2">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Lakcímet igazoló hatósági igazolvány</h5>
+                        <p class="card-text">Ez a második kártya leírása.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/200" class="card-img-top" alt="Kártya 3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Vezetői engedély.</h5>
+                        <p class="card-text">Ez a harmadik kártya leírása.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="mt-5">
         <h3>Értékelések:</h3>

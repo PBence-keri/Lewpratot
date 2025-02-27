@@ -143,9 +143,12 @@ body {
 .car-card2 button:hover {
   background: white;
 }
-
 .car-card button:hover {
   background: white;
+}
+.car-card button[disabled="disabled"] {
+  cursor: default;
+  background: black;
 }
 
 #bestofthemonth{
@@ -509,3 +512,11 @@ li::marker{
   color: white;
 }
 
+video{
+  border: 2px solid white;
+}
+
+#profil{
+  background-color: white;
+  color: black;
+}

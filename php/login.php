@@ -1,7 +1,7 @@
 <?php
 
 // Include environment
-require_once('./environment.php');
+require_once("../../common/php/environment.php");
 
 // Get arguments
 $args = Util::getArgs();

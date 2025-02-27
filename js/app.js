@@ -88,6 +88,12 @@
           params: {
           data: null
           }
+        })
+        .state('profile', {
+          url: '/profile',
+          parent: 'root',
+          templateUrl: './html/profile.html',
+          controller: 'profileController'
         });
         
       $urlRouterProvider.otherwise('/');
@@ -99,7 +105,6 @@
     '$rootScope',
     'user',
     ($rootScope, user) => {
-
       user.init();
     }
   ])
@@ -118,6 +123,7 @@
     'http',
     function($scope, http) {
       
+      $scope.model = {brand: 0};
       http.request('./php/card.php')
       .then(response => {
         $scope.cars = response.cars;
@@ -125,11 +131,6 @@
         $scope.$applyAsync();
       })
       .catch(e=>console.log(e));
-
-      $scope.markaChanged = () => {
-        console.log('dsdsdssd')
-        console.log($scope.name);
-      }
     }
   ])
 

@@ -70,8 +70,7 @@
           callback  : (response) => {
             if (response === 'ok') {
               service.reset('email');
-              if ($rootScope.state.disabled.includes($rootScope.state.felhaszid))
-                $state.go($rootScope.state.default);
+              $state.go('home');
             }
           }
         });

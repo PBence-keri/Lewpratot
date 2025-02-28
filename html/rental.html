@@ -1,4 +1,6 @@
-
+<div class="alert alert-danger">
+  <strong>Vigyázz!</strong> Az autó foglaláshoz be kell jelentkezned. Ha nincs felhasználód, <a ui-sref="register">regisztrálj</a>!
+</div>
 <div class="container">
   <section id="cars">
     <h2>Bérelhető Autók</h2>
@@ -39,12 +41,10 @@
         </div>
     </div>
 
-
     <div class="car-card2">
       <button class="click1" ng-click="toggleDiv()">Menü</button>
     </div>
 
-      
     <div class="car-grid ">
       <div class="car-card" 
            ng-repeat="car in cars"  
@@ -54,7 +54,7 @@
         <img ng-src="./img/{{car.kep}}">
         <h3 class="carcolor">{{car.autonev}}</h3>
         <p>Lóerő: {{car.loero}} <br> Az autó fogyasztása 100km-eren: {{car.fogyasztas}} liter<br> Az autó váltója: {{car.valtos}} <br> Az autó üzemanyaga: {{car.uzemanyag}}</p>
-        <p class="price">{{car.ar}} Ft/hónap</p>
+        <p class="price">{{car.ar}} Ft/nap</p>
         <button ui-sref="rent({'data': car})"
                 ng-disabled="!$root.user.felhaszid">
           Bérlés

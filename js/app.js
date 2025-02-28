@@ -207,14 +207,13 @@
   //Register controller
   .controller('registerController', [
     '$state',
-    '$rootScope',
     '$scope',
     'form',
     'msg',
     'util',
     'http',
     'user',
-    function($state, $rootScope, $scope, form, msg, util, http, user) {
+    function($state, $scope, form, msg, util, http, user) {
 
       // Set local methods
       let methods = {

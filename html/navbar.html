@@ -27,10 +27,10 @@
         <li class="nav-item" ng-if="$root.user.felhaszid">
           <a class="btn btn-outline-light me-3 mt-2" ng-click="$root.logout()">Kijelentkezés</a>
         </li>
-        <li class="nav-item">
-          <a class="btn btn-outline-light me-3 mt-2" ui-sref="login">Belépés</a>
+        <li class="nav-item" ng-if="!$root.user.felhaszid">
+          <a class="btn btn-outline-light me-3 mt-2" ui-sref="login" >Belépés</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" ng-if="!$root.user.felhaszid">
           <a class="btn btn-outline-light me-3 mt-2" ui-sref="register">Regisztráció</a>  
         </li>
       </ul>

@@ -1,17 +1,12 @@
 <div class="container-fluid">
   <div class="row">
+    <h1 class="text-center mt-5 text-decoration-underline">Bérlés</h1>
     <div class="col-md-5">
       <div class="row justify-content-center">
         <div class="col-md-4 image mt-12 w-auto mt-5" >
-          <div class="card text-white" style="border: 2px solid red;">
-          <div class="card text-white col-md-12">
+          <div class="card text-white mt-4" style="border: 2px solid red;">
+            <div class="card text-white col-md-12">
             <img src="./img/{{data.kep}}" class="card-img">
-          </div>
-        </div>
-        <div class="rent rent2 col-md-12 text-center" style="border-top-color: black;">
-          <div class=" w-auto mt-2 mb-2">
-            <p>Az autó lóereje: {{data.loero}}hp <br> Az autó fogyasztása 100km-eren: {{data.fogyasztas}} liter<br> Az autó váltója: {{data.valtos}} <br> Az autó üzemanyaga: {{data.uzemanyag}}</p>
-            <p class="price">{{data.ar}} Ft/hónap</p>
           </div>
         </div>
       </div>
@@ -25,7 +20,7 @@
       <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="text">
-            <div class="card rounded-3 text-black card-body rent">
+            <div class="card rounded-3 text-black card-body rent col-md-12">
               <div class="col-lg-12">
                 <div>
                   <form>
@@ -58,5 +53,28 @@
       </section>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <table class="table mt-5 w-75">
+      <thead>
+        <tr>
+          <th>Autó:</th>
+          <th>Fogyasztás:</th>
+          <th>Üzemanyag:</th>
+          <th>Ajtószám:</th>
+          <th>Lóerő:</th>
+          <th>Váltó:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><h5>{{data.autonev}}</h5></td>
+          <td><h5>{{data.fogyasztas}} l/100km</h5></td>
+          <td><h5 class="text-capitalize">{{data.uzemanyag}}</h5></td>
+          <td><h5>{{data.ajtoszam}} ajtós</h5></td>
+          <td><h5>{{data.loero}} lóerő</h5></td>
+          <td><h5>{{data.valtos}} váltó</h5></td>
+        </tr>
+      </tbody>
+    </table>    
   </div>
 </div>

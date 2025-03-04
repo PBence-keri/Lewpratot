@@ -11,38 +11,38 @@
              placeholder="Keressen egy autót" 
              aria-label="Search">
     </form>
-    <div class="row kereses mt-3" ng-if="showDiv" >
-        <div>
-          <div>
-            <table class="col-12 mt-2">
-              <thead>
-                <tr>
-                  <th>
-                    <strong>Autó Márkák:</strong>
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="gombok">
-                <tr>
-                  <td ng-repeat="x in markak track by $index">
-                    <div class="text-uppercase">
-                      <input type="radio" 
-                             id="gomb_{{x.nev}}" 
-                             name="gombok"
-                             ng-value="x.id"
-                             ng-model="model.brand">
-                      <label for="gomb_{{x.nev}}">{{x.nev}}</label>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-    </div>
-
     <div class="car-card2">
-      <button class="click1" ng-click="toggleDiv()">Menü</button>
+      <button class="click1" ng-click="toggleDiv()">Szűrő</button>
+    </div>
+    <div class="row kereses ms-1 moveFromTop mx-auto" ng-if="showDiv" >
+      <div>
+        <div>
+          <table class="col-12 mt-2 moveFromTop">
+            <thead>
+              <tr>
+                <th>
+                  <strong>Autó Márkák:</strong>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="gombok">
+              <tr>
+                <td ng-repeat="x in markak track by $index">
+                  <div class="text-uppercase">
+                    <input type="radio"
+                           class="form-check-input mb-4" 
+                           id="gomb_{{x.nev}}" 
+                           name="gombok"
+                           ng-value="x.id"
+                           ng-model="model.brand">
+                    <label for="gomb_{{x.nev}}">{{x.nev}}</label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div class="car-grid ">

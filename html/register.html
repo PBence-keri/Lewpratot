@@ -1,283 +1,285 @@
-<section class="loginForm">
-  <div class="text-center mt-5 text-decoration-underline">
-    <h1>Regisztráció</h1>
-  </div>
-  
-  <div class="container moveFromRight delay-50 col-6">
-    
-    <div class="row d-flex justify-content-center align-items-center">
-      <div class="col-xl-6 col-lg-6 col-md-10">
-        <div class="card rounded-3 text-black register2">
-          
-          <div class="row g-0 col-12">
-            <div class="register col-lg-12 ">
-              <div class="text-center">
-                <img src="./img/Logo2.png" alt="logo" id="loginLogo">
-                <h4 class="mt-1 mb-5 pb-1">LPT</h4>
-              </div>
+<div class="overflow-x-hidden overflow-y-hidden">
+  <section class="loginForm">
+    <div class="text-center mt-5 text-decoration-underline">
+      <h1>Regisztráció</h1>
+    </div>
 
-              <!-- Vezetéknév -->
-              <form name="registerForm ">
-                <div class="row mb-3  ms-2">
-                  <label for="register-vezeteknev" 
-                         class="col-form-label">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize katt ">Vezetéknév:</span>
-                  </label>
-                  <div class="col-11 position-relative">
-                    <input id="register-vezeteknev"
-                           class="form-control text2"
-                           name="vezeteknev" 
-                           type="text"
-                           placeholder="Vezetéknév"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           maxlength="100"
-                           ng-init="model.vezeteknev=null"
-                           ng-model="model.vezeteknev"
-                           ng-clear-icon>
-                  </div>
-                  <div class=" col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.vezeteknev.$invalid}">
-                        &check;
-                    </span>
-                  </div>
+    <div class="container moveFromRight delay-50 ">
+
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-10 col-sm-9 col-md-8 col-lg-7 col-xl-6 col-xxl-5">
+          <div class="card rounded-3 text-black register2">
+
+            <div class="row g-0">
+              <div class="register">
+                <div class="text-center">
+                  <img src="./img/Logo2.png" alt="logo" id="loginLogo">
+                  <h4 class="mt-1 mb-5 pb-1">LPT</h4>
                 </div>
 
-                <!-- Keresztnév -->
-                <div class="row mb-3 ms-2">
-                  <label for="register-keresztnev" 
-                         class="col-form-label">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize katt">Keresztnév:</span>
-                  </label>
-                  <div class="col-11 position-relative">
-                    <input id="register-keresztnev"
-                           class="form-control text2"
-                           name="keresztnev" 
-                           type="text"
-                           placeholder="Keresztnév"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           maxlength="100"
-                           ng-init="model.keresztnev=null"
-                           ng-model="model.keresztnev"
-                           ng-clear-icon>
-                  </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.keresztnev.$invalid}">
-                        &check;
-                    </span>
-                  </div>
-                </div>
-
-                <!-- Második név -->
-                <div class="row mb-3 ms-2">
-                  <label for="register-masodiknev" 
-                         class="col-form-label col-12 col-md-12">
-                    <span class="text-capitalize katt">második név:</span>
-                  </label>
-                  <div class="col-11 position-relative">
-                    <input id="register-masodiknev"
-                           class="form-control text2"
-                           name="masodiknev" 
-                           type="text"
-                           placeholder="Másodiknév"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           maxlength="100"
-                           ng-init="model.masodiknev=null"
-                           ng-model="model.masodiknev"
-                           ng-clear-icon>
-                  </div>
-                </div>
-
-                <!-- Születési dátum -->
-                <div class="row mb-3 ms-2">
-                  <label for="register-szulev" 
-                        class="col-form-label col-12 col-md-12">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="katt">Születési dátum:</span>
-                  </label>
-                  <div class="col-11">
-                    <input id="register-szulev"
-                           class="form-control text2"
-                           name="szulev" 
-                           type="date"
-                           placeholder="Születési dátum"
-                           spellcheck="false" 
-                           autocomplete="off"
-                           max="{{helper.maxszulev}}"
-                           min="{{helper.minszulev}}" 
-                           required
-                           ng-init="model.szulev=null"
-                           ng-model="model.szulev"
-                           ng-disable-space>
-                  </div>
-                </div>
-                
-                <!-- Nem -->
-                <fieldset class="row input-row mb-3 ms-2">
-                  <legend class="col-form-label col-12">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize katt">
-                      neme:
-                    </span>
-                  </legend>
-                  <div class="col-11 col-md-6 position-relative d-flex align-items-center"
-                       ng-init="model.nem=null">
-                    <div class="form-check form-check-inline me-4"
-                         ng-repeat="x in ['Nő','Férfi'] track by $index">
-                      <input id="register-{{x}}"
-                            name="nem" 
-                            type="radio"
-                            ng-value="x === 'Nő' ? 'F' : 'M'"
-                            class="form-check-input text2"
-                            ng-model="model.nem" 
-                            required>
-                        <label for="register-{{x}}" 
-                               class="form-check-label opacity-100">
-                          {{x}}
-                        </label>
+                <!-- Vezetéknév -->
+                <form name="registerForm ">
+                  <div class="row mb-3 ms-2">
+                    <label for="register-vezeteknev" 
+                           class="col-form-label">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize katt ">Vezetéknév:</span>
+                    </label>
+                    <div class="col-11 position-relative">
+                      <input id="register-vezeteknev"
+                             class="form-control text2"
+                             name="vezeteknev" 
+                             type="text"
+                             placeholder="Vezetéknév"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="100"
+                             ng-init="model.vezeteknev=null"
+                             ng-model="model.vezeteknev"
+                             ng-clear-icon>
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                      <span class="fw-bolder text-success"
+                            ng-class="{'invisible': registerForm.vezeteknev.$invalid}">
+                          &check;
+                      </span>
                     </div>
                   </div>
-                </fieldset>
 
-                <!-- E-mail -->
-                <div class="row mb-3 ms-2">
-                  <label for="register-email" 
-                         class="col-form-label col-12 col-md-5">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="katt">E-mail:</span>
-                  </label>
-                  <div class="col-11 position-relative">
-                    <input id="register-email"
-                           class="form-control text2"
-                           name="email" 
-                           type="text"
-                           placeholder="E-mail"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           maxlength="50"
-                           ng-init="model.email=null"
-                           ng-model="model.email"
-                           ng-pattern="/^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
-                           ng-disable-space
-                           ng-clear-icon>
-                  </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.email.$invalid}">
+                  <!-- Keresztnév -->
+                  <div class="row mb-3 ms-2">
+                    <label for="register-keresztnev" 
+                           class="col-form-label">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize katt">Keresztnév:</span>
+                    </label>
+                    <div class="col-11 position-relative">
+                      <input id="register-keresztnev"
+                             class="form-control text2"
+                             name="keresztnev" 
+                             type="text"
+                             placeholder="Keresztnév"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="100"
+                             ng-init="model.keresztnev=null"
+                             ng-model="model.keresztnev"
+                             ng-clear-icon>
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                      <span class="fw-bolder text-success"
+                            ng-class="{'invisible': registerForm.keresztnev.$invalid}">
                           &check;
-                    </span>
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <!-- Jelszó -->
-                <div class="row mb-3 ms-2">
-                  <label for="register-jelsz" 
-                        class="col-form-label col-12 col-md-5">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="text-capitalize katt">jelszó:</span>
-                  </label>
-                  <div class="col-11 position-relative">
-                    <input id="register-jelsz"
-                           class="form-control text2"
-                           name="jelsz" 
-                           type="{{model.showPassword ? 'text' : 'password'}}"
-                           placeholder="Jelszó"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           minlength="6"
-                           maxlength="20"
-                           ng-init="model.jelsz=null"
-                           ng-model="model.jelsz"
-                           ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
-                           ng-disable-space
-                           ng-clear-icon>
+                  <!-- Második név -->
+                  <div class="row mb-3 ms-2">
+                    <label for="register-masodiknev" 
+                           class="col-form-label col-12 col-md-12">
+                      <span class="text-capitalize katt">második név:</span>
+                    </label>
+                    <div class="col-11 position-relative">
+                      <input id="register-masodiknev"
+                             class="form-control text2"
+                             name="masodiknev" 
+                             type="text"
+                             placeholder="Másodiknév"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             maxlength="100"
+                             ng-init="model.masodiknev=null"
+                             ng-model="model.masodiknev"
+                             ng-clear-icon>
+                    </div>
                   </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.jelsz.$invalid}">
-                          &check;
-                    </span>
-                  </div>
-                </div>
 
-                <!-- Jelszó megerősítés -->
-                <div class="row mb-3 ms-2">
-                  <label for="register-megerosites" 
-                        class="col-form-label col-12 col-md-12">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <span class="katt">Jelszó megerősítés:</span>
-                  </label>
-                  <div class=" col-11 position-relative">
-                    <input id="register-megerosites"
-                           class="form-control text2"
-                           name="megerosites" 
-                           type="{{model.showPassword ? 'text' : 'password'}}"
-                           placeholder="Jelszó megerősítes"
-                           spellcheck="false" 
-                           autocomplete="off" 
-                           required
-                           minlength="6"
-                           maxlength="20"
-                           ng-init="model.megerosites=null"
-                           ng-model="model.megerosites"
-                           ng-compare-model="model.jelsz"
-                           ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
-                           ng-disable-space
-                           ng-clear-icon>
+                  <!-- Születési dátum -->
+                  <div class="row mb-3 ms-2">
+                    <label for="register-szulev" 
+                          class="col-form-label col-12 col-md-12">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="katt">Születési dátum:</span>
+                    </label>
+                    <div class="col-11">
+                      <input id="register-szulev"
+                             class="form-control text2"
+                             name="szulev" 
+                             type="date"
+                             placeholder="Születési dátum"
+                             spellcheck="false" 
+                             autocomplete="off"
+                             max="{{helper.maxszulev}}"
+                             min="{{helper.minszulev}}" 
+                             required
+                             ng-init="model.szulev=null"
+                             ng-model="model.szulev"
+                             ng-disable-space>
+                    </div>
                   </div>
-                  <div class="col-1 d-flex align-items-center justify-content-start ps-1">
-                    <span class="fw-bolder text-success"
-                          ng-class="{'invisible': registerForm.megerosites.$invalid}">
-                          &check;
-                    </span>
-                  </div>
-                </div>
 
-                <!-- Jelszó megjelenítés -->
-				        <div class="row mb-4 ms-2">
-				        	<div class="col-form-label d-none d-md-block">
-				        	<div class="col-12 col-md-12">
-				        		<input id="register-showPassword"
-				        					 class="form-check-input text2"
-				        					 type="checkbox"
-				        					 ng-init="model.showPassword=false"
-				        					 ng-model="model.showPassword">
-				        		<label for="register-showPassword"
-				        					class="form-check-label ms-1 katt">
-				        			Jelszó megjelenítése
-				        		</label>
-				        	</div>
-				        </div>
-                
-                <!-- Regisztráció gomb -->
-                <div class="row mb-3 justify-content-center mt-3 ms-2">
-                  <div class="w-auto">
-                    <button type="button"
-                            class="btn btn-dark w-auto me-4 text-capitalize katt"
-                            ng-disabled="registerForm.$invalid"
-                            ng-click="methods.register()">
-                      regisztráció
-                    </button>
+                  <!-- Nem -->
+                  <fieldset class="row input-row mb-3 ms-2">
+                    <legend class="col-form-label col-12">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize katt">
+                        neme:
+                      </span>
+                    </legend>
+                    <div class="col-11 col-md-6 position-relative d-flex align-items-center"
+                         ng-init="model.nem=null">
+                      <div class="form-check form-check-inline me-4"
+                           ng-repeat="x in ['Nő','Férfi'] track by $index">
+                        <input id="register-{{x}}"
+                              name="nem" 
+                              type="radio"
+                              ng-value="x === 'Nő' ? 'F' : 'M'"
+                              class="form-check-input text2"
+                              ng-model="model.nem" 
+                              required>
+                          <label for="register-{{x}}" 
+                                 class="form-check-label opacity-100">
+                            {{x}}
+                          </label>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                  <!-- E-mail -->
+                  <div class="row mb-3 ms-2">
+                    <label for="register-email" 
+                           class="col-form-label col-12 col-md-5">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="katt">E-mail:</span>
+                    </label>
+                    <div class="col-11 position-relative">
+                      <input id="register-email"
+                             class="form-control text2"
+                             name="email" 
+                             type="text"
+                             placeholder="E-mail"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="50"
+                             ng-init="model.email=null"
+                             ng-model="model.email"
+                             ng-pattern="/^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/"
+                             ng-disable-space
+                             ng-clear-icon>
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                      <span class="fw-bolder text-success"
+                            ng-class="{'invisible': registerForm.email.$invalid}">
+                            &check;
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center pb-4 mt-3">
-                  <p class="mb-0 me-3">Van már fiókja?</p>
-                  <a type="button" data-button-init class="me-1" ui-sref="login">Belépés</a>
-                </div>
-              </form>
-            </div>
+
+                  <!-- Jelszó -->
+                  <div class="row mb-3 ms-2">
+                    <label for="register-jelsz" 
+                          class="col-form-label col-12 col-md-5">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize katt">jelszó:</span>
+                    </label>
+                    <div class="col-11 position-relative">
+                      <input id="register-jelsz"
+                             class="form-control text2"
+                             name="jelsz" 
+                             type="{{model.showPassword ? 'text' : 'password'}}"
+                             placeholder="Jelszó"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             minlength="6"
+                             maxlength="20"
+                             ng-init="model.jelsz=null"
+                             ng-model="model.jelsz"
+                             ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+                             ng-disable-space
+                             ng-clear-icon>
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                      <span class="fw-bolder text-success"
+                            ng-class="{'invisible': registerForm.jelsz.$invalid}">
+                            &check;
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Jelszó megerősítés -->
+                  <div class="row mb-3 ms-2">
+                    <label for="register-megerosites" 
+                          class="col-form-label col-12 col-md-12">
+                      <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="katt">Jelszó megerősítés:</span>
+                    </label>
+                    <div class=" col-11 position-relative">
+                      <input id="register-megerosites"
+                             class="form-control text2"
+                             name="megerosites" 
+                             type="{{model.showPassword ? 'text' : 'password'}}"
+                             placeholder="Jelszó megerősítes"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             minlength="6"
+                             maxlength="20"
+                             ng-init="model.megerosites=null"
+                             ng-model="model.megerosites"
+                             ng-compare-model="model.jelsz"
+                             ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+                             ng-disable-space
+                             ng-clear-icon>
+                    </div>
+                    <div class="col-1 d-flex align-items-center justify-content-start ps-1">
+                      <span class="fw-bolder text-success"
+                            ng-class="{'invisible': registerForm.megerosites.$invalid}">
+                            &check;
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Jelszó megjelenítés -->
+  				        <div class="row mb-4 ms-2">
+  				        	<div class="col-form-label d-none d-md-block">
+  				        	<div class="col-12 col-md-12">
+  				        		<input id="register-showPassword"
+  				        					 class="form-check-input text2"
+  				        					 type="checkbox"
+  				        					 ng-init="model.showPassword=false"
+  				        					 ng-model="model.showPassword">
+  				        		<label for="register-showPassword"
+  				        					class="form-check-label ms-1 katt">
+  				        			Jelszó megjelenítése
+  				        		</label>
+  				        	</div>
+  				        </div>
+
+                  <!-- Regisztráció gomb -->
+                  <div class="row mb-3 justify-content-center mt-3 ms-2">
+                    <div class="w-auto">
+                      <button type="button"
+                              class="btn btn-dark w-auto me-4 text-capitalize katt"
+                              ng-disabled="registerForm.$invalid"
+                              ng-click="methods.register()">
+                        regisztráció
+                      </button>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-center pb-4 mt-3">
+                    <p class="mb-0 me-3">Van már fiókja?</p>
+                    <a type="button" data-button-init class="me-1" ui-sref="login">Belépés</a>
+                  </div>
+                </form>
+              </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

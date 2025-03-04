@@ -287,4 +287,12 @@
     }
   ])
 
+  // Profile controller
+  .controller('profileController', [
+    '$scope',
+    function($scope) {
+      console.log("Profile controller")
+    }
+  ])
+
 })(window, angular); 

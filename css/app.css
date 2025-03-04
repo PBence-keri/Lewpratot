@@ -94,6 +94,8 @@ body {
   text-align: center;
 }
 
+
+
 .car-card img {
   width: 100%;
   height: auto;
@@ -143,6 +145,9 @@ body {
 .car-card2 button:hover {
   background: white;
 }
+
+
+
 .car-card button:hover {
   background: white;
 }
@@ -190,6 +195,11 @@ body {
   box-shadow: 5px 5px 5px red;
 }
 
+.imglog{
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+}
 *{
   user-select: none;
 }
@@ -439,7 +449,18 @@ hr{
   color: red;
 }
 
-li::marker{
+.katt2{
+  background-color: white;
+  color: #090909;
+  height: 200px;
+}
+
+.posta{
+    position: relative;
+    text-align: center;
+}
+
+.conn::marker{
   color: red;
 }
 
@@ -519,4 +540,8 @@ video{
 #profil{
   background-color: white;
   color: black;
+}
+
+ul{
+  list-style: none outside none;
 }

@@ -104,8 +104,15 @@
   .run([  
     '$rootScope',
     'user',
-    ($rootScope, user) => {
+    'util',
+    ($rootScope, user, util) => {
       user.init();
+      //check local storage for user logged in
+      /*let user2 = util.localStorage('get', 'email');
+      if (user2 != null) {
+        user.set(user2);
+
+      }*/
     }
   ])
 

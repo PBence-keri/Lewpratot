@@ -1,52 +1,54 @@
 <div class="container-fluid">
-  <div class="row justify-content-center">
-    <div class="col-md-4 image mt-12 w-auto mt-5" >
-      <div class="card text-white" style="border: 2px solid red;">
-      <div class="card text-white col-md-12">
-        <img src="./img/{{data.kep}}" class="card-img">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="row justify-content-center">
+        <div class="col-md-4 image mt-12 w-auto mt-5" >
+          <div class="card text-white" style="border: 2px solid red;">
+          <div class="card text-white col-md-12">
+            <img src="./img/{{data.kep}}" class="card-img">
+          </div>
+        </div>
+        <div class="rent rent2 col-md-12 text-center" style="border-top-color: black;">
+          <div class=" w-auto mt-2 mb-2">
+            <p>Az autó lóereje: {{data.loero}}hp <br> Az autó fogyasztása 100km-eren: {{data.fogyasztas}} liter<br> Az autó váltója: {{data.valtos}} <br> Az autó üzemanyaga: {{data.uzemanyag}}</p>
+            <p class="price">{{data.ar}} Ft/hónap</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="rent rent2 col-md-12 text-center" style="border-top-color: black;">
-      <div class=" w-auto mt-2 mb-2"></div>
-        <p>Az autó lóereje: {{data.loero}}hp <br> Az autó fogyasztása 100km-eren: {{data.fogyasztas}} liter<br> Az autó váltója: {{data.valtos}} <br> Az autó üzemanyaga: {{data.uzemanyag}}</p>
-        <p class="price">{{data.ar}} Ft/hónap</p>
-    </div>
+    <div class="row d-flex justify-content-center align-items-center mt-3">
+      <button class="btn btn-danger col-md-12 w-auto katt" ui-sref="rental">Vissza</button>
     </div>
   </div>
-  <div class="row d-flex justify-content-center align-items-center mt-5">
-    <button class="btn btn-danger col-md-12 w-auto katt" ui-sref="rental">Vissza</button>
-  </div>
-  <div class="col-md-12">
-    <section class="loginForm">
+  <div class="col-md-7">
+    <section class="rentForm">
       <div class="container">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="text">
             <div class="card rounded-3 text-black card-body rent">
-              <div class="row g-0 ">
-                <div class="col-lg-12">
-                  <div>
-                    <form class="">
-                      <div data-input-init class="form-outline mb-4 ">
-                        <label class="form-label" for="name">Felvétel helye</label>
-                        <input type="text" id="name" class="form-control rent2" placeholder="Pl.: Makó, Posta utca 4-6.">
-                      </div>
-                      <div data-input-init class="form-outline mb-4">
-                        <label class="form-label" for="email">Leadás helye</label>
-                        <input type="email" id="email" class="form-control rent2" placeholder="Pl.: Makó, Posta utca 4-6.">
-                      </div>
-                      <div data-input-init class="form-outline mb-4">
-                        <label class="form-label" for="born">Felvétel dátuma</label>
-                        <input type="date" id="born" class="form-control rent2">
-                      </div>
-                      <div data-input-init class="form-outline mb-4">
-                        <label class="form-label" for="born">Leadás dátuma</label>
-                        <input type="date" id="born" class="form-control rent2">
-                      </div>
-                      <div class="text-center pt-1 mb-5 pb-1">
-                        <button data-button-init class="btn btn-dark mt-3 rent3" type="button">Bérlés</button>
-                      </div>
-                    </form>
-                  </div>
+              <div class="col-lg-12">
+                <div>
+                  <form>
+                    <div data-input-init class="form-outline mb-4">
+                      <label class="form-label" for="name" style="color: white;">Felvétel helye:</label>
+                      <input type="text" id="name" class="form-control rent2" placeholder="Pl.: Makó, Posta utca 4-6.">
+                    </div>
+                    <div data-input-init class="form-outline mb-4">
+                      <label class="form-label" for="email" style="color: white;">Leadás helye:</label>
+                      <input type="email" id="email" class="form-control rent2" placeholder="Pl.: Makó, Posta utca 4-6.">
+                    </div>
+                    <div data-input-init class="form-outline mb-4">
+                      <label class="form-label" for="born" style="color: white;">Felvétel dátuma:</label>
+                      <input type="date" id="born" class="form-control rent2">
+                    </div>
+                    <div data-input-init class="form-outline mb-4">
+                      <label class="form-label" for="born" style="color: white;">Leadás dátuma:</label>
+                      <input type="date" id="born" class="form-control rent2">
+                    </div>
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button data-button-init class="btn btn-dark mt-3 rent3" type="button">Bérlés</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -55,5 +57,6 @@
         </div>
       </section>
     </div>
+  </div>
   </div>
 </div>

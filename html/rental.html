@@ -1,5 +1,5 @@
 <div class="alert alert-danger" ng-if="!$root.user.felhaszid">
-  <strong>Vigyázz!</strong> Az autó foglaláshoz be kell jelentkezned. Ha nincs felhasználód, <a ui-sref="register">regisztrálj</a>!
+  <strong>Vigyázz!</strong> Az autó foglaláshoz be kell <a ui-sref="login">jelentkezned</a>. Ha nincs felhasználód, <a ui-sref="register">regisztrálj</a>!
 </div>
 <div class="container">
   <section id="cars">
@@ -14,10 +14,10 @@
     <div class="car-card2">
       <button class="click1" ng-click="toggleDiv()">Szűrő</button>
     </div>
-    <div class="row kereses ms-1 moveFromTop mx-auto" ng-if="showDiv" >
+    <div class="row kereses ms-1 moveFromTopFade mx-auto" ng-if="showDiv" >
       <div>
         <div>
-          <table class="col-12 mt-2 moveFromTop">
+          <table class="col-12 mt-2">
             <thead>
               <tr>
                 <th>

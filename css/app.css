@@ -546,3 +546,7 @@ video{
 ul{
   list-style: none outside none;
 }
+
+#table-border {
+  border: 2px solid grey;
+}

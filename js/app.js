@@ -299,6 +299,7 @@
     '$scope',
     function($scope) {
       console.log("Profile controller")
+      
     }
   ])
 

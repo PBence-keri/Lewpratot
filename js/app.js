@@ -137,6 +137,7 @@
         $scope.markak = response.markak;
         $scope.$applyAsync();
       })
+      
       .catch(e=>console.log(e));
     }
   ])

@@ -15,6 +15,9 @@ $query = "SELECT `jarmuid`,
                  `kep`, 
                  `valtos`, 
                  `klima`,
+                 `meghajtas`,
+                 `kivitel`,
+                 `hengerurtart`,
                  `dijak`.`ar` AS `ar`
             FROM `jarmuvek`
       INNER JOIN `dijak`

@@ -3,7 +3,7 @@
     <h1 class="text-center mt-5 text-decoration-underline">Bérlés</h1>
     <div class="col-md-5">
       <div class="row justify-content-center">
-        <div class="col-md-4 image mt-12 w-auto mt-5" >
+        <div class="col-md-4 image w-auto mt-5" >
           <div class="card text-white mt-4" style="border: 2px solid red;">
             <div class="card text-white col-md-12">
             <img src="./img/{{data.kep}}" class="card-img">
@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-center align-items-center mt-3">
-      <button class="btn btn-danger col-md-12 w-auto katt" ui-sref="rental">Vissza</button>
+      <button class="btn btn-danger col-md-12 w-75 katt" ui-sref="rental">Vissza</button>
     </div>
   </div>
   <div class="col-md-7">
@@ -53,28 +53,57 @@
       </section>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <table class="table mt-5 w-75">
+  <div class="container mt-5">
+    <h2>Autó Specifikációk</h2>
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>Autó:</th>
-          <th>Fogyasztás:</th>
-          <th>Üzemanyag:</th>
-          <th>Ajtószám:</th>
-          <th>Lóerő:</th>
-          <th>Váltó:</th>
+          <th>Specifikációk</th>
+          <th>Részletek</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><h5>{{data.autonev}}</h5></td>
-          <td><h5>{{data.fogyasztas}} l/100km</h5></td>
-          <td><h5 class="text-capitalize">{{data.uzemanyag}}</h5></td>
-          <td><h5>{{data.ajtoszam}} ajtós</h5></td>
-          <td><h5>{{data.loero}} lóerő</h5></td>
-          <td><h5 class="text-capitalize">{{data.valtos}} váltó</h5></td>
+          <td>Autó:</td>
+          <td>{{data.autonev}}</td>
+        </tr>
+        <tr>
+          <td>Kivitel:</td>
+          <td class="text-capitalize">{{data.kivitel}}</td>
+        </tr>
+        <tr>
+          <td>Üzemanyag:</td>
+          <td class="text-capitalize">{{data.uzemanyag}}</td>
+        </tr>
+        <tr>
+          <td>Hengerűrtartalom:</td>
+          <td>{{data.hengerurtart}} cm³</td>
+        </tr>
+        <tr>
+          <td>Fogyasztás:</td>
+          <td>{{data.fogyasztas}} l/100km</td>
+        </tr>
+        <tr>
+          <td>Lóerő:</td>
+          <td>{{data.loero}}</td>
+        </tr>
+        <tr>
+          <td>Sebességváltó:</td>
+          <td class="text-capitalize">{{data.valtos}}</td>
+        </tr>
+        <tr>
+          <td>Hajtás:</td>
+          <td>{{data.meghajtas}}</td>
+        </tr>
+        <tr>
+          <td>Ajtószám:</td>
+          <td>{{data.ajtoszam}}</td>
+        </tr>
+        <tr>
+          <td>Klíma:</td>
+          <td>{{data.klima == 1 ? "Van" : "Nincs"}}</td>
         </tr>
       </tbody>
-    </table>    
-  </div>
+    </table>
+</div>
 </div>

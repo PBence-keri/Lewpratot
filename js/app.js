@@ -137,6 +137,7 @@
         $scope.markak = response.markak;
         $scope.$applyAsync();
       })
+      
       .catch(e=>console.log(e));
     }
   ])
@@ -299,6 +300,7 @@
     '$scope',
     function($scope) {
       console.log("Profile controller")
+      
     }
   ])
 

@@ -550,3 +550,15 @@ ul{
 #table-border {
   border: 2px solid grey;
 }
+
+.blog-carousel-item {
+  height: 60vh; 
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+}
+.blog-carousel-caption {
+  background: rgba(0, 0, 0, 0.5); 
+  padding: 15px;
+  border-radius: 10px;
+}

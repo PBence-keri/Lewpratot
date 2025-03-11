@@ -139,6 +139,25 @@
       })
       
       .catch(e=>console.log(e));
+
+      set: ()=>{
+        return new Promise((resolve, reject)=>{
+          let filter = [
+           "vezeteknev",
+          "keresztnev",
+          "email",
+          "telefonszam",
+          "uzenet",
+          ];
+
+          $scope.model = util.objMerge($scope.model, user.get(filter));
+        }).then(response=>{
+          if(response){
+            
+          }
+        })
+          .catch((err)=>{console.log(err)})
+      }
     }
   ])
 
@@ -303,5 +322,7 @@
       
     }
   ])
+
+  
 
 })(window, angular); 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 06. 11:10
+-- Létrehozás ideje: 2025. Már 11. 11:15
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -215,7 +215,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `masodiknev`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
 (1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', NULL, '2005-07-06', 'M', NULL, NULL, NULL),
-(4, '1234Aa', 'as@asd.dd', 'asd', 'asd', NULL, '1999-12-12', 'M', NULL, NULL, NULL);
+(4, '1234Aa', 'as@asd.dd', 'asd', 'asd', NULL, '1999-12-12', 'M', NULL, NULL, NULL),
+(5, 'Sajtospepper', 'benkoszabi@gmail.com', 'Benkő', 'Szabolcs', '', '2006-02-16', 'M', NULL, NULL, NULL);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -299,7 +300,7 @@ ALTER TABLE `markak`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -33,8 +33,8 @@
                       <input type="email" id="email" class="form-control rent2" placeholder="Pl.: Makó, Posta utca 4-6.">
                     </div>
                     <div data-input-init class="form-outline mb-4">
-                      <label class="form-label" for="born" style="color: white;">Felvétel dátuma:</label>
-                      <input type="date" id="born" class="form-control rent2">
+                      <label class="form-label" for="datePickerId" style="color: white;">Felvétel dátuma:</label>
+                      <input type="date" id="datePickerId" class="form-control rent2">
                     </div>
                     <div data-input-init class="form-outline mb-4">
                       <label class="form-label" for="born" style="color: white;">Leadás dátuma:</label>
@@ -208,3 +208,7 @@
     </div>
   </div>
 </div>
+
+<script>
+  datePickerId.min = new Date().toISOString().split("T")[0];
+</script>

@@ -6,4 +6,4 @@ $_POST['data'] = '{
     "jelsz": "1234Aa"
 }';
 
-require_once('./login.php');
+require_once('./help.php');

@@ -110,7 +110,7 @@
               <p class="fs-3">-T.</p>
             </div>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item border">
             <img src="./img/blog_vezet.jpg" class="d-block w-100" alt="Kép">
             <div class="carousel-caption d-none d-md-block">s
               <h5 class="fs-2">"Gyors ügyintézés, kedvező árak és kifogástalan állapotú autók – csak ajánlani tudom!"</h5>
@@ -128,39 +128,41 @@
         </a>
       </div>
 
-      <div class="col-md-6">
-        <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6 right-one mx-auto" id="i1zj">
-          <form class="form-box">
-            <div class="container-block form-wrapper">
-              <p class="text-blk contactus-head">
-                Értékelés:
-              </p>
-              <div class="responsive-container-block">
-                <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-6 wk-ipadp-6 emial" id="">
-                  <input class="input" id="" name="Email" placeholder="Email">
-                </div>
-                <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="">
-                  <textarea class="textinput" id="" placeholder="Értékelés"></textarea>
-                </div>
-              </div>
-              <button class="submit-btn rent3">
-                Javasol
-              </button>
-
     <div class="mx-auto mb-4" style="width: 100%; height: 3px; background-color: red;"></div>
 
-    <div class="mt-5 w-75 mx-auto">
-        <h3 class="mx-auto mt-3 mb-5">Értékelések:</h3>
-        <div class="ertekelesek-keret bg-light text-dark p-3 rounded">
-            <h5>Autók:</h5>
-            <p>⭐⭐⭐⭐☆ (4/5) – "Remek állapotú autók, tiszták és jól felszereltek."</p>
-            <p>⭐⭐⭐⭐⭐ (5/5) – "Az autó modern és megbízható, ideális hosszú utakra."</p>
+    <div class="container mt-5 border border-danger border-3 rounded bg-dark text-white">
+        <h2 class="mb-4">Írjon értékelést!</h2>
+        
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Név</label>
+            <input type="text" class="form-control" id="name" placeholder="Név" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="rating" class="form-label">Értékelés</label>
+            <select class="form-select" id="rating" required>
+              <option value="" disabled selected>Válasszon értékelést</option>
+              <option value="1">1 - Rossz</option>
+              <option value="2">2 - Elégedetlen</option>
+              <option value="3">3 - Elégedett</option>
+              <option value="4">4 - Nagyon jó</option>
+              <option value="5">5 - Kíválló</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="review" class="form-label">Ön értékelése</label>
+            <textarea class="form-control" id="review" rows="4" placeholder="Írjonn értékelést..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Beküldés</button>
+        </form>
+      </div>
 
-            <h5>Autókölcsönző:</h5>
-            <p>⭐⭐⭐⭐⭐ (5/5) – "Nagyon segítőkész személyzet és gyors ügyintézés!"</p>
-            <p>⭐⭐⭐⭐☆ (4/5) – "Kedvező árak és jó autóválaszték, de a parkoló kissé zsúfolt volt."</p>
-            <p>⭐⭐⭐⭐⭐ (5/5) – "A kedvezményeknek köszönhetően rengeteget spóroltam!"</p>
-            <p>⭐⭐⭐⭐☆ (4.5/5) – "Szuper akciók és barátságos ügyfélszolgálat."</p>
-        </div>
-    </div> 
 </div>

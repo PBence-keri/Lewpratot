@@ -1,7 +1,77 @@
-<div class="container">
-  <div class="row">
-      <div>
-          profil: {{$rootScope.user}}
-      </div>
-  </div>
+<div class="container rounded bg-white text-dark mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img class="mt-2 rounded" width="150px" src="./img/Logo2.png">
+                <h4 class="font-weight-bold">LPT</h4>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profil</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels">Vezetéknév</label>
+                        <input type="text" class="form-control" placeholder="Vezetéknév" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Keresztnév</label>
+                        <input type="text" class="form-control" placeholder="Keresztnév" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Másodiknév</label>
+                        <input type="text" class="form-control" placeholder="Másodiknév" value="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12 mb-2">
+                        <label class="labels">Telefonszám</label>
+                        <input type="text" class="form-control" placeholder="Telefonszám" value="">
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="labels">Város</label>
+                        <input type="text" class="form-control" placeholder="Város" value="">
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="labels">Irányítószám</label>
+                        <input type="text" class="form-control" placeholder="Irányítószám" value="">
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="labels">Lakcím</label>
+                        <input type="text" class="form-control" placeholder="Lakcím" value="">
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <label class="labels">Email-cím</label>
+                        <input type="text" class="form-control" placeholder="Email-cím" value="">
+                    </div>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-primary profile-button" type="button">Mentés</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-5">
+           <div class="col">
+            <div class="p-3 py-4 pt-5 mt-1">
+                <div class="col-md-12">
+                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                    <label class="labels">Jelenlegi jelszó</label>
+                    <input type="text" class="form-control" placeholder="Jelenlegi jelszó" value="" required>
+                </div>
+            </div>
+            <div class="px-3">
+                <div class="col-md-12">
+                    <label class="labels">Új jelszó</label>
+                    <input type="text" class="form-control" placeholder="Új jelszó" value="">
+                </div>
+                <div class="col-md-12 pt-2">
+                    <label class="labels">Új jelszó megerősítés</label>
+                    <input type="text" class="form-control" placeholder="Megerősítés" value="">
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
 </div>

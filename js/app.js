@@ -318,7 +318,8 @@
   .controller('profileController', [
     '$scope',
     function($scope) {
-      console.log("Profile controller")
+      console.log("Profile controller");
+      $scope.data = util.localStorage('get',)
       
     }
   ])

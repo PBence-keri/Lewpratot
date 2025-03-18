@@ -18,7 +18,7 @@
                 </div>
 
                 <!-- Vezetéknév -->
-                <form name="registerForm ">
+                <form name="registerForm">
                   <div class="row mb-3 ms-2">
                     <label for="register-vezeteknev" 
                            class="col-form-label">
@@ -93,6 +93,29 @@
                              maxlength="100"
                              ng-init="model.masodiknev=null"
                              ng-model="model.masodiknev"
+                             ng-clear-icon>
+                    </div>
+                  </div>
+
+                  <!--  Telefonszám -->
+                  <div class="row mb-3 ms-2">
+                    <label for="register-telszam" 
+                           class="col-form-label col-12 col-md-12">
+                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                      <span class="text-capitalize katt">telefonszám:</span>
+                    </label>
+                    <div class="col-11 position-relative">
+                      <input id="register-telszam"
+                             class="form-control text2"
+                             name="telszam" 
+                             type="text"
+                             placeholder="Telefonszám"
+                             spellcheck="false" 
+                             autocomplete="off" 
+                             required
+                             maxlength="100"
+                             ng-init="model.telszam=null"
+                             ng-model="model.telszam"
                              ng-clear-icon>
                     </div>
                   </div>

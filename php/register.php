@@ -14,6 +14,7 @@ $args = Util::objMerge(array(
   "vezeteknev" => null,
   "keresztnev" => null,
   "masodiknev" => null,
+  "telszam" => null,
   "szulev" => null,
   "email" => null,
   "jelsz" => null,

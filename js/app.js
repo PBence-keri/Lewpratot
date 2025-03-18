@@ -118,9 +118,7 @@
 
       trans.events(['login','profile','rent']);
 
-      user.init({
-        felhaszid: null
-      }, null, () => {
+      user.init({felhaszid:null}, () => {
 
         // When user properties exist, then set
         let user = util.localStorage("get", "user");

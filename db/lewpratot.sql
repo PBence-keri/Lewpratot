@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 12. 09:27
+-- Létrehozás ideje: 2025. Már 18. 11:34
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -205,6 +205,7 @@ CREATE TABLE `user` (
   `vezeteknev` varchar(100) NOT NULL,
   `keresztnev` varchar(100) NOT NULL,
   `masodiknev` varchar(100) DEFAULT NULL,
+  `telszam` varchar(20) NOT NULL,
   `szulev` date NOT NULL,
   `nem` char(1) NOT NULL,
   `cim` varchar(100) DEFAULT NULL,
@@ -216,10 +217,9 @@ CREATE TABLE `user` (
 -- A tábla adatainak kiíratása `user`
 --
 
-INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `masodiknev`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
-(1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', NULL, '2005-07-06', 'M', NULL, NULL, NULL),
-(4, '1234Aa', 'as@asd.dd', 'asd', 'asd', NULL, '1999-12-12', 'M', NULL, NULL, NULL),
-(5, 'Sajtospepper', 'benkoszabi@gmail.com', 'Benkő', 'Szabolcs', '', '2006-02-16', 'M', NULL, NULL, NULL);
+INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `masodiknev`, `telszam`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
+(1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', 'Leonárd', '06201114466', '2005-07-06', 'M', 'Doktor u. 5', 6000, 'Tilted towers'),
+(7, '1234Aa', 'asd@asdasd.com', 'asd', 'asd', NULL, '06201112233', '1988-12-13', 'M', NULL, NULL, NULL);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -303,7 +303,7 @@ ALTER TABLE `markak`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

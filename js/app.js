@@ -139,25 +139,7 @@
       })
       
       .catch(e=>console.log(e));
-
-      set: ()=>{
-        return new Promise((resolve, reject)=>{
-          let filter = [
-           "vezeteknev",
-          "keresztnev",
-          "email",
-          "telefonszam",
-          "uzenet",
-          ];
-
-          $scope.model = util.objMerge($scope.model, user.get(filter));
-        }).then(response=>{
-          if(response){
-            
-          }
-        })
-          .catch((err)=>{console.log(err)})
-      }
+      
     }
   ])
 
@@ -176,6 +158,34 @@
       }
 
       console.log($scope.data);
+    }
+  ])
+
+  .controller('rentController', [
+    'http',
+    '$scope',
+		
+    function(http, $scope) {
+
+			send: () => {
+        // Set request
+        http.request({
+          url: "./php/help.php",
+          data: $scope.model
+        })
+        .then(response => {
+            response.email = $scope.model.email;
+            user.set(response);
+            util.localStorage('set', 'email', response.email);
+            $state.go('home');  // Redirect to home page on successful login
+        })
+        .catch(e => {
+          $scope.model.jelsz = null;
+          msg.error(e.message || e);
+        });
+      }
+
+      
     }
   ])
 

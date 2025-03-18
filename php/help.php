@@ -15,7 +15,7 @@ $params = Util::objectMerge(array(
     "uzenet" => null,
 ),$args, true);
 
-$query = "INSERT INTO `help`(`vezeteknev`, `keresztnev`, `email`, `telefonszam`, `uzenet`) VALUES";
+$query = "INSERT INTO `help`(`vezeteknev`, `keresztnev`, `email`, `telefonszam`, `uzenet`) VALUES ('?','?','?','?','?')";
               
 $result = $db->execute($params, $query);
 

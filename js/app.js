@@ -11,15 +11,15 @@
 		'app.form',
   ])
 
-    .controller('MainCtrl', function($scope) {
-      // Kezdetben rejtve van a div
-      $scope.showDiv = false;
+    // .controller('MainCtrl', function($scope) {
+    //   // Kezdetben rejtve van a div
+    //   $scope.showDiv = false;
 
-      // Funkció, amely változtatja a div láthatóságát
-      $scope.toggleDiv = function() {
-        $scope.showDiv = !$scope.showDiv;
-      };
-    })
+    //   // Funkció, amely változtatja a div láthatóságát
+    //   $scope.toggleDiv = function() {
+    //     $scope.showDiv = !$scope.showDiv;
+    //   };
+    // })
     
   
 
@@ -113,12 +113,19 @@
     '$rootScope',
     'user',
     'util',
-    ($rootScope, user, util) => {
-      user.init();
-      if (util.localStorage("get", "user")) {
-        user.set(util.localStorage("get", "user"));
-      }
-      $rootScope.state = {default: "home"};
+    'trans',
+    ($rootScope, user, util, trans) => {
+
+      trans.events(['login','profile','rent']);
+
+      user.init({
+        felhaszid: null
+      }, null, () => {
+
+        // When user properties exist, then set
+        let user = util.localStorage("get", "user");
+        if (user) $rootScope.user = util.objMerge($rootScope.user, user);
+      });
     }
   ])
 
@@ -139,17 +146,17 @@
     'user',
     function($scope, $rootScope, $state, util, user) {
       console.log("Navbar controller")
-      $scope.logout = () =>  {
+      // $scope.logout = () =>  {
         
-        console.log(util.localStorage('get','user'))
+      //   console.log(util.localStorage('get','user'))
         
-        $rootScope.logout();
-        user.reset();
-        util.localStorage('set', 'user', user.get());
+      //   $rootScope.logout();
+      //   user.reset();
+      //   util.localStorage('set', 'user', user.get());
         
         
         
-      }
+      // }
     }
   ])
 
@@ -159,6 +166,14 @@
     'http',
     function($scope, http) {
       
+      // Kezdetben rejtve van a div
+      $scope.showDiv = false;
+
+      // Funkció, amely változtatja a div láthatóságát
+      $scope.toggleDiv = function() {
+        $scope.showDiv = !$scope.showDiv;
+      };
+
       $scope.model = {brand: 0};
       http.request('./php/card.php')
       .then(response => {
@@ -231,10 +246,10 @@
     'http',
     'msg',
     function($state, $scope, form, user, util, http, msg) {
-      console.log(util.localStorage('get', 'user'));
-      if (util.localStorage('get', 'user').felhaszid !== null) {
-        $state.go('home');
-      }
+      // console.log(util.localStorage('get', 'user'));
+      // if (util.localStorage('get', 'user').felhaszid !== null) {
+      //   $state.go('home');
+      // }
     
       // Set local methods
       let methods = {
@@ -288,9 +303,9 @@
     'http',
     'user',
     function($state, $scope, form, msg, util, http, user) {
-      if (util.localStorage('get', 'user').felhaszid !== null) {
-        $state.go('home');
-      }
+      // if (util.localStorage('get', 'user').felhaszid !== null) {
+      //   $state.go('home');
+      // }
 
       // Set local methods
       let methods = {
@@ -366,17 +381,29 @@
 
   // Profile controller
   .controller('profileController', [
+    '$rootScope',
     '$scope',
     '$state',
     'util',
     'user',
-    function($scope, $state, util, user) {
-      console.log("Profile controller");
-      $scope.data = user.get();
-      console.log(user.get())
-      if (util.localStorage('get', 'user').felhaszid == null) {
-        $state.go('home');
-      }
+    'http',
+    function($rootScope, $scope, $state, util, user, http) {
+
+      http.request({
+        url: './php/getUser.php',
+        data: {felhaszid: $rootScope.user.felhaszid}
+      })
+      .then(response => {
+        $scope.model = response;
+        $scope.$applyAsync();
+      })
+
+      // console.log("Profile controller");
+      // $scope.model = user.get();
+      // console.log(user.get())
+      // if (util.localStorage('get', 'user').felhaszid == null) {
+      //   $state.go('home');
+      // }
     }
   ])
 

@@ -95,6 +95,13 @@
           parent: 'root',
           templateUrl: './html/profile.html',
           controller: 'profileController'
+        })
+
+        .state('help', {
+          url: '/help',
+          parent: 'root',
+          templateUrl: './html/connection.html',
+          controller: 'helpController'
         });
         
       $urlRouterProvider.otherwise('/');
@@ -166,16 +173,32 @@
   ])
 
   // Rent controller
+
   .controller('rentController', [
-    'util',
+    '$state',
+    '$scope',
+		'$stateParams',
+    function($state, $scope, $stateParams) {
+
+			// Get/Check parameters
+      $scope.data = $stateParams.data;
+      if (!$scope.data) {
+        $state.go('home');
+        return;
+      }
+
+      console.log($scope.data);
+    }
+  ])
+
+  .controller('helpController', [
     'http',
+    'util',
     '$state',
     '$scope',
 		
-    function(util, http, $state, $scope) {
-      if (util.localStorage('get', 'user').felhaszid == null) {
-        $state.go('home');
-      }
+    function(http, util, $state, $scope) {
+
 			send: () => {
         // Set request
         http.request({

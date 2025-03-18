@@ -36,7 +36,8 @@
               templateUrl: './html/root.html'
             }, 
             'header@root': {
-              templateUrl: './html/navbar.html'
+              templateUrl: './html/navbar.html',
+              controller: 'navbarController'
             }, 
             'footer@root': {
               templateUrl: './html/footer.html'
@@ -72,7 +73,7 @@
           url: '/login',
           parent: 'root',
           templateUrl: './html/login.html',
-          controller: 'loginController'
+          controller: 'loginController',
         })
         .state('register', {
           url: '/register',
@@ -107,12 +108,10 @@
     'util',
     ($rootScope, user, util) => {
       user.init();
-      //check local storage for user logged in
-      /*let user2 = util.localStorage('get', 'email');
-      if (user2 != null) {
-        user.set(user2);
-
-      }*/
+      if (util.localStorage("get", "user")) {
+        user.set(util.localStorage("get", "user"));
+      }
+      $rootScope.state = {default: "home"};
     }
   ])
 
@@ -121,6 +120,27 @@
     '$scope',
     function($scope) {
       console.log("Home controller")
+    }
+  ])
+
+  // Navbar controller
+  .controller('navbarController', [
+    '$scope',
+    '$rootScope',
+    '$state',
+    'util',
+    function($scope, $rootScope, $state, util) {
+      console.log("Navbar controller")
+      $scope.logout = () =>  {
+        util.localStorage('set', 'user', {});
+        
+        console.log(util.localStorage('get','user'))
+
+        $rootScope.logout();
+        
+        
+        
+      }
     }
   ])
 
@@ -163,9 +183,10 @@
 
   .controller('rentController', [
     'http',
+    '$state',
     '$scope',
 		
-    function(http, $scope) {
+    function(http, $state, $scope) {
 
 			send: () => {
         // Set request
@@ -225,7 +246,8 @@
         .then(response => {
             response.email = $scope.model.email;
             user.set(response);
-            util.localStorage('set', 'email', response.email);
+            util.localStorage('set', 'user', user.get());
+
             $state.go('home');  // Redirect to home page on successful login
         })
         .catch(e => {
@@ -299,7 +321,7 @@
               data.felhaszid = response.lastInsertId;
 
               // Set user properties
-              user.set(data);
+              //user.set(data);
 
               // Save user email address
               util.localStorage('set', 'email', data.email);
@@ -327,10 +349,12 @@
   // Profile controller
   .controller('profileController', [
     '$scope',
-    function($scope) {
+    'util',
+    'user',
+    function($scope, util, user) {
       console.log("Profile controller");
-      $scope.data = util.localStorage('get',)
-      
+      $scope.data = user.get();
+      console.log(user.get())
     }
   ])
 

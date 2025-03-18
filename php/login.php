@@ -11,16 +11,21 @@ $query = "SELECT `felhaszid`,
 				 `vezeteknev`,
 				 `keresztnev`,
 				 `masodiknev`,
-				 `jelsz`
+				 `jelsz`,
+                 `telszam`,
+                 `varos`,
+                 `iranyitoszam`,
+                 `cim`
           FROM   `user` 
           WHERE  `email` = ?
+          AND    `jelsz` = ?
           LIMIT  1";
 
 // Connect to MySQL server
 $db = new Database();
 
 // Execute SQL command
-$result = $db->execute($query, [$args['email']]);
+$result = $db->execute($query, [$args['email'], $args['jelsz']]);
 
 // Close connection
 $db = null;

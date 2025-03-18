@@ -25,7 +25,7 @@
           <a class="btn btn-outline-light me-2 mt-2" ui-sref="profile">Profil</a>
         </li>
         <li class="nav-item" ng-if="$root.user.felhaszid">
-          <a class="btn btn-outline-light me-2 mt-2" ng-click="$root.logout()">Kijelentkezés</a>
+          <a class="btn btn-outline-light me-2 mt-2" ng-click="logout()">Kijelentkezés</a>
         </li>
         <li class="nav-item me-3" ng-if="!$root.user.felhaszid">
           <a class="btn btn-outline-light mt-2 justify-content-center" ui-sref="login">Belépés</a>

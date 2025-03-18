@@ -16,6 +16,9 @@
     'msg',
     ($rootScope, $state, util, msg) => {
 
+      // Set user properties
+      let properties;
+
       // Set local methods
       let methods = {
 
@@ -26,29 +29,42 @@
             vezeteknev  : null,
             keresztnev  : null,
             masodiknev  : null,
+            telszam     : null,
             nem         : null,
-            email       : null 
+            email       : null,
+            cim         : null,
+            iranyitoszam: null,
+            varos       : null
           };
         }
       };
 
-      // Set service
-      let service = {
+      // Set user
+      let user = {
 
         // Initialize
-        init: () => {
+        init: (prop=null) => {
+
+          // Check user properties
+          if (util.isObject(prop))
+                properties = util.objMerge({}, prop);
+          else  properties = util.objMerge({}, methods.default());
 
           // Set user default properties
-          $rootScope.user = util.objMerge({}, methods.default());
+          $rootScope.user = util.objMerge({}, properties);
         },
 
         // Set
         set: (data) => {
-          Object.keys(methods.default()).forEach(key => {
+          Object.keys(properties).forEach(key => {
             if (util.hasKey(data, key)) $rootScope.user[key] = data[key];
           });
           $rootScope.$applyAsync();
         },
+
+        // Get
+        //get: () => properties,
+        get: () => $rootScope.user,
 
         // Reset
         reset: (filter=null) => {
@@ -69,15 +85,19 @@
           isConfirm	: true,
           callback  : (response) => {
             if (response === 'ok') {
-              service.reset('email');
-              $state.go('home');
+              user.reset();
+              if (util.isObjectHasKey($rootScope, 'state')){ /*&&
+                  $rootScope.state.disabled.includes($rootScope.state.id))*/
+                $state.go($rootScope.state.default);
+              }
             }
           }
         });
+        
       };
 
-      // Return service
-      return service;
+      // Return user
+      return user;
     }
   ]);
 

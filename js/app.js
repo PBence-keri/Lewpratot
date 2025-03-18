@@ -129,14 +129,16 @@
     '$rootScope',
     '$state',
     'util',
-    function($scope, $rootScope, $state, util) {
+    'user',
+    function($scope, $rootScope, $state, util, user) {
       console.log("Navbar controller")
       $scope.logout = () =>  {
-        util.localStorage('set', 'user', {});
         
         console.log(util.localStorage('get','user'))
-
+        
         $rootScope.logout();
+        user.reset();
+        util.localStorage('set', 'user', user.get());
         
         
         
@@ -165,29 +167,15 @@
 
   // Rent controller
   .controller('rentController', [
-    '$state',
-    '$scope',
-		'$stateParams',
-    function($state, $scope, $stateParams) {
-
-			// Get/Check parameters
-      $scope.data = $stateParams.data;
-      if (!$scope.data) {
-        $state.go('home');
-        return;
-      }
-
-      console.log($scope.data);
-    }
-  ])
-
-  .controller('rentController', [
+    'util',
     'http',
     '$state',
     '$scope',
 		
-    function(http, $state, $scope) {
-
+    function(util, http, $state, $scope) {
+      if (util.localStorage('get', 'user').felhaszid == null) {
+        $state.go('home');
+      }
 			send: () => {
         // Set request
         http.request({
@@ -211,56 +199,60 @@
   ])
 
   // Login controller
-.controller('loginController', [
-  '$state',
-  '$scope',
-  'form',
-  'user',
-  'util',
-  'http',
-  'msg',
-  function($state, $scope, form, user, util, http, msg) {
-
-    // Set local methods
-    let methods = {
-
+  .controller('loginController', [
+    '$state',
+    '$scope',
+    'form',
+    'user',
+    'util',
+    'http',
+    'msg',
+    function($state, $scope, form, user, util, http, msg) {
+      console.log(util.localStorage('get', 'user'));
+      if (util.localStorage('get', 'user').felhaszid !== null) {
+        $state.go('home');
+      }
+    
+      // Set local methods
+      let methods = {
+      
+        // Initialize
+        init: () => {
+          // Set email address from local storage if exist
+          $scope.model = {email: util.localStorage('get', 'email')};
+        
+          // Set focus
+          form.focus();
+        }
+      };
+    
+      // Set scope methods
+      $scope.methods = {
+      
+        login: () => {
+          // Set request
+          http.request({
+            url: "./php/login.php",
+            data: util.objFilterByKeys($scope.model, ['showPassword'], false)
+          })
+          .then(response => {
+              response.email = $scope.model.email;
+              user.set(response);
+              util.localStorage('set', 'user', user.get());
+          
+              $state.go('home');  // Redirect to home page on successful login
+          })
+          .catch(e => {
+            $scope.model.jelsz = null;
+            msg.error(e.message || e);
+          });
+        }
+      };
+    
       // Initialize
-      init: () => {
-        // Set email address from local storage if exist
-        $scope.model = {email: util.localStorage('get', 'email')};
-
-        // Set focus
-        form.focus();
-      }
-    };
-
-    // Set scope methods
-    $scope.methods = {
-
-      login: () => {
-        // Set request
-        http.request({
-          url: "./php/login.php",
-          data: util.objFilterByKeys($scope.model, ['showPassword'], false)
-        })
-        .then(response => {
-            response.email = $scope.model.email;
-            user.set(response);
-            util.localStorage('set', 'user', user.get());
-
-            $state.go('home');  // Redirect to home page on successful login
-        })
-        .catch(e => {
-          $scope.model.jelsz = null;
-          msg.error(e.message || e);
-        });
-      }
-    };
-
-    // Initialize
-    methods.init();
-  }
-])
+      methods.init();
+    }
+  ])
 
 
   //Register controller
@@ -273,6 +265,9 @@
     'http',
     'user',
     function($state, $scope, form, msg, util, http, user) {
+      if (util.localStorage('get', 'user').felhaszid !== null) {
+        $state.go('home');
+      }
 
       // Set local methods
       let methods = {
@@ -349,12 +344,16 @@
   // Profile controller
   .controller('profileController', [
     '$scope',
+    '$state',
     'util',
     'user',
-    function($scope, util, user) {
+    function($scope, $state, util, user) {
       console.log("Profile controller");
       $scope.data = user.get();
       console.log(user.get())
+      if (util.localStorage('get', 'user').felhaszid == null) {
+        $state.go('home');
+      }
     }
   ])
 

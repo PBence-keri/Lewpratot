@@ -11,18 +11,6 @@
 		'app.form',
   ])
 
-    // .controller('MainCtrl', function($scope) {
-    //   // Kezdetben rejtve van a div
-    //   $scope.showDiv = false;
-
-    //   // Funkció, amely változtatja a div láthatóságát
-    //   $scope.toggleDiv = function() {
-    //     $scope.showDiv = !$scope.showDiv;
-    //   };
-    // })
-    
-  
-
   // Application config
   .config([
     '$stateProvider', 
@@ -146,17 +134,6 @@
     'user',
     function($scope, $rootScope, $state, util, user) {
       console.log("Navbar controller")
-      // $scope.logout = () =>  {
-        
-      //   console.log(util.localStorage('get','user'))
-        
-      //   $rootScope.logout();
-      //   user.reset();
-      //   util.localStorage('set', 'user', user.get());
-        
-        
-        
-      // }
     }
   ])
 
@@ -246,10 +223,6 @@
     'http',
     'msg',
     function($state, $scope, form, user, util, http, msg) {
-      // console.log(util.localStorage('get', 'user'));
-      // if (util.localStorage('get', 'user').felhaszid !== null) {
-      //   $state.go('home');
-      // }
     
       // Set local methods
       let methods = {
@@ -303,9 +276,6 @@
     'http',
     'user',
     function($state, $scope, form, msg, util, http, user) {
-      // if (util.localStorage('get', 'user').felhaszid !== null) {
-      //   $state.go('home');
-      // }
 
       // Set local methods
       let methods = {
@@ -353,9 +323,6 @@
               // Initialize missing data
               data.felhaszid = response.lastInsertId;
 
-              // Set user properties
-              //user.set(data);
-
               // Save user email address
               util.localStorage('set', 'email', data.email);
 
@@ -397,13 +364,6 @@
         $scope.model = response;
         $scope.$applyAsync();
       })
-
-      // console.log("Profile controller");
-      // $scope.model = user.get();
-      // console.log(user.get())
-      // if (util.localStorage('get', 'user').felhaszid == null) {
-      //   $state.go('home');
-      // }
     }
   ])
 

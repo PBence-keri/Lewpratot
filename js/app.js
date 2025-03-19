@@ -209,6 +209,7 @@
     'msg',
     function($state, $scope, form, user, util, http, msg) {
       console.log(util.localStorage('get', 'user'));
+      
       if (util.localStorage('get', 'user').felhaszid !== null) {
         $state.go('home');
       }

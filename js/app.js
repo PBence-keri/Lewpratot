@@ -63,6 +63,7 @@
           url: '/connection',
           parent: 'root',
           templateUrl: './html/connection.html',
+          controller: 'connectionController'
         })
         .state('blog', {
           url: '/blog',
@@ -395,6 +396,20 @@
         $scope.model = response;
         $scope.$applyAsync();
       })
+      .catch(e => console.log(e));
+
+      $scope.saveProperties = () => {
+        let data = util.objMerge({}, $scope.model);
+        data.felhaszid = $rootScope.user.felhaszid;
+        http.request({
+          url: './php/profile.php',
+          data: data
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(e => console.log(e));
+      };
 
       // console.log("Profile controller");
       // $scope.model = user.get();
@@ -405,6 +420,21 @@
     }
   ])
 
-  
+  .controller('connectionController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      $scope.connection = () => {
+        http.request({
+          url: './php/connection.php',
+          data: $scope.model
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(e => console.log(e));
+      }
+    }
+  ])
 
 })(window, angular); 

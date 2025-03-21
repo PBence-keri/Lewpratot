@@ -9,20 +9,8 @@ $args = Util::getArgs();
 // Connect to database
 $db = new Database();
 
-// Merge arguments with default
-//$args = Util::objMerge(array(
-//  "vezeteknev" => null,
-//  "keresztnev" => null,
-//  "masodiknev" => null,
-//  "telszam" => null,
-//  "szulev" => null,
-//  "email" => null,
-//  "jelsz" => null,
-//  "nem" => null
-//), $args, true);  
-
 // Set SQL command
-$query = $db->preparateInsert ("user", $args);
+$query = $db->preparateInsert ("connection", $args);
 
 // Execute SQL command
 $result = $db->execute($query, array_values($args));

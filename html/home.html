@@ -2,46 +2,110 @@
   <div class="container-fluid p-0">
     <div class="row banner">
       <div class="col-12 col-md-6 image">
-        <div id="carouselslides" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div id="carouselslides" 
+             class="carousel slide" 
+             data-bs-ride="carousel" 
+             data-bs-interval="3000">
+             
           <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselslides" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselslides" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselslides" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselslides" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselslides" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" 
+                    data-bs-target="#carouselslides" 
+                    data-bs-slide-to="0" 
+                    class="active" 
+                    aria-current="true" 
+                    aria-label="Slide 1">
+            </button>
+
+            <button type="button" 
+                    data-bs-target="#carouselslides" 
+                    data-bs-slide-to="1" 
+                    aria-label="Slide 2">
+            </button>
+
+            <button type="button" 
+                    data-bs-target="#carouselslides" 
+                    data-bs-slide-to="2" 
+                    aria-label="Slide 3">
+            </button>
+
+            <button type="button" 
+                    data-bs-target="#carouselslides" 
+                    data-bs-slide-to="3" 
+                    aria-label="Slide 4">
+            </button>
+
+            <button type="button" 
+                    data-bs-target="#carouselslides" 
+                    data-bs-slide-to="4" 
+                    aria-label="Slide 5">
+            </button>
+
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./img/homeimg1.jpeg" class="d-block w-100" alt="First Slide">
+              <img src="./img/homeimg1.jpeg" 
+                   class="d-block w-100" 
+                   alt="First Slide">
             </div>
             <div class="carousel-item">
-              <img src="./img/homeimg2.jpeg" class="d-block w-100" alt="Second Slide">
+              <img src="./img/homeimg2.jpeg" 
+                   class="d-block w-100" 
+                   alt="Second Slide">
             </div>
             <div class="carousel-item">
-              <img src="./img/homeimg3.jpeg" class="d-block w-100" alt="Third Slide">
+              <img src="./img/homeimg3.jpeg" 
+                   class="d-block w-100" 
+                   alt="Third Slide">
             </div>
             <div class="carousel-item">
-              <img src="./img/homeimg4.jpeg" class="d-block w-100" alt="Fourth Slide">
+              <img src="./img/homeimg4.jpeg" 
+                   class="d-block w-100" 
+                   alt="Fourth Slide">
             </div>
             <div class="carousel-item">
-              <img src="./img/homeimg5.jpeg" class="d-block w-100" alt="Fifth Slide">
+              <img src="./img/homeimg5.jpeg" 
+                   class="d-block w-100" 
+                   alt="Fifth Slide">
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselslides" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Előző</span>
+
+          <button class="carousel-control-prev" 
+                  type="button" 
+                  data-bs-target="#carouselslides" 
+                  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" 
+                  aria-hidden="true">
+            </span>
+            <span class="visually-hidden">
+              Előző
+            </span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselslides" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Következő</span>
+
+          <button class="carousel-control-next" 
+                  type="button" 
+                  data-bs-target="#carouselslides" 
+                  data-bs-slide="next">
+            <span class="carousel-control-next-icon" 
+                  aria-hidden="true">
+            </span>
+            <span class="visually-hidden">
+              Következő
+            </span>
           </button>
         </div>
       </div>
+
       <div class="col-12 col-md-6 col-sm-3 text moveFromBottomFade delay50">
         <h1>Autókölcsönzés egyszerűen és gyorsan</h1>
         <p>Válasszon autót kölcsönözhető flottánkból, és fedezze fel a világot kényelmesen és gondtalanul! Kiváló állapotú autóinkkal garantált a biztonságos és élvezetes utazás.</p>
-        <button class="btn btn-outline-light me-3 mt-2" ui-sref="rental">Ajánlatok megnézése</button>
-        <button class="btn btn-outline-light me-3 mt-2" onclick="tovabbiInfo()">További jellemzők</button>
+        <button class="btn btn-outline-light me-3 mt-2" 
+                ui-sref="rental">
+            Ajánlatok megnézése
+        </button>
+        <button class="btn btn-outline-light me-3 mt-2" 
+                onclick="tovabbiInfo()">
+            További jellemzők
+        </button>
       </div>
     </div>
   </div>
@@ -56,7 +120,10 @@
     <li class="col-12 col-sm-12 col-md-4">
       <div class="card h-100">
         <div class="card-body">
-          <img src="./img/Icons/newcars.svg" alt="NewCars" class="mx-auto d-block mb-3" style="width: 40px;">
+          <img src="./img/Icons/newcars.svg" 
+               alt="NewCars" 
+               class="mx-auto d-block mb-3" 
+               style="width: 40px;">
           <h3 class="card-title mb-3">Vadonatúj autók</h3>
           <p class="card-text text-secondary">
             Béreld vadonatúj autóink egyikét és élvezd a legmodernebb kényelmet és biztonsági funkciókat. Flottánk széles választéka minden igényt kielégít.
@@ -67,7 +134,10 @@
     <li class="col-12 col-sm-12 col-md-4">
       <div class="card h-100">
         <div class="card-body">
-          <img src="./img/Icons/fastprocess.svg" alt="FastProcess" class="mx-auto d-block mb-3" style="width: 40px;">
+          <img src="./img/Icons/fastprocess.svg" 
+               alt="FastProcess" 
+               class="mx-auto d-block mb-3" 
+               style="width: 40px;">
           <h3 class="card-title mb-3">Egyszerű és gyors folyamat</h3>
           <p class="card-text text-secondary">
             Bérelj autót pár kattintással és indulj útnak. Nálunk egyszerűen és gyorsan bérelhetsz járművet, így több időd marad az útra és az élményekre.
@@ -78,7 +148,10 @@
     <li class="col-12 col-sm-12 col-md-4">
       <div class="card h-100">
         <div class="card-body">
-          <img src="./img/Icons/comfortable.svg" alt="Comfortable" class="mx-auto d-block mb-3" style="width: 40px;">
+          <img src="./img/Icons/comfortable.svg" 
+               alt="Comfortable" 
+               class="mx-auto d-block mb-3" 
+               style="width: 40px;">
           <h3 class="card-title mb-3">Rugalmasság és kényelem</h3>
           <p class="card-text text-secondary">
             Testreszabható bérlési lehetőségek, különféle típusú autók és rugalmas feltételek biztosítják, hogy mindig megtaláld a számodra legmegfelelőbb megoldást.
@@ -103,64 +176,85 @@
     <li class="col-12 col-sm-12 col-md-4 mb-5">
       <div class="card h-100">
         <div class="card-body">
-          <img src="./img/Icons/carofthemonth.svg" alt="" class="mx-auto d-block mb-3" style="width: 40px;">
+          <img src="./img/Icons/carofthemonth.svg" 
+               alt="carofthemonth" 
+               class="mx-auto d-block mb-3" 
+               style="width: 40px;">
           <h3 class="card-title mb-3">A hónap autója: Audi A8</h3>
           <p class="homekep card-text text-secondary ">
-            <img src="./img/audia8.jpg" alt="ahonapautoja" style="width: 200px;">
+            <img src="./img/audia8.jpg" 
+                 alt="ahonapautoja" 
+                 style="width: 200px;">
             <hr id="bestofthemonth">
           </p>
-          <h6 class="text-center">Az Audi A8 kényelmes és különösen tágas belteret kínál, hátsó ülésein kiemelkedő komfortszinttel.</h6>
-          <button class="btn btn-dark mt-4" ui-sref="rental">Megnézem</button>
+          <h6 class="text-center">
+            Az Audi A8 kényelmes és különösen tágas belteret kínál, hátsó ülésein kiemelkedő komfortszinttel.
+          </h6>
+          <button class="btn btn-dark mt-4" 
+                  ui-sref="rental">
+              Megnézem
+          </button>
         </div>
       </div>
     </li>
   </ul>
 <div>
 
-<div class="container mt-5" ></div>
-    <ul class="row g-4 mt-4 text-dark list-unstyled" style="background-color: black;">
-      <li class="posta col-12 col-sm-12 col-md-6" style="padding-right: 0px;">
-        <div class="card" style="padding: 0px !important; background-color: black;">
-          <div class="d-block">
-            <div class="car-card2 mt-2" >
-                <img src="./img/bmw.jpg" style="width: 100%;" class="mx-auto d-block mb-3" style="width: 40px;">
-            </div>
+<div class="container mt-5">
+  <ul class="row g-4 mt-4 text-dark list-unstyled" style="background-color: black;">
+    <li class="posta col-12 col-sm-12 col-md-6" style="padding-right: 0px;">
+      <div class="card" style="padding: 0px !important; background-color: black;">
+        <div class="d-block">
+          <div class="car-card2 mt-2" >
+            <img src="./img/bmw.jpg" 
+                 style="width: 100%;" 
+                 class="mx-auto d-block mb-3" 
+                 style="width: 40px;">
           </div>
         </div>
-      </li>
-      <li class="col-12 col-sm-12 col-md-6 mt-5">
-        <div>
-          <div class="d-block" >
-            <div class="card card-body mt-2">
-              <ul>
-                <li><h4 class="katt">Széles autóparkunk</h4>
-                  Autóflottánkban minden igényt kielégítő jármű megtalálható. Akár egy kompakt városi autóra, egy családi autónak, akár egy prémium kategóriás gépjárműre van szükséged, nálunk biztosan megtalálod a számodra ideális autót.</li>
-              </ul>
-            </div>
-            </div>
-          </div>
+      </div>
+    </li>
+    <li class="col-12 col-sm-12 col-md-6 mt-5">
+      <div>
+        <div class="d-block" >
           <div class="card card-body mt-2">
             <ul>
-              <li><h4 class="katt">Rugalmasság és könnyű foglalás</h4>
-                Weboldalunk egyszerűen használható, gyors foglalási rendszert kínál, hogy bármikor könnyedén és gyorsan lefoglalhasd a kívánt járművet. Csak néhány kattintás, és máris biztosíthatod az autót a következő kalandodhoz.</li>
+              <li>
+                <h4 class="katt">Széles autóparkunk</h4>
+                  Autóflottánkban minden igényt kielégítő jármű megtalálható. Akár egy kompakt városi autóra, egy családi autónak, akár egy prémium kategóriás gépjárműre van szükséged, nálunk biztosan megtalálod a számodra ideális autót.
+              </li>
             </ul>
           </div>
-          <div class="card card-body mt-2">
-            <ul>
-              <li><h4 class="katt">Kedvező árak és transzparens díjak</h4>
-                Áraink versenyképesek, és minden költséget előre, világosan feltüntetünk. Nincs rejtett díj, és biztos lehetsz benne, hogy a választott autó költségei átláthatóak lesznek.</li>
-            </ul>
-          </div>
-          <div class="card card-body mt-2 ">
-            <ul>
-              <li><h4 class="katt">Biztonság és megbízhatóság</h4>
-                A biztonság elsődleges számunkra. Az autóink mindegyike biztosítással rendelkezik, hogy utazásod során teljes nyugalommal élvezhesd a vezetést.</li>
-            </ul>
           </div>
         </div>
-      </li>
-    </ul>
-  </div>
+        <div class="card card-body mt-2">
+          <ul>
+            <li>
+              <h4 class="katt">Rugalmasság és könnyű foglalás</h4>
+              Weboldalunk egyszerűen használható, gyors foglalási rendszert kínál, hogy bármikor könnyedén és gyorsan lefoglalhasd a kívánt járművet. Csak néhány kattintás, és máris biztosíthatod az autót a következő kalandodhoz.
+            </li>
+          </ul>
+        </div>
+        <div class="card card-body mt-2">
+          <ul>
+            <li>
+              <h4 class="katt">Kedvező árak és transzparens díjak</h4>
+              Áraink versenyképesek, és minden költséget előre, világosan feltüntetünk. Nincs rejtett díj, és biztos lehetsz benne, hogy a választott autó költségei átláthatóak lesznek.
+            </li>
+          </ul>
+        </div>
+        <div class="card card-body mt-2 ">
+          <ul>
+            <li>
+              <h4 class="katt">Biztonság és megbízhatóság</h4>
+              A biztonság elsődleges számunkra. Az autóink mindegyike biztosítással rendelkezik, hogy utazásod során teljes nyugalommal élvezhesd a vezetést.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
 
 
 <script>

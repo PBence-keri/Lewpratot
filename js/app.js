@@ -401,15 +401,25 @@
       $scope.saveProperties = () => {
         let data = util.objMerge({}, $scope.model);
         data.felhaszid = $rootScope.user.felhaszid;
+
+        let jelsz = $scope.model.jelsz;
+        if (!jelsz) {
+            alert("A mentéshez a jelenlegi jelszó megadása szükséges!");
+            return;
+        }
+    
+        data.jelsz = jelsz;
+    
         http.request({
-          url: './php/profile.php',
-          data: data
+            url: './php/profile.php',
+            data: data
         })
         .then(response => {
-          console.log(response);
+          alert(response.message || "Az adatok sikeresen elmentve!");
+            console.log(response);
         })
         .catch(e => console.log(e));
-      };
+    };    
 
       // console.log("Profile controller");
       // $scope.model = user.get();

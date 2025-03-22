@@ -93,13 +93,19 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-4 mt-5">
+        <div class="col-md-4 mt-4 p-2">
            <div class="col">
-            <div class="p-3 py-4 pt-5 mt-1">
+            <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Jelszó megváltoztatása</h4>
+                </div>
                 <div class="col-md-12">
                     <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <label class="labels" for="jelszo">Jelenlegi jelszó</label>
-                    <input type="text" 
+                    <label class="labels" 
+                           for="jelszo">
+                        Jelenlegi jelszó
+                    </label>
+                    <input type="password" 
                            id="jelszo"
                            class="form-control" 
                            placeholder="Jelenlegi jelszó" 
@@ -111,8 +117,11 @@
             </div>
             <div class="px-3">
                 <div class="col-md-12">
-                    <label class="labels" for="ujjelszo">Új jelszó</label>
-                    <input type="text" 
+                    <label class="labels" 
+                           for="ujjelszo">
+                        Új jelszó
+                    </label>
+                    <input type="password" 
                            id="ujjelszo"
                            class="form-control" 
                            placeholder="Új jelszó" 
@@ -121,8 +130,11 @@
                            ng-disable-space>
                 </div>
                 <div class="col-md-12 pt-2">
-                    <label class="labels" for="megerosites">Új jelszó megerősítés</label>
-                    <input type="text" 
+                    <label class="labels" 
+                           for="megerosites">
+                        Új jelszó megerősítés
+                    </label>
+                    <input type="password" 
                            id="megerosites"
                            class="form-control" 
                            placeholder="Megerősítés" 

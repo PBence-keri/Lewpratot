@@ -419,7 +419,7 @@
             console.log(response);
         })
         .catch(e => console.log(e));
-    };    
+    };
 
       // console.log("Profile controller");
       // $scope.model = user.get();

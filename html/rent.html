@@ -23,7 +23,7 @@
             <div class="card rounded-3 text-black card-body rent col-md-12">
               <div class="col-lg-12">
                 <div>
-                  <form>
+                  <form name="rentForm">
                     <div data-input-init class="form-outline mb-4">
                       <label class="form-label" 
                              for="name" 
@@ -33,7 +33,9 @@
                       <input type="text" 
                              id="name" 
                              class="form-control rent2" 
-                             placeholder="Pl.: Makó, Posta utca 4-6.">
+                             placeholder="Pl.: Makó, Posta utca 4-6."
+                             required
+                             ng-model="felvhely">
                     </div>
                     <div data-input-init class="form-outline mb-4">
                       <label class="form-label" 
@@ -44,7 +46,9 @@
                       <input type="email" 
                              id="email" 
                              class="form-control rent2" 
-                             placeholder="Pl.: Makó, Posta utca 4-6.">
+                             placeholder="Pl.: Makó, Posta utca 4-6."
+                             required
+                             ng-model="leadhely">
                     </div>
                     <div data-input-init class="form-outline mb-4">
                       <label class="form-label" 
@@ -54,8 +58,10 @@
                       </label>
                       <input type="date" 
                              id="datePickerId" 
-                             class="form-control rent2">
-                    </div>
+                             class="form-control rent2"
+                             required
+                             ng-model="felvdatum">
+                            </div>
                     <div data-input-init class="form-outline mb-4">
                       <label class="form-label" 
                              for="born" 
@@ -64,7 +70,9 @@
                       </label>
                       <input type="date" 
                              id="born" 
-                             class="form-control rent2">
+                             class="form-control rent2"
+                             required
+                             ng-model="leaddatum">
                     </div>
                     <div>
                       <h3 class="text-light">
@@ -75,7 +83,8 @@
                       <button data-button-init 
                               class="btn btn-dark mt-3 rent3" 
                               type="button" 
-                              disabled>
+                              ng-disabled="rentForm.$invalid"
+                              ng-click="rentform()">
                         Bérlés
                       </button>
                     </div>

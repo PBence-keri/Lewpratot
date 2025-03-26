@@ -10,7 +10,7 @@ $args = Util::getArgs();
 $db = new Database();
 
 // Set SQL command
-$query = $db->preparateInsert ("connection", $args);
+$query = $db->preparateInsert ("kolcsonzes", $args);
 
 // Execute SQL command
 $result = $db->execute($query, array_values($args));
@@ -21,7 +21,7 @@ $db = null;
 // Check not success
 if (!$result['affectedRows']) {
   // Set error
-  Util::setError('Az üzenetet nem sikerült elküldeni!');
+  Util::setError('Nem sikerült a kölcsönzést végrehajtani!');
 }
 
 // Set response

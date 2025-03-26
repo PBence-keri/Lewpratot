@@ -125,7 +125,6 @@
     }
   ])
 
-<<<<<<< HEAD
   .controller('blogController', [
     '$scope',
     function($scope) {
@@ -165,9 +164,6 @@
   ])
 
   // Navbar controller
-=======
-  //Navbar controller
->>>>>>> 6cfdaeba3658dadff14c015e373c1e26cc118b19
   .controller('navbarController', [
     '$scope',
     function($scope) {
@@ -401,7 +397,6 @@
         $scope.$applyAsync();
       })
       .catch(e => console.log(e));
-<<<<<<< HEAD
 
       $scope.saveProperties = () => {
         let data = util.objMerge({}, $scope.model);
@@ -425,8 +420,6 @@
         })
         .catch(e => console.log(e));
     };
-=======
->>>>>>> 6cfdaeba3658dadff14c015e373c1e26cc118b19
 
       $scope.saveProperties = () => {
         let data = util.objMerge({}, $scope.model);
@@ -453,11 +446,6 @@
     };
     }
   ])
-
-<<<<<<< HEAD
-=======
-  //Connection controller 
->>>>>>> 6cfdaeba3658dadff14c015e373c1e26cc118b19
   .controller('connectionController', [
     '$scope',
     'http',

@@ -566,7 +566,6 @@ ul{
 .bg-color{
   background-color: #151617;
   border: 2px solid #FF0800;
-<<<<<<< HEAD
 }
 
 .star-rating {
@@ -583,6 +582,4 @@ ul{
 }
 .star:hover {
   transition: color 0.2s ease;
-=======
->>>>>>> 6cfdaeba3658dadff14c015e373c1e26cc118b19
 }

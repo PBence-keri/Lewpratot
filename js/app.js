@@ -417,6 +417,7 @@
         .then(response => {
           alert(response.message || "Az adatok sikeresen elmentve!");
             console.log(response);
+            $state.go('home');
         })
         .catch(e => console.log(e));
     };
@@ -430,6 +431,7 @@
     }
   ])
 
+  // Connection controller 
   .controller('connectionController', [
     '$scope',
     'http',

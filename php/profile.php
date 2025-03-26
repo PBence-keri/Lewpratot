@@ -20,12 +20,6 @@ $query .= " WHERE `felhaszid` = {$userId}";
 // Execute SQL command
 $result = $db->execute($query, array_values($args));
 
-// Close connection
-$db = null;
-
-// Set response
-Util::setResponse($result);
-
 // Add the password verification logic
 if (isset($args["password"])) {
   $password = $args["password"];
@@ -41,3 +35,9 @@ if (isset($args["password"])) {
       exit();
   }
 }
+
+// Close connection
+$db = null;
+
+// Set response
+Util::setResponse($result);

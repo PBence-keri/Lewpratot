@@ -8,7 +8,7 @@
     'app.common',
     'app.message',
     'app.user',
-		'app.form',
+    'app.form',
   ])
 
     // .controller('MainCtrl', function($scope) {
@@ -63,11 +63,13 @@
           url: '/connection',
           parent: 'root',
           templateUrl: './html/connection.html',
+          controller: 'connectionController'
         })
         .state('blog', {
           url: '/blog',
           parent: 'root',
           templateUrl: './html/blog.html',
+          controller: 'blogController',
         })
         .state('login', {
           url: '/login',
@@ -135,6 +137,44 @@
     }
   ])
 
+  .controller('blogController', [
+    '$scope',
+    function($scope) {
+      $scope.review = {
+        name: '',
+        email: '',
+        rating: null,
+        comment: ''
+      };
+    
+      $scope.hoveredRating = 0;  
+
+      $scope.setRating = function(star) {
+        $scope.review.rating = star;
+      };
+
+    
+      $scope.hoverRating = function(star) {
+        $scope.hoveredRating = star;
+      };
+
+    
+      $scope.resetStars = function() {
+        $scope.hoveredRating = 0;
+      };
+
+    
+      $scope.submitReview = function() {
+        if ($scope.reviewForm.$valid) {
+          console.log('Review submitted', $scope.review);
+          alert('Köszönjük az értékelést!');
+          $scope.review = { name: '', email: '', rating: null, comment: '' }; 
+        }
+      };
+      console.log("Home controller")
+    }
+  ])
+
   // Navbar controller
   .controller('navbarController', [
     '$scope',
@@ -190,10 +230,10 @@
   .controller('rentController', [
     '$state',
     '$scope',
-		'$stateParams',
+    '$stateParams',
     function($state, $scope, $stateParams) {
 
-			// Get/Check parameters
+      // Get/Check parameters
       $scope.data = $stateParams.data;
       if (!$scope.data) {
         $state.go('home');
@@ -209,10 +249,10 @@
     'util',
     '$state',
     '$scope',
-		
+    
     function(http, util, $state, $scope) {
 
-			send: () => {
+      send: () => {
         // Set request
         http.request({
           url: "./php/help.php",
@@ -312,7 +352,7 @@
         init: () => {
 
           // Set focus
-					form.focus();
+          form.focus();
         }
       };
 
@@ -395,6 +435,30 @@
         $scope.model = response;
         $scope.$applyAsync();
       })
+      .catch(e => console.log(e));
+
+      $scope.saveProperties = () => {
+        let data = util.objMerge({}, $scope.model);
+        data.felhaszid = $rootScope.user.felhaszid;
+
+        let jelsz = $scope.model.jelsz;
+        if (!jelsz) {
+            alert("A mentéshez a jelenlegi jelszó megadása szükséges!");
+            return;
+        }
+    
+        data.jelsz = jelsz;
+    
+        http.request({
+            url: './php/profile.php',
+            data: data
+        })
+        .then(response => {
+          alert(response.message || "Az adatok sikeresen elmentve!");
+            console.log(response);
+        })
+        .catch(e => console.log(e));
+    };
 
       // console.log("Profile controller");
       // $scope.model = user.get();
@@ -405,6 +469,21 @@
     }
   ])
 
-  
+  .controller('connectionController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      $scope.connection = () => {
+        http.request({
+          url: './php/connection.php',
+          data: $scope.model
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(e => console.log(e));
+      }
+    }
+  ])
 
 })(window, angular); 

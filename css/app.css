@@ -568,9 +568,18 @@ ul{
   border: 2px solid #FF0800;
 }
 
-.vr{
-  border:         none;
-  border-left:    1px solid hsla(100, 5%, 25%,50);
-  height:         100vh;
-  width:          1px;  
+.star-rating {
+  display: flex;
+  cursor: pointer;
+}
+.star {
+  font-size: 30px;
+  color: #d3d3d3; /* Light grey */
+  margin-right: 5px;
+}
+.star.selected, .star:hover {
+  color: #f1c40f; /* Gold color */
+}
+.star:hover {
+  transition: color 0.2s ease;
 }

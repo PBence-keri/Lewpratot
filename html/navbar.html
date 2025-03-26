@@ -1,37 +1,70 @@
 <nav class="navbar navbar-expand-lg navbar-dark justify-content-center">
-  <a ui-sref="home"><img src="./img/Logo2.png" alt="WebsiteLogo" class="ms-4" id="weblogo"></a>
+  <a ui-sref="home">
+    <img src="./img/Logo2.png" alt="WebsiteLogo" class="ms-4" id="weblogo">
+  </a>
   <a class="navbar-brand ms-1" id="webname" ui-sref="home">LPT</a>
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarheader" aria-controls="navbarheader" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarheader" 
+            aria-controls="navbarheader" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse text-center" id="navbarheader">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" ui-sref="home" ui-sref-active="active">Kezdőlap</a>
+          <a class="nav-link" 
+             aria-current="page" 
+             ui-sref="home" 
+             ui-sref-active="active">
+            Kezdőlap
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ui-sref="rental" ui-sref-active="active">Kölcsönözhető autók</a>
+          <a class="nav-link" 
+             ui-sref="rental" 
+             ui-sref-active="active">
+            Kölcsönözhető autók
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ui-sref="connection" ui-sref-active="active">Rólunk</a>
+          <a class="nav-link" 
+             ui-sref="connection" 
+             ui-sref-active="active">
+            Rólunk
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" ui-sref="blog" ui-sref-active="active">Blog</a>
+          <a class="nav-link" 
+             ui-sref="blog" 
+             ui-sref-active="active">
+            Blog
+          </a>
         </li>
       </ul>
       <ul class="navbar-nav ms-3">
         <li class="nav-item" ng-if="$root.user.felhaszid">
-          <a class="btn btn-outline-light me-2 mt-2" ui-sref="profile">Profil</a>
+          <a class="btn btn-outline-light me-2 mt-2" ui-sref="profile">
+            Profil
+          </a>
         </li>
         <li class="nav-item" ng-if="$root.user.felhaszid">
-          <a class="btn btn-outline-light me-2 mt-2" ng-click="$root.logout()">Kijelentkezés</a>
+          <a class="btn btn-outline-light me-2 mt-2" ng-click="$root.logout()">
+            Kijelentkezés
+          </a>
         </li>
         <li class="nav-item me-3" ng-if="!$root.user.felhaszid">
-          <a class="btn btn-outline-light mt-2 justify-content-center" ui-sref="login">Belépés</a>
+          <a class="btn btn-outline-light mt-2 justify-content-center" ui-sref="login">
+            Belépés
+          </a>
         </li>
         <li class="nav-item me-3" ng-if="!$root.user.felhaszid">
-          <a class="btn btn-outline-light mt-2 justify-content-center" ui-sref="register">Regisztráció</a>  
+          <a class="btn btn-outline-light mt-2 justify-content-center" ui-sref="register">
+            Regisztráció
+          </a>  
         </li>
       </ul>
     </div>

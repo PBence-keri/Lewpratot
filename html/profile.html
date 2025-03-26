@@ -9,14 +9,18 @@
                 <h4 class="font-weight-bold mt-1">LPT</h4>
             </div>
         </div>
-        <form class="col-md-5 border border-2 border-dark border-top-0 border-bottom-0 border-start-0" name="profileForm">
+        <form class="col-md-5 border border-2 border-dark border-top-0 border-bottom-0 border-start-0"     
+              name="profileForm">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Profil adatok</h4>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6">
-                        <label class="labels" for="vezeteknev">Vezetéknév</label>
+                        <label class="labels" 
+                               for="vezeteknev">
+                            Vezetéknév
+                        </label>
                         <input type="text"
                                id="vezeteknev" 
                                class="form-control" 
@@ -24,15 +28,21 @@
                                ng-model="model.vezeteknev">
                     </div>
                     <div class="col-md-6">
-                        <label class="labels" for="keresztnev">Keresztnév</label>
-                        <input type="text" 
+                        <label class="labels" 
+                               for="keresztnev">
+                            Keresztnév
+                        </label>
+                        <input type="text"
                                id="keresztnev"
                                class="form-control" 
                                placeholder="Keresztnév" 
                                ng-model="model.keresztnev">
                     </div>
                     <div class="col-md-6 mt-1">
-                        <label class="labels" for="masodiknev">Másodiknév</label>
+                        <label class="labels" 
+                               for="masodiknev">
+                            Másodiknév
+                        </label>
                         <input type="text" 
                                id="masodiknev"
                                class="form-control" 
@@ -41,7 +51,10 @@
                     </div>
                 </div>
                 <div class="col-md-12 mb-2 mt-4">
-                    <label class="labels" for="email">Email-cím</label>
+                    <label class="labels" 
+                           for="email">
+                        Email-cím
+                    </label>
                     <input type="text"
                            id="email" 
                            class="form-control" 
@@ -51,7 +64,10 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12 mb-2">
-                        <label class="labels" for="telszam">Telefonszám</label>
+                        <label class="labels" 
+                               for="telszam">
+                            Telefonszám
+                        </label>
                         <input type="text" 
                                id="telszam"
                                class="form-control" 
@@ -59,7 +75,10 @@
                                ng-model="model.telszam">
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label class="labels" for="varos">Város</label>
+                        <label class="labels" 
+                               for="varos">
+                            Város
+                        </label>
                         <input type="text" 
                                id="varos"
                                class="form-control" 
@@ -67,7 +86,10 @@
                                ng-model="model.varos">
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label class="labels" for="iranyitoszam">Irányítószám</label>
+                        <label class="labels" 
+                               for="iranyitoszam">
+                            Irányítószám
+                        </label>
                         <input type="text" 
                                id="iranyitoszam"
                                class="form-control" 
@@ -75,42 +97,55 @@
                                ng-model="model.iranyitoszam">
                     </div>
                     <div class="col-md-12 mb-2">
-                        <label class="labels" for="lakcim">Lakcím</label>
+                        <label class="labels" 
+                               for="lakcim">
+                            Lakcím
+                        </label>
                         <input type="text" 
                                id="lakcim"
                                class="form-control" 
                                placeholder="Lakcím"
                                ng-model="model.cim">
                     </div>
+                    <div class="col-md-12">
+                        <i class="fa-solid fa-star fa-2xs text-danger"></i>
+                        <label class="labels" 
+                               for="jelszo">
+                            Jelenlegi jelszó
+                        </label>
+                        <input type="password" 
+                               id="jelszo"
+                               class="form-control" 
+                               placeholder="Jelenlegi jelszó" 
+                               required 
+                               ng-model="model.jelsz"
+                               ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+                               ng-disable-space>
+                    </div>
                 </div>
                 <div class="mt-5 text-center">
                     <button class="btn btn-dark profile-button katt" 
-                            type="button">
+                            type="button"
+                            ng-click="saveProperties()">
                             Mentés
                     </button>
                 </div>
             </form>
         </div>
-        <div class="col-md-4 mt-5">
+        <div class="col-md-4 mt-4 p-2">
            <div class="col">
-            <div class="p-3 py-4 pt-5 mt-1">
-                <div class="col-md-12">
-                    <i class="fa-solid fa-star fa-2xs text-danger"></i>
-                    <label class="labels" for="jelszo">Jelenlegi jelszó</label>
-                    <input type="text" 
-                           id="jelszo"
-                           class="form-control" 
-                           placeholder="Jelenlegi jelszó" 
-                           required 
-                           ng-model="model.jelsz"
-                           ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
-                           ng-disable-space>
+            <div class="p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="text-right">Jelszó megváltoztatása</h4>
                 </div>
             </div>
             <div class="px-3">
                 <div class="col-md-12">
-                    <label class="labels" for="ujjelszo">Új jelszó</label>
-                    <input type="text" 
+                    <label class="labels" 
+                           for="ujjelszo">
+                        Új jelszó
+                    </label>
+                    <input type="password" 
                            id="ujjelszo"
                            class="form-control" 
                            placeholder="Új jelszó" 
@@ -119,13 +154,23 @@
                            ng-disable-space>
                 </div>
                 <div class="col-md-12 pt-2">
-                    <label class="labels" for="megerosites">Új jelszó megerősítés</label>
-                    <input type="text" 
+                    <label class="labels" 
+                           for="megerosites">
+                        Új jelszó megerősítés
+                    </label>
+                    <input type="password" 
                            id="megerosites"
                            class="form-control" 
-                           placeholder="Megerősítés" 
+                           placeholder="Új jelszó megerősítésé" 
                            ng-model="model.jelszuj2"
                            ng-disable-space>
+                </div>
+                <div class="mt-5 text-center">
+                    <button class="btn btn-dark profile-button katt" 
+                            type="button"
+                            ng-click="saveNewPassword()">
+                            Új jelszó mentése
+                    </button>
                 </div>
             </div>
            </div>

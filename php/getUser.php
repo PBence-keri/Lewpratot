@@ -25,7 +25,7 @@ $result = $db->execute($query, $bido);
 $db = null;
 
 if (is_null($result))
-  Util::setError('dlédslé,dsvlésd');
+  Util::setError('Nem találtunk ilyen felhasználót!');
 
 $result = $result[0];
 

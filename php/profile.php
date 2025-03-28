@@ -6,38 +6,44 @@ require_once("../../common/php/environment.php");
 // Get arguments
 $args = Util::getArgs();
 
-$userId = $args["felhaszid"];
-unset($args["felhaszid"]);
+// Set SQL query to check the current password
+$query = "SELECT `jelsz` FROM `user` WHERE `felhaszid` = ? LIMIT 1";
 
-// Connect to database
+// Connect to MySQL server
 $db = new Database();
 
-// Set SQL command
-$query = $db->preparateUpdate ("user", $args);
+// Execute the query to check if the current password matches
+$result = $db->execute($query, [$args['felhaszid']]);
 
-$query .= " WHERE `felhaszid` = {$userId}";
+// Check if the current password is correct
+if ($result) {
+    
+    // If passwords match, update the password
+    if (!empty($args['jelszuj'])) {
 
-// Execute SQL command
-$result = $db->execute($query, array_values($args));
+        // Set new password directly
+        $args['jelsz'] = $args['jelszuj'];
+    }
 
-// Add the password verification logic
-if (isset($args["password"])) {
-  $password = $args["password"];
-  unset($args["password"]);
-  
-  // Fetch stored password hash
-  $stmt = $db->prepare("SELECT jelsz FROM user WHERE felhaszid = ?");
-  $stmt->execute([$userId]);
-  $hash = $stmt->fetchColumn();
-  
-  if (!password_verify($password, $hash)) {
-      Util::setResponse(["success" => false, "message" => "Hibás jelszó!"]);
-      exit();
-  }
+    // Prepare SQL query to update the user data
+    $updateQuery = $db->preparateUpdate("user", $args, "felhaszid");
+    $updateQuery .= " WHERE `felhaszid` = :felhaszid";
+    $result = $db->execute($updateQuery, $args);
+    
+} else {
+    // If current password is incorrect
+    Util::setError("Helytelen jelszó!");
+    exit;
 }
 
-// Close connection
+// Check if the update was successful
+if (!$result['affectedRows']) {
+    // If no rows were affected, set an error
+    Util::setError('Nincsennek változások!');
+}
+
+// Close the database connection
 $db = null;
 
-// Set response
+// Return the response to the client
 Util::setResponse($result);

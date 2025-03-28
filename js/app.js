@@ -106,7 +106,7 @@
     'trans',
     ($rootScope, user, util, trans) => {
 
-      trans.events(['login','profile','rent']);
+      trans.events(['login'], ['profile']);
 
       user.init({felhaszid:null}, () => {
 
@@ -200,17 +200,66 @@
   .controller('rentController', [
     '$state',
     '$scope',
+    '$rootScope',
     '$stateParams',
-    function($state, $scope, $stateParams) {
+    'http',
+    function($state, $scope, $rootScope, $stateParams, http) {
 
-      // Get/Check parameters
-      $scope.data = $stateParams.data;
-      if (!$scope.data) {
-        $state.go('home');
-        return;
-      }
+           // Set local methods
+           let methods = {
 
-      console.log($scope.data);
+            // Initialize
+            init: () => {
+    
+              $scope.data = $stateParams.data;
+              if (!$scope.data) {
+                $state.go('rental');
+                return;
+              }
+              felvdatum.min = new Date().toISOString().split("T")[0];
+              leaddatum.min = new Date().toISOString().split("T")[0];
+
+            }
+          };
+    
+          // Set scope methods
+          $scope.methods = {
+    
+            // Register
+            rent: () => {
+              console.log($scope.data)
+              let rentData = {
+                'felhaszid': $rootScope.user.felhaszid,
+                'vegosszeg': $scope.data.ar,
+                'felvhely': $scope.model.felvhely,
+                'leadhely': $scope.model.leadhely,
+                'felvdatum': $scope.model.felvdatum,
+                'leaddatum': $scope.model.leaddatum,
+                'jarmuid': $scope.data.jarmuid
+              }
+              console.log(rentData)
+
+              http.request({
+                method: 'POST',
+                url: './php/rent.php',
+                data: rentData
+              })
+              .then(function(response) {
+                console.log('Response:', response);
+                if (response.affectedRows) {
+                  $scope.model.felvhely = "";
+                  $scope.model.leadhely = "";
+                  $scope.model.felvdatum = "";
+                  $scope.model.leaddatum = "";
+                }
+              })
+              .catch(function(error) {
+                msg.error(error.message || error);
+              });
+            }
+          }
+      methods.init();
+
     }
   ])
 
@@ -240,8 +289,6 @@
           msg.error(e.message || e);
         });
       }
-
-      
     }
   ])
 
@@ -306,8 +353,7 @@
     'msg',
     'util',
     'http',
-    'user',
-    function($state, $scope, form, msg, util, http, user) {
+    function($state, $scope, form, msg, util, http) {
 
       // Set local methods
       let methods = {
@@ -386,7 +432,8 @@
     'util',
     'user',
     'http',
-    function($rootScope, $scope, $state, util, user, http) {
+    'msg',
+    function($rootScope, $scope, $state, util, user, http, msg) {
 
       http.request({
         url: './php/getUser.php',
@@ -404,34 +451,29 @@
 
         let jelsz = $scope.model.jelsz;
         if (!jelsz) {
-            alert("A mentéshez a jelenlegi jelszó megadása szükséges!");
+            msg.error("A mentéshez a jelenlegi jelszó megadása szükséges!");
             return;
+        }
+
+        console.log(data);
+
+        let ujJelszo = $scope.model.jelszuj;
+        let ujJelszoMegerosites = $scope.model.jelszuj2;
+
+        console.log(ujJelszo) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel v idk
+        console.log(ujJelszoMegerosites) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel v idk
+
+        if (ujJelszo !== ujJelszoMegerosites) {
+          msg.error("Az új jelszavak nem egyeznek!");
+          return;
+        }
+
+        if (ujJelszo) {
+          data.jelszuj = ujJelszo;
         }
     
         data.jelsz = jelsz;
-    
-        http.request({
-            url: './php/profile.php',
-            data: data
-        })
-        .then(response => {
-          alert(response.message || "Az adatok sikeresen elmentve!");
-            console.log(response);
-        })
-        .catch(e => console.log(e));
-    };
-
-      $scope.saveProperties = () => {
-        let data = util.objMerge({}, $scope.model);
-        data.felhaszid = $rootScope.user.felhaszid;
-
-        let jelsz = $scope.model.jelsz;
-        if (!jelsz) {
-            alert("A mentéshez a jelenlegi jelszó megadása szükséges!");
-            return;
-        }
-    
-        data.jelsz = jelsz;
+        console.log(data)
     
         http.request({
             url: './php/profile.php',
@@ -442,10 +484,12 @@
             console.log(response);
             $state.go('home');
         })
-        .catch(e => console.log(e));
+        .catch(e => msg.error(e));
     };
     }
   ])
+
+  //Connection controller
   .controller('connectionController', [
     '$scope',
     'http',

@@ -2,7 +2,7 @@
 
 require_once('../../common/php/environment.php');
 
-$bido = Util::getArgs();
+$args = Util::getArgs();
 
 $db = new Database();
 
@@ -20,7 +20,7 @@ $query = "SELECT  `email`,
             WHERE `felhaszid` = :felhaszid
             LIMIT 1;";
 
-$result = $db->execute($query, $bido);
+$result = $db->execute($query, $args);
 
 $db = null;
 

@@ -126,6 +126,7 @@
                 <div class="mt-5 text-center">
                     <button class="btn btn-dark profile-button katt" 
                             type="button"
+                            ng-disabled="!model.jelsz"
                             ng-click="saveProperties()">
                             Mentés
                     </button>
@@ -140,38 +141,33 @@
                 </div>
             </div>
             <div class="px-3">
-                <div class="col-md-12">
-                    <label class="labels" 
-                           for="ujjelszo">
-                        Új jelszó
-                    </label>
-                    <input type="password" 
-                           id="ujjelszo"
-                           class="form-control" 
-                           placeholder="Új jelszó" 
-                           ng-model="model.jelszuj"
-                           ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
-                           ng-disable-space>
-                </div>
-                <div class="col-md-12 pt-2">
-                    <label class="labels" 
-                           for="megerosites">
-                        Új jelszó megerősítés
-                    </label>
-                    <input type="password" 
-                           id="megerosites"
-                           class="form-control" 
-                           placeholder="Új jelszó megerősítésé" 
-                           ng-model="model.jelszuj2"
-                           ng-disable-space>
-                </div>
-                <div class="mt-5 text-center">
-                    <button class="btn btn-dark profile-button katt" 
-                            type="button"
-                            ng-click="saveNewPassword()">
-                            Új jelszó mentése
-                    </button>
-                </div>
+                <form name="passwordForm" novalidate>
+                    <div class="col-md-12 position-relative">
+                        <label class="labels" for="ujjelszo">
+                            Új jelszó
+                        </label>
+                        <input type="password" 
+                               id="ujjelszo"
+                               class="form-control"
+                               placeholder="Új jelszó"
+                               ng-model="model.jelszuj"
+                               ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+                               required>
+                    </div>
+                    <div class="col-md-12 pt-2">
+                        <label class="labels" 
+                               for="megerosites">
+                            Új jelszó megerősítés
+                        </label>
+                        <input type="password" 
+                               id="megerosites"
+                               class="form-control" 
+                               placeholder="Új jelszó megerősítésé" 
+                               ng-model="model.jelszuj2"
+                               ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/"
+                               ng-disable-space>
+                    </div>
+                </form>
             </div>
            </div>
         </div>

@@ -9,25 +9,20 @@ $args = Util::getArgs();
 // Connect to database
 $db = new Database();
 
-// Merge arguments with default
-$args = Util::objMerge(array(
-  "kolcsonzesid" => null,
-  "felhaszid" => null,
-  "vegosszeg" => null,
-  "felvetel" => null,
-  "leadas" => null,
-  "kolcskezdet" => null,
-  "kolcsvege" => null
-), $args, true);  
-
 // Set SQL command
-$query = $db->preparateInsert ("kolcsonzes", $args);
+$query = $db->preparateInsert("kolcsonzes", $args);
 
 // Execute SQL command
 $result = $db->execute($query, array_values($args));
 
 // Close connection
 $db = null;
+
+// Check not success
+if (!$result['affectedRows']) {
+  // Set error
+  Util::setError('A foglalást nem sikerült végrehajtani!');
+}
 
 // Set response
 Util::setResponse($result);

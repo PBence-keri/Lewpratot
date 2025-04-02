@@ -460,8 +460,8 @@
         let ujJelszo = $scope.model.jelszuj;
         let ujJelszoMegerosites = $scope.model.jelszuj2;
 
-        console.log(ujJelszo) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel v idk
-        console.log(ujJelszoMegerosites) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel v idk
+        console.log(ujJelszo) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel
+        console.log(ujJelszoMegerosites) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel
 
         if (ujJelszo !== ujJelszoMegerosites) {
           msg.error("Az új jelszavak nem egyeznek!");

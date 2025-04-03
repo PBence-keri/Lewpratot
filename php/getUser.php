@@ -6,7 +6,7 @@ $args = Util::getArgs();
 
 $db = new Database();
 
-$query = "SELECT  `email`, 
+$query = "SELECT  `email`,
                   `vezeteknev`, 
                   `keresztnev`, 
                   `masodiknev`, 

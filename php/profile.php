@@ -19,7 +19,7 @@ $result = $db->execute($query, [$args['felhaszid']]);
 if ($result) {
     
     // If passwords match, update the password
-    if (!empty($args['jelszuj'])) {
+    if ($args['jelszuj']) {
 
         // Set new password directly
         $args['jelsz'] = $args['jelszuj'];
@@ -30,11 +30,10 @@ if ($result) {
     $updateQuery .= " WHERE `felhaszid` = :felhaszid";
     $result = $db->execute($updateQuery, $args);
     
-} else {
-    // If current password is incorrect
-    Util::setError("Helytelen jelszó!");
-    exit;
 }
+// If current password is incorrect
+Util::setError("Helytelen jelszó!");
+exit;
 
 // Check if the update was successful
 if (!$result['affectedRows']) {

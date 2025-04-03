@@ -302,6 +302,14 @@
     'http',
     'msg',
     function($state, $scope, form, user, util, http, msg) {
+<<<<<<< HEAD
+      console.log(util.localStorage('get', 'user'));
+      
+      if (util.localStorage('get', 'user').felhaszid !== null) {
+        $state.go('home');
+      }
+=======
+>>>>>>> 6c809fc9113cbfd06a7fd250663b7e09fab36f93
     
       // Set local methods
       let methods = {

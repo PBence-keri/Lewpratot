@@ -105,7 +105,7 @@
                   <div class="responsive-container-block big-container">
                     <div class="responsive-container-block container">
                       <div class="col-md-6">
-                        <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 left-one ">
+                        <div class="responsive-cell-block left-one ">
                           <div class="content-box mx-auto">
                             <p class="text-blk section-head">
                               LPT autókölcsönzés
@@ -136,7 +136,7 @@
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6 right-one mx-auto" id="i1zj">
+                        <div class="responsive-cell-block  right-one mx-auto" id="i1zj">
                           <form class="form-box" name="bidoForm">
                             <div class="container-block form-wrapper">
                               <p class="text-blk contactus-head">
@@ -146,37 +146,47 @@
                                 48 órán belül válaszolunk!
                               </p>
                               <div class="responsive-container-block">
-                                <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" 
+                                <div class="responsive-cell-block " 
                                      id="vezetek">
                                   <input class="input" 
                                          id="vezetek" 
+                                         style="color: #7f8c8d"
                                          name="vezeteknev"
+                                         
                                          ng-model="model.vezeteknev"
                                          placeholder="Vezetéknév"
                                          required>
                                 </div>
-                                <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="">
+                                <div class="responsive-cell-block ">
                                   <input class="input"      
                                          id="" 
                                          name="keresztnev" 
+                                         style="color: #7f8c8d;"
                                          placeholder="Keresztnév"
                                          ng-model="model.keresztnev"
                                          required>
                                 </div>
-                                <div class="responsive-cell-block wk-tab-12 
-                                            wk-mobile-12 wk-desk-6 wk-ipadp-6 emial" 
+                                <div class="responsive-cell-block emial" 
                                             id="">
                                   <input class="input" id="" name="email" 
                                          placeholder="Email"
+                                         style="color: #7f8c8d"
                                          ng-model="model.email"
                                          required>
                                 </div>
-                                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-                                  <input class="input" id="" name="telefonszam" placeholder="Telefonszám"
-                                  ng-model="model.telefonszam">
+                                <div class="responsive-cell-block">
+                                  <input class="input"  
+                                         name="telefonszam" 
+                                         placeholder="Telefonszám"
+                                         ng-model="model.telefonszam"
+                                         style="color: #7f8c8d"
+                                  >
                                 </div>
-                                <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="">
-                                  <textarea class="textinput" id="" name="uzenet" placeholder="Írj üzenetet ide"
+                                <div class="responsive-cell-block">
+                                  <textarea class="textinput"
+                                            name="uzenet" 
+                                         style="color: #7f8c8d"
+                                            placeholder="Írj üzenetet ide"
                                             ng-model="model.uzenet"
                                             required>
 

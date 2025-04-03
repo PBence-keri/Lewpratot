@@ -118,26 +118,12 @@
                               Várjuk érdeklődését!
                             </p>
                             <p class="text-blk section-subhead">Üdvözlettel, LPT.</p>
-                            <div class="icons-container mt-5">
-                              <a class="share-icon">
-                                <img class="img" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png">
-                              </a>
-                              <a class="share-icon">
-                                <img class="img" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png">
-                              </a>
-                              <a class="share-icon">
-                                <img class="img" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png">
-                              </a>
-                              <a class="share-icon">
-                                <img class="img" src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png">
-                              </a>
-                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="responsive-cell-block  right-one mx-auto" id="i1zj">
-                          <form class="form-box" name="bidoForm">
+                        <div class="responsive-cell-block right-one mx-auto" id="i1zj">
+                          <form class="form-box" name="helpForm">
                             <div class="container-block form-wrapper">
                               <p class="text-blk contactus-head">
                                 Kérj Segítséget!
@@ -152,7 +138,6 @@
                                          id="vezetek" 
                                          style="color: #7f8c8d"
                                          name="vezeteknev"
-                                         
                                          ng-model="model.vezeteknev"
                                          placeholder="Vezetéknév"
                                          required>
@@ -166,8 +151,8 @@
                                          ng-model="model.keresztnev"
                                          required>
                                 </div>
-                                <div class="responsive-cell-block emial" 
-                                            id="">
+                                <div class="responsive-cell-block email" 
+                                     id="">
                                   <input class="input" id="" name="email" 
                                          placeholder="Email"
                                          style="color: #7f8c8d"
@@ -185,7 +170,7 @@
                                 <div class="responsive-cell-block">
                                   <textarea class="textinput"
                                             name="uzenet" 
-                                         style="color: #7f8c8d"
+                                            style="color: #7f8c8d"
                                             placeholder="Írj üzenetet ide"
                                             ng-model="model.uzenet"
                                             required>
@@ -194,7 +179,7 @@
                                 </div>
                               </div>
                               <button class="submit-btn rent3"
-                                      ng-disabled="bidoForm.$invalid"
+                                      ng-disabled="helpForm.$invalid"
                                       ng-click="connection()">
                                 Segítségkérés
                               </button>

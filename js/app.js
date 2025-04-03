@@ -460,8 +460,8 @@
         let ujJelszo = $scope.model.jelszuj;
         let ujJelszoMegerosites = $scope.model.jelszuj2;
 
-        console.log(ujJelszo) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel
-        console.log(ujJelszoMegerosites) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel
+        console.log(ujJelszo)
+        console.log(ujJelszoMegerosites)
 
         if (ujJelszo !== ujJelszoMegerosites) {
           msg.error("Az új jelszavak nem egyeznek!");
@@ -480,7 +480,7 @@
             data: data
         })
         .then(response => {
-          alert(response.message || "Az adatok sikeresen elmentve!");
+          msg.show(response.message || "Az adatok sikeresen elmentve!");
             console.log(response);
             $state.go('home');
         })

@@ -22,7 +22,10 @@
                 <div class="card-body">
                     <h5 class="card-title fw-bold fs-4 text-center">Tippek Autóbérléshez</h5>
                     <p class="card-text fs-5">Összegyűjtöttük a legjobb tanácsokat, hogy zökkenőmentes legyen a bérlés.</p>
-                    <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#rentalTips">
+                    <button class="btn btn-dark" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#rentalTips">
                         Tovább olvasom
                     </button>
                     <div class="collapse mt-3" id="rentalTips">
@@ -177,25 +180,31 @@
     <div id="carouselExample" class="carousel slide mb-5" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="./img/blog_vezet.jpg" class="d-block w-100" style="width: 500px;" alt="Vezet">
+            <img src="./img/blog_vezet.jpg" 
+                 class="d-block w-100" 
+                 style="width: 500px;" 
+                 alt="Vezet">
             <div class="carousel-caption d-none d-md-block">
               <h5 class="fs-3">"Nagyon elégedett voltam a kölcsönzéssel! Az autó tiszta, jól karbantartott, és az ügyfélszolgálat segítőkész volt, minden zökkenőmentesen ment."</h5>
               <p class="fs-3">-T.</p>
             </div>
           </div>
           <div class="carousel-item border">
-            <img src="./img/blog_vezet.jpg" class="d-block w-100" style="width: 500px;" alt="Vezet">
+            <img src="./img/blog_vezet.jpg" 
+                 class="d-block w-100" 
+                 style="width: 500px;" 
+                 alt="Vezet">
             <div class="carousel-caption d-none d-md-block">s
               <h5 class="fs-2">"Gyors ügyintézés, kedvező árak és kifogástalan állapotú autók – csak ajánlani tudom!"</h5>
               <p class="fs-3">-B.</p>
             </div>
           </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Előző</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Következő</span>
         </a>
@@ -208,18 +217,38 @@
     
         <form name="reviewForm" ng-submit="submitReview()">
             <div class="mb-3">
-                <label for="name" class="form-label">Név</label>
-                <input type="text" class="form-control" id="name" ng-model="review.name" placeholder="Név" required>
+                <label for="name" 
+                       class="form-label">
+                    Név
+                </label>
+                <input type="text" 
+                       class="form-control" 
+                       id="name" 
+                       ng-model="review.name" 
+                       placeholder="Név" 
+                       required>
             </div>
     
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" ng-model="review.email" placeholder="Email" required>
+                <label for="email" 
+                       class="form-label">
+                    Email
+                </label>
+                <input type="email" 
+                       class="form-control" 
+                       id="email" 
+                       ng-model="review.email" 
+                       placeholder="Email" 
+                       required>
             </div>
     
             <div class="mb-3">
-                <label for="rating" class="form-label">Értékelés</label>
-                <div class="star-rating" ng-mouseleave="resetStars()">
+                <label for="rating" 
+                       class="form-label">
+                    Értékelés
+                </label>
+                <div class="star-rating" 
+                     ng-mouseleave="resetStars()">
                     <span ng-repeat="star in [1, 2, 3, 4, 5]" 
                           ng-class="{'selected': star <= review.rating || star <= hoveredRating}" 
                           class="star"
@@ -232,15 +261,23 @@
             </div>
     
             <div class="mb-3">
-                <label for="review" class="form-label">Ön értékelése</label>
-                    <textarea   class="form-control" 
-                                id="review" 
-                                ng-model="review.comment" 
-                                rows="4" 
-                                placeholder="Írjon értékelést..." 
-                                required></textarea>
+                <label for="review" 
+                       class="form-label">
+                    Ön értékelése
+                </label>
+                <textarea class="form-control" 
+                          id="review" 
+                          ng-model="review.comment" 
+                          rows="4" 
+                          placeholder="Írjon értékelést..." 
+                          required>
+                </textarea>
             </div>
-            <button type="submit" class="btn btn-primary" ng-disabled="reviewForm.$invalid">Beküldés</button>
+            <button type="submit" 
+                    class="btn btn-primary" 
+                    ng-disabled="reviewForm.$invalid">
+                Beküldés
+            </button>
         </form>
     </div>
 
@@ -252,9 +289,16 @@
        
         <form action="#" method="POST">
             <div class="mb-3">
-                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                <input type="email" 
+                       class="form-control" 
+                       id="email" 
+                       placeholder="Email" 
+                       required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Feliratkozás</button>
+            <button type="submit" 
+                    class="btn btn-primary w-100">
+                Feliratkozás
+            </button>
         </form>
     </div>
 </div>

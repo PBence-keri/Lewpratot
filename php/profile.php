@@ -31,9 +31,9 @@ if ($result) {
     $result = $db->execute($updateQuery, $args);
     
 }
-// If current password is incorrect
-Util::setError("Helytelen jelszó!");
-exit;
+    // If current password is incorrect
+    Util::setError("Helytelen jelszó!");
+    exit;
 
 // Check if the update was successful
 if (!$result['affectedRows']) {

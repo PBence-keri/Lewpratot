@@ -6,7 +6,7 @@
         <div class="col-md-4 image w-auto mt-5" >
           <div class="card text-white mt-4" style="border: 2px solid red;">
             <div class="card text-white col-md-12">
-            <img src="./img/{{data.kep}}" class="card-img">
+            <img ng-src="./img/{{data.kep}}" class="card-img">
           </div>
         </div>
       </div>
@@ -23,28 +23,70 @@
             <div class="card rounded-3 text-black card-body rent col-md-12">
               <div class="col-lg-12">
                 <div>
-                  <form>
+                  <form name="rentForm" novalidate>
                     <div data-input-init class="form-outline mb-4">
-                      <label class="form-label" for="name" style="color: white;">Felvétel helye:</label>
-                      <input type="text" id="name" class="form-control rent2" placeholder="Pl.: Makó, Posta utca 4-6.">
+                      <label class="form-label" 
+                             for="felvhely" 
+                             style="color: white;">
+                        Felvétel helye:
+                      </label>
+                      <input type="text" 
+                             id="felvhely" 
+                             class="form-control rent2" 
+                             placeholder="Pl.: Makó, Posta utca 4-6."
+                             required
+                             ng-model="model.felvhely">
                     </div>
                     <div data-input-init class="form-outline mb-4">
-                      <label class="form-label" for="email" style="color: white;">Leadás helye:</label>
-                      <input type="email" id="email" class="form-control rent2" placeholder="Pl.: Makó, Posta utca 4-6.">
+                      <label class="form-label" 
+                             for="leadhely" 
+                             style="color: white;">
+                        Leadás helye:
+                      </label>
+                      <input type="text" 
+                             id="leadhely" 
+                             class="form-control rent2" 
+                             placeholder="Pl.: Makó, Posta utca 4-6."
+                             required
+                             ng-model="model.leadhely">
                     </div>
                     <div data-input-init class="form-outline mb-4">
-                      <label class="form-label" for="datePickerId" style="color: white;">Felvétel dátuma:</label>
-                      <input type="date" id="datePickerId" class="form-control rent2">
-                    </div>
+                      <label class="form-label" 
+                             for="felvdatum" 
+                             style="color: white;">
+                        Felvétel dátuma:
+                      </label>
+                      <input type="date" 
+                             id="felvdatum" 
+                             class="form-control rent2"
+                             required
+                             ng-model="model.felvdatum">
+                            </div>
                     <div data-input-init class="form-outline mb-4">
-                      <label class="form-label" for="born" style="color: white;">Leadás dátuma:</label>
-                      <input type="date" id="born" class="form-control rent2">
+                      <label class="form-label" 
+                             for="leaddatum" 
+                             style="color: white;">
+                        Leadás dátuma:
+                      </label>
+                      <input type="date" 
+                             id="leaddatum" 
+                             class="form-control rent2"
+                             required
+                             ng-model="model.leaddatum">
                     </div>
                     <div>
-                      <h3 class="text-light">Ár: {{data.ar}} Ft</h3>
+                      <h3 class="text-light">
+                        Ár: {{data.ar}} Ft / Nap
+                      </h3>
                     </div>
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button data-button-init class="btn btn-dark mt-3 rent3" type="button" disabled>Bérlés</button>
+                      <button data-button-init 
+                              class="btn btn-dark mt-3 rent3" 
+                              type="button" 
+                              ng-click="methods.rent()"
+                              ng-disabled="rentForm.$invalid">
+                        Bérlés
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -124,7 +166,10 @@
                   Milyen feltételek szükségesek az autóbérléshez?
           </button>
         </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordion">
+        <div id="flush-collapseOne" 
+             class="accordion-collapse collapse" 
+             aria-labelledby="flush-headingOne" 
+             data-bs-parent="#accordion">
           <div class="accordion-body">Általában betöltött 20 éves életkor és legalább 1 éves vezetői engedély szükséges.</div>
         </div>
       </div>
@@ -140,7 +185,10 @@
                   Hány személy vezetheti a bérelt autót?
           </button>
         </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordion">
+        <div id="flush-collapseTwo" 
+             class="accordion-collapse collapse" 
+             aria-labelledby="flush-headingTwo" 
+             data-bs-parent="#accordion">
           <div class="accordion-body">Ez a bérleti szerződéstől függ, de általában csak a szerződésben megnevezett személyek vezethetik.</div>
         </div>
       </div>
@@ -157,7 +205,8 @@
           </button>
         </h2>
         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordion">
-          <div class="accordion-body">Azonnal értesítse az <strong>LPT</strong> valamelyik dolgozóját, és kövesse az általa megadott utasításokat.</div>
+          <div class="accordion-body">
+            Azonnal értesítse az <strong>LPT</strong> valamelyik dolgozóját, és kövesse az általa megadott utasításokat.</div>
         </div>
       </div>
       <div class="accordion-item">
@@ -172,7 +221,10 @@
                   Mi a helyzet az üzemanyaggal?
           </button>
         </h2>
-        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordion">
+        <div id="flush-collapseFour" 
+             class="accordion-collapse collapse" 
+             aria-labelledby="flush-headingFive" 
+             data-bs-parent="#accordion">
           <div class="accordion-body">A kölcsönzött autókat tele tankkal adjuk a bérlőnek, így tele tankkal várjuk vissza.</div>
         </div>
       </div>
@@ -188,8 +240,14 @@
                   Mi történik, ha késve adom vissza az autót?
           </button>
         </h2>
-        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordion">
-          <div class="accordion-body">A késve érkezett autókra extra költséget számolunk fel. A költség óránként: <strong>2000Ft</strong></div>
+        <div id="flush-collapseFive" 
+             class="accordion-collapse collapse" 
+             aria-labelledby="flush-headingTwo" 
+             data-bs-parent="#accordion">
+          <div class="accordion-body">
+            A késve érkezett autókra extra költséget számolunk fel. A költség óránként: 
+            <strong>2000Ft</strong>
+          </div>
         </div>
       </div>
       <div class="accordion-item">
@@ -204,14 +262,15 @@
                   Hogyan történik a fizetés?
           </button>
         </h2>
-        <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordion">
-          <div class="accordion-body">A fizetés a felvevő helyen törtéik személyesen. Készpénzes és bankkártytás fizetést egyaránt elfogadunk.</div>
+        <div id="flush-collapseSix" 
+             class="accordion-collapse collapse" 
+             aria-labelledby="flush-headingTwo" 
+             data-bs-parent="#accordion">
+          <div class="accordion-body">
+            A fizetés a felvevő helyen törtéik személyesen. Készpénzes és bankkártytás fizetést egyaránt elfogadunk.
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  datePickerId.min = new Date().toISOString().split("T")[0];
-</script>

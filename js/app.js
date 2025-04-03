@@ -8,20 +8,8 @@
     'app.common',
     'app.message',
     'app.user',
-		'app.form',
+    'app.form',
   ])
-
-    .controller('MainCtrl', function($scope) {
-      // Kezdetben rejtve van a div
-      $scope.showDiv = false;
-
-      // Funkció, amely változtatja a div láthatóságát
-      $scope.toggleDiv = function() {
-        $scope.showDiv = !$scope.showDiv;
-      };
-    })
-    
-  
 
   // Application config
   .config([
@@ -63,11 +51,13 @@
           url: '/connection',
           parent: 'root',
           templateUrl: './html/connection.html',
+          controller: 'connectionController'
         })
         .state('blog', {
           url: '/blog',
           parent: 'root',
           templateUrl: './html/blog.html',
+          controller: 'blogController',
         })
         .state('login', {
           url: '/login',
@@ -95,27 +85,39 @@
           parent: 'root',
           templateUrl: './html/profile.html',
           controller: 'profileController'
+        })
+
+        .state('help', {
+          url: '/help',
+          parent: 'root',
+          templateUrl: './html/connection.html',
+          controller: 'helpController'
         });
         
       $urlRouterProvider.otherwise('/');
     }
   ])
 
-  // Application run
+  //Application run
   .run([  
     '$rootScope',
     'user',
     'util',
-    ($rootScope, user, util) => {
-      user.init();
-      if (util.localStorage("get", "user")) {
-        user.set(util.localStorage("get", "user"));
-      }
-      $rootScope.state = {default: "home"};
+    'trans',
+    ($rootScope, user, util, trans) => {
+
+      trans.events(['login'], ['profile']);
+
+      user.init({felhaszid:null}, () => {
+
+        // When user properties exist, then set
+        let user = util.localStorage("get", "user");
+        if (user) $rootScope.user = util.objMerge($rootScope.user, user);
+      });
     }
   ])
 
-  // Home controller
+  //Home controller
   .controller('homeController', [
     '$scope',
     function($scope) {
@@ -123,35 +125,66 @@
     }
   ])
 
-  // Navbar controller
-  .controller('navbarController', [
+  .controller('blogController', [
     '$scope',
-    '$rootScope',
-    '$state',
-    'util',
-    'user',
-    function($scope, $rootScope, $state, util, user) {
-      console.log("Navbar controller")
-      $scope.logout = () =>  {
-        
-        console.log(util.localStorage('get','user'))
-        
-        $rootScope.logout();
-        user.reset();
-        util.localStorage('set', 'user', user.get());
-        
-        
-        
-      }
+    function($scope) {
+      $scope.review = {
+        name: '',
+        email: '',
+        rating: null,
+        comment: ''
+      };
+    
+      $scope.hoveredRating = 0;  
+
+      $scope.setRating = function(star) {
+        $scope.review.rating = star;
+      };
+
+    
+      $scope.hoverRating = function(star) {
+        $scope.hoveredRating = star;
+      };
+
+    
+      $scope.resetStars = function() {
+        $scope.hoveredRating = 0;
+      };
+
+    
+      $scope.submitReview = function() {
+        if ($scope.reviewForm.$valid) {
+          console.log('Review submitted', $scope.review);
+          alert('Köszönjük az értékelést!');
+          $scope.review = { name: '', email: '', rating: null, comment: '' }; 
+        }
+      };
+      console.log("Home controller")
     }
   ])
 
-  // Rental controller
+  // Navbar controller
+  .controller('navbarController', [
+    '$scope',
+    function($scope) {
+      console.log("Navbar controller")
+    }
+  ])
+
+  //Rental controller
   .controller('rentalController', [
     '$scope',
     'http',
     function($scope, http) {
       
+      // Kezdetben rejtve van a div
+      $scope.showDiv = false;
+
+      // Funkció, amely változtatja a div láthatóságát
+      $scope.toggleDiv = function() {
+        $scope.showDiv = !$scope.showDiv;
+      };
+
       $scope.model = {brand: 0};
       http.request('./php/card.php')
       .then(response => {
@@ -159,24 +192,87 @@
         $scope.markak = response.markak;
         $scope.$applyAsync();
       })
-      
       .catch(e=>console.log(e));
-      
     }
   ])
 
-  // Rent controller
+  //Rent controller
   .controller('rentController', [
-    'util',
-    'http',
     '$state',
     '$scope',
-		
-    function(util, http, $state, $scope) {
-      if (util.localStorage('get', 'user').felhaszid == null) {
-        $state.go('home');
-      }
-			send: () => {
+    '$rootScope',
+    '$stateParams',
+    'http',
+    function($state, $scope, $rootScope, $stateParams, http) {
+
+           // Set local methods
+           let methods = {
+
+            // Initialize
+            init: () => {
+    
+              $scope.data = $stateParams.data;
+              if (!$scope.data) {
+                $state.go('rental');
+                return;
+              }
+              felvdatum.min = new Date().toISOString().split("T")[0];
+              leaddatum.min = new Date().toISOString().split("T")[0];
+
+            }
+          };
+    
+          // Set scope methods
+          $scope.methods = {
+    
+            // Register
+            rent: () => {
+              console.log($scope.data)
+              let rentData = {
+                'felhaszid': $rootScope.user.felhaszid,
+                'vegosszeg': $scope.data.ar,
+                'felvhely': $scope.model.felvhely,
+                'leadhely': $scope.model.leadhely,
+                'felvdatum': $scope.model.felvdatum,
+                'leaddatum': $scope.model.leaddatum,
+                'jarmuid': $scope.data.jarmuid
+              }
+              console.log(rentData)
+
+              http.request({
+                method: 'POST',
+                url: './php/rent.php',
+                data: rentData
+              })
+              .then(function(response) {
+                console.log('Response:', response);
+                if (response.affectedRows) {
+                  $scope.model.felvhely = "";
+                  $scope.model.leadhely = "";
+                  $scope.model.felvdatum = "";
+                  $scope.model.leaddatum = "";
+                }
+              })
+              .catch(function(error) {
+                msg.error(error.message || error);
+              });
+            }
+          }
+      methods.init();
+
+    }
+  ])
+
+  //Help controller
+  .controller('helpController', [
+    'http',
+    'util',
+    '$state',
+    '$scope',
+    
+    function(http, util, $state, $scope) {
+
+      send: () => {
         // Set request
         http.request({
           url: "./php/help.php",
@@ -193,12 +289,10 @@
           msg.error(e.message || e);
         });
       }
-
-      
     }
   ])
 
-  // Login controller
+  //Login controller
   .controller('loginController', [
     '$state',
     '$scope',
@@ -208,11 +302,14 @@
     'http',
     'msg',
     function($state, $scope, form, user, util, http, msg) {
+<<<<<<< HEAD
       console.log(util.localStorage('get', 'user'));
       
       if (util.localStorage('get', 'user').felhaszid !== null) {
         $state.go('home');
       }
+=======
+>>>>>>> 6c809fc9113cbfd06a7fd250663b7e09fab36f93
     
       // Set local methods
       let methods = {
@@ -264,11 +361,7 @@
     'msg',
     'util',
     'http',
-    'user',
-    function($state, $scope, form, msg, util, http, user) {
-      if (util.localStorage('get', 'user').felhaszid !== null) {
-        $state.go('home');
-      }
+    function($state, $scope, form, msg, util, http) {
 
       // Set local methods
       let methods = {
@@ -277,7 +370,7 @@
         init: () => {
 
           // Set focus
-					form.focus();
+          form.focus();
         }
       };
 
@@ -316,9 +409,6 @@
               // Initialize missing data
               data.felhaszid = response.lastInsertId;
 
-              // Set user properties
-              //user.set(data);
-
               // Save user email address
               util.localStorage('set', 'email', data.email);
 
@@ -342,22 +432,87 @@
     }
   ])
 
-  // Profile controller
+  //Profile controller
   .controller('profileController', [
+    '$rootScope',
     '$scope',
     '$state',
     'util',
     'user',
-    function($scope, $state, util, user) {
-      console.log("Profile controller");
-      $scope.data = user.get();
-      console.log(user.get())
-      if (util.localStorage('get', 'user').felhaszid == null) {
-        $state.go('home');
-      }
+    'http',
+    'msg',
+    function($rootScope, $scope, $state, util, user, http, msg) {
+
+      http.request({
+        url: './php/getUser.php',
+        data: {felhaszid: $rootScope.user.felhaszid}
+      })
+      .then(response => {
+        $scope.model = response;
+        $scope.$applyAsync();
+      })
+      .catch(e => console.log(e));
+
+      $scope.saveProperties = () => {
+        let data = util.objMerge({}, $scope.model);
+        data.felhaszid = $rootScope.user.felhaszid;
+
+        let jelsz = $scope.model.jelsz;
+        if (!jelsz) {
+            msg.error("A mentéshez a jelenlegi jelszó megadása szükséges!");
+            return;
+        }
+
+        console.log(data);
+
+        let ujJelszo = $scope.model.jelszuj;
+        let ujJelszoMegerosites = $scope.model.jelszuj2;
+
+        console.log(ujJelszo) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel
+        console.log(ujJelszoMegerosites) //azert null mert ng-pattern miatt nem jo az uj jelszo -> le kell ellenorizni button disablednel
+
+        if (ujJelszo !== ujJelszoMegerosites) {
+          msg.error("Az új jelszavak nem egyeznek!");
+          return;
+        }
+
+        if (ujJelszo) {
+          data.jelszuj = ujJelszo;
+        }
+    
+        data.jelsz = jelsz;
+        console.log(data)
+    
+        http.request({
+            url: './php/profile.php',
+            data: data
+        })
+        .then(response => {
+          alert(response.message || "Az adatok sikeresen elmentve!");
+            console.log(response);
+            $state.go('home');
+        })
+        .catch(e => msg.error(e));
+    };
     }
   ])
 
-  
+  //Connection controller
+  .controller('connectionController', [
+    '$scope',
+    'http',
+    function($scope, http) {
+      $scope.connection = () => {
+        http.request({
+          url: './php/connection.php',
+          data: $scope.model
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(e => console.log(e));
+      }
+    }
+  ])
 
 })(window, angular); 

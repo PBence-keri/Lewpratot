@@ -53,7 +53,12 @@
                   (!model.brand || car.marka === model.brand)">
         <img ng-src="./img/{{car.kep}}">
         <h3 class="carcolor">{{car.autonev}}</h3>
-        <p>Lóerő: {{car.loero}} <br> Az autó fogyasztása 100km-eren: {{car.fogyasztas}} liter<br> Az autó váltója: {{car.valtos}} <br> Az autó üzemanyaga: {{car.uzemanyag}}</p>
+        <p>
+          Lóerő: {{car.loero}} 
+          <br> Az autó fogyasztása 100km-eren: {{car.fogyasztas}} liter
+          <br> Az autó váltója: {{car.valtos}} 
+          <br> Az autó üzemanyaga: {{car.uzemanyag}}
+        </p>
         <p class="price">{{car.ar}} Ft/nap</p>
         <p class="price">{{car.ar*7}} Ft/hét</p>
         <button ui-sref="rent({'data': car})"
@@ -62,24 +67,49 @@
           Bérlés
         </button>
         <button ng-show="!$root.user.felhaszid"
-                data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                data-bs-toggle="modal" 
+                data-bs-target="#staticBackdrop">
           Bérlés 
         </button>
       </div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" 
+         id="staticBackdrop" 
+         data-bs-backdrop="static" 
+         data-bs-keyboard="false" 
+         tabindex="-1" 
+         aria-labelledby="staticBackdropLabel" 
+         aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content" style="background-color: black; border: 2px solid red;">
-          <div class="modal-header" style="background-color: black;">
+        <div class="modal-content" 
+             style="background-color: black; border: 2px solid red;">
+          <div class="modal-header" 
+               style="background-color: black;">
             <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" 
+                    class="btn-close" 
+                    data-bs-dismiss="modal" 
+                    aria-label="Close">
+            </button>
           </div>
           <div class="modal-body alert alert-light mt-3" >
-            <div class="text-center mt-2"><strong>Vigyázz!</strong> Az autó bérléshez be kell <a data-bs-dismiss="modal" ui-sref="login">jelentkezned.</a></div> <br> <div class="text-center">Ha nincs felhasználó fiókod, <a data-bs-dismiss="modal" ui-sref="register">regisztrálj</a>!</div>
+            <div class="text-center mt-2"><strong>Vigyázz!</strong> 
+              Az autó bérléshez be kell <a data-bs-dismiss="modal" ui-sref="login">jelentkezned.</a></div><br> 
+              <div class="text-center">
+                Ha nincs felhasználó fiókod, 
+                <a data-bs-dismiss="modal" ui-sref="register">
+                  regisztrálj
+                </a>!
+              </div>
           </div>
           <div class="modal-footer" style="background-color: black;">
-            <button type="button" class="car-card btn" style="color: red;" data-bs-dismiss="modal">Bezár</button>
+            <button type="button" 
+                    class="car-card btn" 
+                    style="color: red;" 
+                    data-bs-dismiss="modal">
+              Bezár
+            </button>
           </div>
         </div>
       </div>

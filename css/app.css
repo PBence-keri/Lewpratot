@@ -562,3 +562,24 @@ ul{
   padding: 15px;
   border-radius: 10px;
 }
+
+.bg-color{
+  background-color: #151617;
+  border: 2px solid #FF0800;
+}
+
+.star-rating {
+  display: flex;
+  cursor: pointer;
+}
+.star {
+  font-size: 30px;
+  color: #d3d3d3; /* Light grey */
+  margin-right: 5px;
+}
+.star.selected, .star:hover {
+  color: #f1c40f; /* Gold color */
+}
+.star:hover {
+  transition: color 0.2s ease;
+}

@@ -6,28 +6,43 @@ require_once("../../common/php/environment.php");
 // Get arguments
 $args = Util::getArgs();
 
-// Connect to database
+// Set SQL query to check the current password
+$query = "SELECT `jelsz` FROM `user` WHERE `felhaszid` = ? LIMIT 1";
+
+// Connect to MySQL server
 $db = new Database();
 
-// Merge arguments with default
-$args = Util::objMerge(array(
-  "kolcsonzesid" => null,
-  "felhaszid" => null,
-  "vegosszeg" => null,
-  "felvetel" => null,
-  "leadas" => null,
-  "kolcskezdet" => null,
-  "kolcsvege" => null
-), $args, true);  
+// Execute the query to check if the current password matches
+$result = $db->execute($query, [$args['felhaszid']]);
 
-// Set SQL command
-$query = $db->preparateUpdate ("user", $args);
+// Check if the current password is correct
+if ($result) {
+    
+    // If passwords match, update the password
+    if ($args['jelszuj']) {
 
-// Execute SQL command
-$result = $db->execute($query, array_values($args));
+        // Set new password directly
+        $args['jelsz'] = $args['jelszuj'];
+    }
 
-// Close connection
+    // Prepare SQL query to update the user data
+    $updateQuery = $db->preparateUpdate("user", $args, "felhaszid");
+    $updateQuery .= " WHERE `felhaszid` = :felhaszid";
+    $result = $db->execute($updateQuery, $args);
+    
+}
+// If current password is incorrect
+Util::setError("Helytelen jelszó!");
+exit;
+
+// Check if the update was successful
+if (!$result['affectedRows']) {
+    // If no rows were affected, set an error
+    Util::setError('Nincsennek változások!');
+}
+
+// Close the database connection
 $db = null;
 
-// Set response
+// Return the response to the client
 Util::setResponse($result);

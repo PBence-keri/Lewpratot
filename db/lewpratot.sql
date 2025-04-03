@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 18. 11:34
+-- Létrehozás ideje: 2025. Már 26. 11:56
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `lewpratot`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `connection`
+--
+
+CREATE TABLE `connection` (
+  `id` int(11) NOT NULL,
+  `vezeteknev` varchar(100) NOT NULL,
+  `keresztnev` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telefonszam` varchar(20) NOT NULL,
+  `uzenet` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `connection`
+--
+
+INSERT INTO `connection` (`id`, `vezeteknev`, `keresztnev`, `email`, `telefonszam`, `uzenet`) VALUES
+(1, 'Ódry', 'Attila', 'odry.attila@keri.mako.hu', '222', 'Áldjon meg benneteket az Isten!');
 
 -- --------------------------------------------------------
 
@@ -148,10 +170,10 @@ CREATE TABLE `kolcsonzes` (
   `kolcsonzesid` int(25) NOT NULL,
   `felhaszid` int(11) NOT NULL,
   `vegosszeg` int(11) NOT NULL,
-  `felvetel` varchar(50) NOT NULL,
-  `leadas` varchar(50) NOT NULL,
-  `kolcskezdet` date NOT NULL,
-  `kolcsvege` date NOT NULL
+  `felvhely` varchar(50) NOT NULL,
+  `leadhely` varchar(50) NOT NULL,
+  `felvdatum` date NOT NULL,
+  `leaddatum` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -219,11 +241,19 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `masodiknev`, `telszam`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
 (1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', 'Leonárd', '06201114466', '2005-07-06', 'M', 'Doktor u. 5', 6000, 'Tilted towers'),
-(7, '1234Aa', 'asd@asdasd.com', 'asd', 'asd', NULL, '06201112233', '1988-12-13', 'M', NULL, NULL, NULL);
+(7, '1234Aa', 'asd@asdasd.com', 'asd', 'asd', NULL, '06201112233', '1988-12-13', 'M', NULL, NULL, NULL),
+(8, '1234Aa', 'a@a.aa', 'AAAAAAAAAAAA', 'BBBBBBBBBBBB', NULL, '2332323223', '2026-07-24', 'M', 'AAAAAAAAAAAAAAAAAAAAA', 0, 'assasa'),
+(9, '1234Aa', 'nagyjanos@gmail.com', 'Nagy', 'János', 'László', '06704443312', '1999-01-04', 'M', NULL, NULL, 'Kaposvár');
 
 --
 -- Indexek a kiírt táblákhoz
 --
+
+--
+-- A tábla indexei `connection`
+--
+ALTER TABLE `connection`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `dijak`
@@ -282,6 +312,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT a táblához `connection`
+--
+ALTER TABLE `connection`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT a táblához `fizetes`
 --
 ALTER TABLE `fizetes`
@@ -294,6 +330,12 @@ ALTER TABLE `jarmuvek`
   MODIFY `jarmuid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
+-- AUTO_INCREMENT a táblához `kolcsonzes`
+--
+ALTER TABLE `kolcsonzes`
+  MODIFY `kolcsonzesid` int(25) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT a táblához `markak`
 --
 ALTER TABLE `markak`
@@ -303,7 +345,7 @@ ALTER TABLE `markak`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

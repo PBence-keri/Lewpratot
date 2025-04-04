@@ -29,6 +29,7 @@ if ($result && isset($result[0]['jelsz'])) {
             // Prepare SQL query to update the user data
             $updateQuery = "UPDATE `user` SET `jelsz` = :jelsz WHERE `felhaszid` = :felhaszid";
             $updateResult = $db->execute($updateQuery, ['jelsz' => $args['jelsz'], 'felhaszid' => $args['felhaszid']]);
+            //if no new password preparate
 
             // Check if the update was successful
             if (isset($updateResult['affectedRows']) && $updateResult['affectedRows'] > 0) {
@@ -36,8 +37,9 @@ if ($result && isset($result[0]['jelsz'])) {
             }
             Util::setError('Nincsenek változások!');
         }
-        // If no new password is provided, just return success (no update needed)
-        Util::setResponse(['Nincs új jelszó, nem történt változtatás.']);
+        $updateDataQuery = $db->preparateUpdate("user", $args);
+        unset($args['jelsz']);
+        $updateDataResult = $db->execute($updateDataQuery, $args);
     }
     // If current password is incorrect
     Util::setError("Helytelen jelszó!");

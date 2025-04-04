@@ -15,34 +15,33 @@ $db = new Database();
 // Execute the query to check if the current password matches
 $result = $db->execute($query, [$args['felhaszid']]);
 
-// Check if the current password is correct
-if ($result) {
+// Check if a result was found
+if ($result && isset($result[0]['jelsz'])) {
+    $jelsz = $result[0]['jelsz'];
     
-    // If passwords match, update the password
-    if ($args['jelszuj']) {
+    // If passwords match
+    if ($args['jelsz'] === $jelsz) {
 
-        // Set new password directly
-        $args['jelsz'] = $args['jelszuj'];
+        // Only update if a new password is provided
+        if (!empty($args['jelszuj'])) {
+            $args['jelsz'] = $args['jelszuj'];
+
+            // Prepare SQL query to update the user data
+            $updateQuery = "UPDATE `user` SET `jelsz` = :jelsz WHERE `felhaszid` = :felhaszid";
+            $updateResult = $db->execute($updateQuery, ['jelsz' => $args['jelsz'], 'felhaszid' => $args['felhaszid']]);
+
+            // Check if the update was successful
+            if (isset($updateResult['affectedRows']) && $updateResult['affectedRows'] > 0) {
+                Util::setResponse($updateResult); // If successful, return the result
+            }
+            Util::setError('Nincsenek változások!');
+        }
+        // If no new password is provided, just return success (no update needed)
+        Util::setResponse(['Nincs új jelszó, nem történt változtatás.']);
     }
-
-    // Prepare SQL query to update the user data
-    $updateQuery = $db->preparateUpdate("user", $args, "felhaszid");
-    $updateQuery .= " WHERE `felhaszid` = :felhaszid";
-    $result = $db->execute($updateQuery, $args);
-    
-}
     // If current password is incorrect
     Util::setError("Helytelen jelszó!");
-    exit;
-
-// Check if the update was successful
-if (!$result['affectedRows']) {
-    // If no rows were affected, set an error
-    Util::setError('Nincsennek változások!');
 }
 
 // Close the database connection
 $db = null;
-
-// Return the response to the client
-Util::setResponse($result);

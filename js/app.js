@@ -448,31 +448,31 @@
         let data = util.objMerge({}, $scope.model);
         data.felhaszid = $rootScope.user.felhaszid;
 
-        let jelsz = $scope.model.jelsz;
-        if (!jelsz) {
-            msg.error("A mentéshez a jelenlegi jelszó megadása szükséges!");
-            return;
-        }
+        // let jelsz = $scope.model.jelsz;
+        // if (!jelsz) {
+        //     msg.error("A mentéshez a jelenlegi jelszó megadása szükséges!");
+        //     return;
+        // }
 
-        console.log(data);
+        // console.log(data);
 
-        let ujJelszo = $scope.model.jelszuj;
-        let ujJelszoMegerosites = $scope.model.jelszuj2;
+        // let ujJelszo = $scope.model.jelszuj;
+        // let ujJelszoMegerosites = $scope.model.jelszuj2;
 
-        console.log(ujJelszo)
-        console.log(ujJelszoMegerosites)
+        // console.log(ujJelszo)
+        // console.log(ujJelszoMegerosites)
 
-        if (ujJelszo !== ujJelszoMegerosites) {
-          msg.error("Az új jelszavak nem egyeznek!");
-          return;
-        }
+        // if (ujJelszo !== ujJelszoMegerosites) {
+        //   msg.error("Az új jelszavak nem egyeznek!");
+        //   return;
+        // }
 
-        if (ujJelszo) {
-          data.jelszuj = ujJelszo;
-        }
+        // if (ujJelszo) {
+        //   data.jelszuj = ujJelszo;
+        // }
     
-        data.jelsz = jelsz;
-        console.log(data)
+        // data.jelsz = jelsz;
+        // console.log(data)
     
         http.request({
             url: './php/profile.php',

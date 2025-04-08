@@ -16,34 +16,37 @@ $db = new Database();
 $result = $db->execute($query, [$args['felhaszid']]);
 
 // Check if a result was found
-if ($result && isset($result[0]['jelsz'])) {
+if (!is_null($result)) {
     $jelsz = $result[0]['jelsz'];
     
     // If passwords match
     if ($args['jelsz'] === $jelsz) {
-
-        // Only update if a new password is provided
-        if (!empty($args['jelszuj'])) {
-            $args['jelsz'] = $args['jelszuj'];
-
-            // Prepare SQL query to update the user data
-            $updateQuery = "UPDATE `user` SET `jelsz` = :jelsz WHERE `felhaszid` = :felhaszid";
-            $updateResult = $db->execute($updateQuery, ['jelsz' => $args['jelsz'], 'felhaszid' => $args['felhaszid']]);
-            //if no new password preparate
-
-            // Check if the update was successful
-            if (isset($updateResult['affectedRows']) && $updateResult['affectedRows'] > 0) {
-                Util::setResponse($updateResult); // If successful, return the result
-            }
-            Util::setError('Nincsenek változások!');
-        }
         unset($args['jelsz']);
-        $updateDataQuery = $db->preparateUpdate("user", $args);
+        $fields = array_filter($args, function($key) {
+            return $key !== "felhaszid";
+        }, ARRAY_FILTER_USE_KEY);
+        $updateDataQuery = $db->preparateUpdate("user", $fields);
+        $updateDataQuery .= " WHERE `felhaszid` = :felhaszid";
         $updateDataResult = $db->execute($updateDataQuery, $args);
+
+        // Close the database connection
+        $db = null;
+
+        if ($updateDataResult["affectedRows"]) 
+                Util::setResponse("Ok");
+        else    Util::setError("Nincs módosítva");
     }
+
+    // Close the database connection
+    $db = null;
+
     // If current password is incorrect
     Util::setError("Helytelen jelszó!");
 }
 
+
 // Close the database connection
 $db = null;
+
+// If current password is incorrect
+Util::setError("Nincs ilyen felhasználó");

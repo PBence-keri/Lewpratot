@@ -2,17 +2,16 @@
 declare(strict_types=1);
 
 $_POST['data'] = '{
-    "email": "a@a.aa",
-    "vezeteknev": "dsdsds",
-    "keresztnev": "sdsdds",
-    "masodiknev": null,
-    "telszam": "2332323223",
-    "szulev": "2026-07-24",
-    "nem": "M",
-    "cim": "sasasa",
-    "iranyitoszam": "saassasa",
-    "varos": "assasa",
-    "felhaszid": 8
+    "email": "nagyjanos@gmail.com",
+    "vezeteknev": "Nagy",
+    "keresztnev": "János",
+    "masodiknev": "László",
+    "jelsz": "1234Aa",
+    "telszam": "06704443313",
+    "cim": null,
+    "iranyitoszam": null,
+    "varos": "Makivár",
+    "felhaszid": 9
 }';
 
 require_once('./profile.php');

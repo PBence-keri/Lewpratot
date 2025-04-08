@@ -37,8 +37,8 @@ if ($result && isset($result[0]['jelsz'])) {
             }
             Util::setError('Nincsenek változások!');
         }
-        $updateDataQuery = $db->preparateUpdate("user", $args);
         unset($args['jelsz']);
+        $updateDataQuery = $db->preparateUpdate("user", $args);
         $updateDataResult = $db->execute($updateDataQuery, $args);
     }
     // If current password is incorrect

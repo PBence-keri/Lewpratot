@@ -218,7 +218,6 @@
               }
               felvdatum.min = new Date().toISOString().split("T")[0];
               leaddatum.min = new Date().toISOString().split("T")[0];
-
             }
           };
     
@@ -480,9 +479,16 @@
             data: data
         })
         .then(response => {
-          msg.show(response.message || "Az adatok sikeresen elmentve!");
-            console.log(response);
-            $state.go('home');
+          msg.show({
+            icon: "text-success fa-solid fa-check",
+            content: "Sikeres mentés!",
+            callback: () => {
+              user.set(data);
+              util.localStorage('set', 'user', user.get());
+            }
+          })
+          console.log(response);
+          $state.go('home');
         })
         .catch(e => msg.error(e));
     };

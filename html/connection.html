@@ -53,18 +53,31 @@
                  data-bs-ride="carousel">
 
               <div class="carousel-inner img-fluid  kep4">
-                <div class="carousel-item active" data-bs-interval="2000">
-                  <img src="./img/businesspics.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-item active" 
+                     data-bs-interval="2000">
+                  <img src="./img/businesspics.jpg" 
+                       class="d-block w-100" 
+                       alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                  <img src="./img/businesspics3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-item" 
+                     data-bs-interval="2000">
+                  <img src="./img/businesspics3.jpg"
+                       class="d-block w-100" 
+                      alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="2000">
-                  <img src="./img/rent.png" class="d-block w-100" alt="...">
+                <div class="carousel-item" 
+                     data-bs-interval="2000">
+                  <img src="./img/rent.png" 
+                       class="d-block w-100"
+                       alt="...">
                 </div>
               </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <button class="carousel-control-prev"
+                      type="button" 
+                      data-bs-target="#carouselExampleInterval" 
+                      data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" 
+                      aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
               </button>
               <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
@@ -118,12 +131,30 @@
                               Várjuk érdeklődését!
                             </p>
                             <p class="text-blk section-subhead">Üdvözlettel, LPT.</p>
+                            <div class="icons-container mt-5">
+                              <a class="share-icon">
+                                <img class="img" 
+                                     src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-twitter.png">
+                              </a>
+                              <a class="share-icon">
+                                <img class="img" 
+                                     src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-facebook.png">
+                              </a>
+                              <a class="share-icon">
+                                <img class="img" 
+                                     src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-google.png">
+                              </a>
+                              <a class="share-icon">
+                                <img class="img" 
+                                     src="https://workik-widget-assets.s3.amazonaws.com/Footer1-83/v1/images/Icon-instagram.png">
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="responsive-cell-block right-one mx-auto" id="i1zj">
-                          <form class="form-box" name="helpForm">
+                        <div class="responsive-cell-block  right-one mx-auto" id="i1zj">
+                          <form class="form-box" name="bidoForm">
                             <div class="container-block form-wrapper">
                               <p class="text-blk contactus-head">
                                 Kérj Segítséget!
@@ -138,6 +169,7 @@
                                          id="vezetek" 
                                          style="color: #7f8c8d"
                                          name="vezeteknev"
+                                         
                                          ng-model="model.vezeteknev"
                                          placeholder="Vezetéknév"
                                          required>
@@ -151,8 +183,8 @@
                                          ng-model="model.keresztnev"
                                          required>
                                 </div>
-                                <div class="responsive-cell-block email" 
-                                     id="">
+                                <div class="responsive-cell-block emial" 
+                                            id="">
                                   <input class="input" id="" name="email" 
                                          placeholder="Email"
                                          style="color: #7f8c8d"
@@ -170,7 +202,7 @@
                                 <div class="responsive-cell-block">
                                   <textarea class="textinput"
                                             name="uzenet" 
-                                            style="color: #7f8c8d"
+                                         style="color: #7f8c8d"
                                             placeholder="Írj üzenetet ide"
                                             ng-model="model.uzenet"
                                             required>
@@ -179,7 +211,7 @@
                                 </div>
                               </div>
                               <button class="submit-btn rent3"
-                                      ng-disabled="helpForm.$invalid"
+                                      ng-disabled="bidoForm.$invalid"
                                       ng-click="connection()">
                                 Segítségkérés
                               </button>

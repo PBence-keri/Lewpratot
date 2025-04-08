@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Már 26. 11:56
+-- Létrehozás ideje: 2025. Ápr 08. 08:06
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -132,33 +132,32 @@ CREATE TABLE `jarmuvek` (
   `klima` tinyint(1) NOT NULL,
   `kivitel` varchar(20) NOT NULL,
   `hengerurtart` int(5) NOT NULL,
-  `meghajtas` varchar(20) NOT NULL,
-  `darab` int(3) NOT NULL
+  `meghajtas` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `jarmuvek`
 --
 
-INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `marka`, `fogyasztas`, `uzemanyag`, `ajtoszam`, `loero`, `kep`, `valtos`, `klima`, `kivitel`, `hengerurtart`, `meghajtas`, `darab`) VALUES
-(1, 10, 'Ford Fusion', 2, 8, 'benzin', 5, 141, 'fordfusion.jpg', 'manual', 1, 'ferdehátú', 1388, 'Első kerék', 7),
-(2, 20, 'BMW E30', 1, 7, 'benzin', 5, 192, 'bmwe30.jpg', 'manual', 1, 'sedan', 2443, 'Hátsó kerék', 10),
-(3, 30, 'Honda Civic', 9, 9, 'benzin', 5, 158, 'hondacivic.jpg', 'manual', 0, 'ferdehátú', 1996, 'Első kerék', 7),
-(4, 40, 'Toyota Corolla', 4, 8, 'benzin', 5, 169, 'toyotacorolla.jpg', 'automatic', 1, 'sedan', 1798, 'Első kerék', 9),
-(5, 50, 'MERCEDES-AMG', 6, 7, 'benzin', 5, 250, 'mercedesamg.jpg', 'automatic', 1, 'kombi', 2999, 'Összkerék', 9),
-(6, 60, 'Ford Focus', 2, 8, 'benzin', 5, 160, 'fordfocus.jpg', 'manual', 0, 'sedan', 1499, 'Első kerék', 8),
-(7, 70, 'Audi A6 4G', 5, 6, 'dizel', 5, 177, 'audia8.jpg', 'manual', 1, 'sedan', 2967, 'Összkerék', 13),
-(8, 80, 'Ford Bronco', 2, 9, 'benzin', 5, 330, 'bronco.jpg', 'automatic', 1, 'városi terepjáró', 1999, 'Összkerék', 7),
-(9, 90, 'Ford Bronco Sport', 2, 11, 'benzin', 5, 238, 'broncosport.jpg', 'automatic', 1, 'városi terepjáró', 2694, 'Összkerék', 5),
-(10, 100, 'Audi SQ7 SUV', 5, 9, 'benzin', 5, 500, 'audisqsuv.jpg', 'automatic', 1, 'városi terepjáró', 3956, 'Összkerék', 7),
-(11, 110, 'Renault Espace', 3, 6, 'dizel', 5, 255, 'renaultespace.jpg', 'manual', 1, 'egyterű', 1798, 'Első kerék', 5),
-(12, 120, 'Skoda Superb', 10, 8, 'dizel', 5, 255, 'skodasuperb.jpg', 'automatic', 1, 'ferdehátú', 1968, 'Első kerék', 3),
-(13, 130, 'Skoda Octavia', 10, 7, 'benzin', 5, 255, 'toyotaoctavia.jpg', 'manual', 1, 'kombi', 1598, 'Első kerék', 12),
-(14, 140, 'Opel Corsa', 7, 8, 'benzin', 5, 255, 'opelcorsa.jpg', 'manual', 1, 'ferdehátú', 1199, 'Első kerék', 12),
-(15, 150, 'Audi A6', 5, 6, 'dizel', 5, 255, 'audia6.jpg', 'manual', 1, 'sedan', 2967, 'Összkerék', 13),
-(16, 160, 'Renault Megane', 3, 7, 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1, 'kombi', 1461, 'Első kerék', 15),
-(17, 170, 'BMW 5 G30', 1, 7, 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1, 'sedan', 1998, 'Összkerék', 11),
-(18, 180, 'Audi 80', 5, 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1, 'sedan', 1896, 'Első kerék', 6);
+INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `marka`, `fogyasztas`, `uzemanyag`, `ajtoszam`, `loero`, `kep`, `valtos`, `klima`, `kivitel`, `hengerurtart`, `meghajtas`) VALUES
+(1, 10, 'Ford Fusion', 2, 8, 'benzin', 5, 141, 'fordfusion.jpg', 'manual', 1, 'ferdehátú', 1388, 'Első kerék'),
+(2, 20, 'BMW E30', 1, 7, 'benzin', 5, 192, 'bmwe30.jpg', 'manual', 1, 'sedan', 2443, 'Hátsó kerék'),
+(3, 30, 'Honda Civic', 9, 9, 'benzin', 5, 158, 'hondacivic.jpg', 'manual', 0, 'ferdehátú', 1996, 'Első kerék'),
+(4, 40, 'Toyota Corolla', 4, 8, 'benzin', 5, 169, 'toyotacorolla.jpg', 'automatic', 1, 'sedan', 1798, 'Első kerék'),
+(5, 50, 'MERCEDES-AMG', 6, 7, 'benzin', 5, 250, 'mercedesamg.jpg', 'automatic', 1, 'kombi', 2999, 'Összkerék'),
+(6, 60, 'Ford Focus', 2, 8, 'benzin', 5, 160, 'fordfocus.jpg', 'manual', 0, 'sedan', 1499, 'Első kerék'),
+(7, 70, 'Audi A6 4G', 5, 6, 'dizel', 5, 177, 'audia8.jpg', 'manual', 1, 'sedan', 2967, 'Összkerék'),
+(8, 80, 'Ford Bronco', 2, 9, 'benzin', 5, 330, 'bronco.jpg', 'automatic', 1, 'városi terepjáró', 1999, 'Összkerék'),
+(9, 90, 'Ford Bronco Sport', 2, 11, 'benzin', 5, 238, 'broncosport.jpg', 'automatic', 1, 'városi terepjáró', 2694, 'Összkerék'),
+(10, 100, 'Audi SQ7 SUV', 5, 9, 'benzin', 5, 500, 'audisqsuv.jpg', 'automatic', 1, 'városi terepjáró', 3956, 'Összkerék'),
+(11, 110, 'Renault Espace', 3, 6, 'dizel', 5, 255, 'renaultespace.jpg', 'manual', 1, 'egyterű', 1798, 'Első kerék'),
+(12, 120, 'Skoda Superb', 10, 8, 'dizel', 5, 255, 'skodasuperb.jpg', 'automatic', 1, 'ferdehátú', 1968, 'Első kerék'),
+(13, 130, 'Skoda Octavia', 10, 7, 'benzin', 5, 255, 'toyotaoctavia.jpg', 'manual', 1, 'kombi', 1598, 'Első kerék'),
+(14, 140, 'Opel Corsa', 7, 8, 'benzin', 5, 255, 'opelcorsa.jpg', 'manual', 1, 'ferdehátú', 1199, 'Első kerék'),
+(15, 150, 'Audi A6', 5, 6, 'dizel', 5, 255, 'audia6.jpg', 'manual', 1, 'sedan', 2967, 'Összkerék'),
+(16, 160, 'Renault Megane', 3, 7, 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1, 'kombi', 1461, 'Első kerék'),
+(17, 170, 'BMW 5 G30', 1, 7, 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1, 'sedan', 1998, 'Összkerék'),
+(18, 180, 'Audi 80', 5, 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1, 'sedan', 1896, 'Első kerék');
 
 -- --------------------------------------------------------
 
@@ -173,20 +172,24 @@ CREATE TABLE `kolcsonzes` (
   `felvhely` varchar(50) NOT NULL,
   `leadhely` varchar(50) NOT NULL,
   `felvdatum` date NOT NULL,
-  `leaddatum` date NOT NULL
+  `leaddatum` date NOT NULL,
+  `jarmuid` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Tábla szerkezet ehhez a táblához `kolcsonzeselemek`
+-- A tábla adatainak kiíratása `kolcsonzes`
 --
 
-CREATE TABLE `kolcsonzeselemek` (
-  `kolcsonzesid` int(25) NOT NULL,
-  `jarmuid` int(10) NOT NULL,
-  `darab` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `kolcsonzes` (`kolcsonzesid`, `felhaszid`, `vegosszeg`, `felvhely`, `leadhely`, `felvdatum`, `leaddatum`, `jarmuid`) VALUES
+(1, 9, 7600, 'asd', '', '0000-00-00', '2222-02-01', 0),
+(2, 9, 8800, 'asd', '', '2025-03-29', '2025-04-02', 2),
+(3, 9, 8800, 'asd', '', '2025-03-29', '2025-04-02', 2),
+(4, 9, 7200, '95951', '2952952952', '2025-03-27', '2025-04-04', 1),
+(5, 9, 8800, '23', '4', '0000-00-00', '5555-11-02', 2),
+(6, 9, 7600, 'v', 'v v', '2025-03-26', '2025-03-27', 3),
+(7, 9, 7600, 'c', 'f', '2025-03-27', '2025-04-01', 3),
+(8, 9, 7600, '', '', '0000-00-00', '0000-00-00', 3),
+(9, 9, 9800, 'er', 'r', '2025-03-27', '2025-04-03', 5);
 
 -- --------------------------------------------------------
 
@@ -240,10 +243,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `masodiknev`, `telszam`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
-(1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', 'Leonárd', '06201114466', '2005-07-06', 'M', 'Doktor u. 5', 6000, 'Tilted towers'),
+(1, '1234Aa', 'pragai.bence-2020@keri.mako.hu', 'Prágai', 'Bence', NULL, '06201114468', '2005-07-06', 'M', 'Kossuth u. 5', 5948, 'Kaszaper'),
 (7, '1234Aa', 'asd@asdasd.com', 'asd', 'asd', NULL, '06201112233', '1988-12-13', 'M', NULL, NULL, NULL),
-(8, '1234Aa', 'a@a.aa', 'AAAAAAAAAAAA', 'BBBBBBBBBBBB', NULL, '2332323223', '2026-07-24', 'M', 'AAAAAAAAAAAAAAAAAAAAA', 0, 'assasa'),
-(9, '1234Aa', 'nagyjanos@gmail.com', 'Nagy', 'János', 'László', '06704443312', '1999-01-04', 'M', NULL, NULL, 'Kaposvár');
+(8, '1234Aa', 'a@a.aa', 'dsdsds', 'sdsdds', NULL, '2332323223', '2026-07-24', 'M', 'sasasa', 0, 'assasa'),
+(9, '1234Aa', 'nagyjanos@gmail.com', 'Nagy', 'János', 'László', '06704443313', '1999-01-04', 'M', NULL, NULL, 'Makivár');
 
 --
 -- Indexek a kiírt táblákhoz
@@ -290,12 +293,6 @@ ALTER TABLE `kolcsonzes`
   ADD KEY `felhaszid` (`felhaszid`);
 
 --
--- A tábla indexei `kolcsonzeselemek`
---
-ALTER TABLE `kolcsonzeselemek`
-  ADD PRIMARY KEY (`kolcsonzesid`,`jarmuid`);
-
---
 -- A tábla indexei `markak`
 --
 ALTER TABLE `markak`
@@ -333,7 +330,7 @@ ALTER TABLE `jarmuvek`
 -- AUTO_INCREMENT a táblához `kolcsonzes`
 --
 ALTER TABLE `kolcsonzes`
-  MODIFY `kolcsonzesid` int(25) NOT NULL AUTO_INCREMENT;
+  MODIFY `kolcsonzesid` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT a táblához `markak`

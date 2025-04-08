@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Ápr 08. 08:06
+-- Létrehozás ideje: 2025. Ápr 08. 13:30
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.1.17
 
@@ -76,7 +76,17 @@ INSERT INTO `dijak` (`dijid`, `ar`) VALUES
 (150, 9500),
 (160, 7800),
 (170, 8700),
-(180, 9300);
+(180, 9300),
+(190, 7800),
+(200, 7600),
+(210, 7600),
+(220, 7500),
+(230, 8100),
+(240, 7700),
+(250, 7500),
+(260, 8000),
+(270, 7700),
+(290, 7900);
 
 -- --------------------------------------------------------
 
@@ -157,7 +167,18 @@ INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `marka`, `fogyasztas`, `u
 (15, 150, 'Audi A6', 5, 6, 'dizel', 5, 255, 'audia6.jpg', 'manual', 1, 'sedan', 2967, 'Összkerék'),
 (16, 160, 'Renault Megane', 3, 7, 'dizel', 5, 255, 'renaultmegane.jpg', 'manual', 1, 'kombi', 1461, 'Első kerék'),
 (17, 170, 'BMW 5 G30', 1, 7, 'dizel', 5, 255, 'bmwg30.jpg', 'manual', 1, 'sedan', 1998, 'Összkerék'),
-(18, 180, 'Audi 80', 5, 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1, 'sedan', 1896, 'Első kerék');
+(18, 180, 'Audi 80', 5, 8, 'dizel', 5, 255, 'audi80.jpg', 'manual', 1, 'sedan', 1896, 'Első kerék'),
+(19, 190, 'BMW M3', 1, 10, 'dizel', 5, 212, 'bmw_1.jpg', 'automatic', 1, 'sedan', 1798, 'Első Kerék'),
+(20, 200, 'Honda Accord', 9, 9, 'dizel', 5, 160, 'honda_accord.jpg', 'maunal', 1, 'kombi', 1889, 'Hátsó Kerek'),
+(21, 210, 'Honda Jazz', 9, 9, 'benzin', 5, 142, 'honda_jazz.jpg', 'manual', 1, 'sedan', 1800, 'Első Kerék'),
+(22, 220, 'Mercedes A', 5, 11, 'dizel', 5, 194, 'mercedes_A.jpg', 'automatic', 1, 'kombi', 1892, 'Első Kereék'),
+(23, 230, 'Mercedes E', 6, 12, 'dizel', 5, 193, 'mercedes_E.jpg', 'automatic', 1, 'kombi', 1670, 'Hátsó Kerék'),
+(24, 240, 'Opel Ampera', 7, 7, 'benzin', 5, 152, 'opel_ampera.jpg', 'maunual', 1, 'Egyterű', 1800, 'Első Kerek'),
+(25, 250, 'Opel Transpert', 7, 9, 'benzin', 5, 146, 'opel_transpert.jpg', 'manual', 1, 'egyterű', 1601, 'Első Kerék'),
+(26, 260, 'Renault Twingo', 3, 10, 'benzin', 3, 134, 'renault twingo.jpg', 'manual', 1, 'sedan', 1705, 'Első Kerék'),
+(27, 270, 'Skoda SUV', 10, 13, 'dizel', 5, 163, 'skoda_suv.jpg', 'automatic', 1, 'városi terepjáró', 1978, 'Első kerék'),
+(28, 280, 'Toyota Camry', 4, 12, 'dizel', 5, 176, 'toyota_camry.jpg', 'maunal', 1, 'kombi', 1487, 'Első kerék'),
+(29, 290, 'Toyota Corolla 2025', 4, 9, 'benzin', 5, 142, 'toyota_corolla.jpg', 'maunal', 1, 'ferdehátú', 1672, 'Első Kerék');
 
 -- --------------------------------------------------------
 
@@ -324,7 +345,7 @@ ALTER TABLE `fizetes`
 -- AUTO_INCREMENT a táblához `jarmuvek`
 --
 ALTER TABLE `jarmuvek`
-  MODIFY `jarmuid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `jarmuid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT a táblához `kolcsonzes`

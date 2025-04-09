@@ -86,6 +86,12 @@
           templateUrl: './html/profile.html',
           controller: 'profileController'
         })
+        .state('review', {
+          url: '/help',
+          parent: 'root',
+          templateUrl: './html/blog.html',
+          controller: 'reviewController'
+        })
 
         .state('help', {
           url: '/help',
@@ -275,6 +281,35 @@
         // Set request
         http.request({
           url: "./php/help.php",
+          data: $scope.model
+        })
+        .then(response => {
+            response.email = $scope.model.email;
+            user.set(response);
+            util.localStorage('set', 'email', response.email);
+            $state.go('home');  // Redirect to home page on successful login
+        })
+        .catch(e => {
+          $scope.model.jelsz = null;
+          msg.error(e.message || e);
+        });
+      }
+    }
+  ])
+
+  //Review controller
+  .controller('reviewController', [
+    'http',
+    'util',
+    '$state',
+    '$scope',
+    
+    function(http, util, $state, $scope) {
+
+      send: () => {
+        // Set request
+        http.request({
+          url: "./php/review.php",
           data: $scope.model
         })
         .then(response => {
@@ -513,4 +548,4 @@
     }
   ])
 
-})(window, angular); 
+})(window, angular);

@@ -10,7 +10,7 @@ $args = Util::getArgs();
 $params = Util::objectMerge(array(
     "nev" => null,
     "email" => null,
-    "ertekels" => null,
+    "ertekeles" => null,
 
 ),$args, true);
 

@@ -203,7 +203,9 @@
     '$rootScope',
     '$stateParams',
     'http',
-    function($state, $scope, $rootScope, $stateParams, http) {
+    'user',
+    'msg',
+    function($state, $scope, $rootScope, $stateParams, http, user, msg) {
 
            // Set local methods
            let methods = {
@@ -236,6 +238,7 @@
                 'leaddatum': $scope.model.leaddatum,
                 'jarmuid': $scope.data.jarmuid
               }
+
               console.log(rentData)
 
               http.request({
@@ -251,6 +254,13 @@
                   $scope.model.felvdatum = "";
                   $scope.model.leaddatum = "";
                 }
+              })
+              .then(response => {
+                msg.show({
+                  icon: "text-success fa-solid fa-check",
+                  content: "Sikeres bérlés! A bérelt autót a profilban meg tudod tekinteni.",
+                })
+                console.log(response);
               })
               .catch(function(error) {
                 msg.error(error.message || error);

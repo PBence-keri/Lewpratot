@@ -337,7 +337,7 @@
           .then(response => {
               response.email = $scope.model.email;
               user.set(response);
-              util.localStorage('set', 'user', user.get());
+              util.localStorage('set', 'email', $scope.model.email);
           
               $state.go('home');  // Redirect to home page on successful login
           })

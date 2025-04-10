@@ -86,6 +86,12 @@
           templateUrl: './html/profile.html',
           controller: 'profileController'
         })
+        .state('review', {
+          url: '/help',
+          parent: 'root',
+          templateUrl: './html/blog.html',
+          controller: 'reviewController'
+        })
 
         .state('help', {
           url: '/help',
@@ -203,7 +209,9 @@
     '$rootScope',
     '$stateParams',
     'http',
-    function($state, $scope, $rootScope, $stateParams, http) {
+    'user',
+    'msg',
+    function($state, $scope, $rootScope, $stateParams, http, user, msg) {
 
            // Set local methods
            let methods = {
@@ -236,6 +244,7 @@
                 'leaddatum': $scope.model.leaddatum,
                 'jarmuid': $scope.data.jarmuid
               }
+
               console.log(rentData)
 
               http.request({
@@ -251,6 +260,13 @@
                   $scope.model.felvdatum = "";
                   $scope.model.leaddatum = "";
                 }
+              })
+              .then(response => {
+                msg.show({
+                  icon: "text-success fa-solid fa-check",
+                  content: "Sikeres bérlés! A bérelt autót a profilban meg tudod tekinteni.",
+                })
+                console.log(response);
               })
               .catch(function(error) {
                 msg.error(error.message || error);
@@ -275,6 +291,35 @@
         // Set request
         http.request({
           url: "./php/help.php",
+          data: $scope.model
+        })
+        .then(response => {
+            response.email = $scope.model.email;
+            user.set(response);
+            util.localStorage('set', 'email', response.email);
+            $state.go('home');  // Redirect to home page on successful login
+        })
+        .catch(e => {
+          $scope.model.jelsz = null;
+          msg.error(e.message || e);
+        });
+      }
+    }
+  ])
+
+  //Review controller
+  .controller('reviewController', [
+    'http',
+    'util',
+    '$state',
+    '$scope',
+    
+    function(http, util, $state, $scope) {
+
+      send: () => {
+        // Set request
+        http.request({
+          url: "./php/review.php",
           data: $scope.model
         })
         .then(response => {
@@ -327,7 +372,7 @@
           .then(response => {
               response.email = $scope.model.email;
               user.set(response);
-              util.localStorage('set', 'user', user.get());
+              util.localStorage('set', 'email', $scope.model.email);
           
               $state.go('home');  // Redirect to home page on successful login
           })
@@ -448,31 +493,31 @@
         let data = util.objMerge({}, $scope.model);
         data.felhaszid = $rootScope.user.felhaszid;
 
-        let jelsz = $scope.model.jelsz;
-        if (!jelsz) {
-            msg.error("A mentéshez a jelenlegi jelszó megadása szükséges!");
-            return;
-        }
+        // let jelsz = $scope.model.jelsz;
+        // if (!jelsz) {
+        //     msg.error("A mentéshez a jelenlegi jelszó megadása szükséges!");
+        //     return;
+        // }
 
-        console.log(data);
+        // console.log(data);
 
-        let ujJelszo = $scope.model.jelszuj;
-        let ujJelszoMegerosites = $scope.model.jelszuj2;
+        // let ujJelszo = $scope.model.jelszuj;
+        // let ujJelszoMegerosites = $scope.model.jelszuj2;
 
-        console.log(ujJelszo)
-        console.log(ujJelszoMegerosites)
+        // console.log(ujJelszo)
+        // console.log(ujJelszoMegerosites)
 
-        if (ujJelszo !== ujJelszoMegerosites) {
-          msg.error("Az új jelszavak nem egyeznek!");
-          return;
-        }
+        // if (ujJelszo !== ujJelszoMegerosites) {
+        //   msg.error("Az új jelszavak nem egyeznek!");
+        //   return;
+        // }
 
-        if (ujJelszo) {
-          data.jelszuj = ujJelszo;
-        }
+        // if (ujJelszo) {
+        //   data.jelszuj = ujJelszo;
+        // }
     
-        data.jelsz = jelsz;
-        console.log(data)
+        // data.jelsz = jelsz;
+        // console.log(data)
     
         http.request({
             url: './php/profile.php',
@@ -513,4 +558,4 @@
     }
   ])
 
-})(window, angular); 
+})(window, angular);

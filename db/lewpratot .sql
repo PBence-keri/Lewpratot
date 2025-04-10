@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Gép: 127.0.0.1
--- Létrehozás ideje: 2025. Ápr 08. 13:30
--- Kiszolgáló verziója: 10.4.28-MariaDB
--- PHP verzió: 8.1.17
+-- Host: 127.0.0.1
+-- Generation Time: Apr 08, 2025 at 10:01 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `lewpratot`
+-- Database: `lpt`
 --
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `connection`
+-- Table structure for table `connection`
 --
 
 CREATE TABLE `connection` (
@@ -37,7 +37,7 @@ CREATE TABLE `connection` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- A tábla adatainak kiíratása `connection`
+-- Dumping data for table `connection`
 --
 
 INSERT INTO `connection` (`id`, `vezeteknev`, `keresztnev`, `email`, `telefonszam`, `uzenet`) VALUES
@@ -46,7 +46,7 @@ INSERT INTO `connection` (`id`, `vezeteknev`, `keresztnev`, `email`, `telefonsza
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `dijak`
+-- Table structure for table `dijak`
 --
 
 CREATE TABLE `dijak` (
@@ -55,7 +55,7 @@ CREATE TABLE `dijak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- A tábla adatainak kiíratása `dijak`
+-- Dumping data for table `dijak`
 --
 
 INSERT INTO `dijak` (`dijid`, `ar`) VALUES
@@ -91,7 +91,7 @@ INSERT INTO `dijak` (`dijid`, `ar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `fizetes`
+-- Table structure for table `fizetes`
 --
 
 CREATE TABLE `fizetes` (
@@ -100,7 +100,7 @@ CREATE TABLE `fizetes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- A tábla adatainak kiíratása `fizetes`
+-- Dumping data for table `fizetes`
 --
 
 INSERT INTO `fizetes` (`fizid`, `megnev`) VALUES
@@ -111,7 +111,7 @@ INSERT INTO `fizetes` (`fizid`, `megnev`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `foglalas`
+-- Table structure for table `foglalas`
 --
 
 CREATE TABLE `foglalas` (
@@ -125,7 +125,7 @@ CREATE TABLE `foglalas` (
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `jarmuvek`
+-- Table structure for table `jarmuvek`
 --
 
 CREATE TABLE `jarmuvek` (
@@ -146,7 +146,7 @@ CREATE TABLE `jarmuvek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- A tábla adatainak kiíratása `jarmuvek`
+-- Dumping data for table `jarmuvek`
 --
 
 INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `marka`, `fogyasztas`, `uzemanyag`, `ajtoszam`, `loero`, `kep`, `valtos`, `klima`, `kivitel`, `hengerurtart`, `meghajtas`) VALUES
@@ -183,7 +183,7 @@ INSERT INTO `jarmuvek` (`jarmuid`, `dijid`, `autonev`, `marka`, `fogyasztas`, `u
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `kolcsonzes`
+-- Table structure for table `kolcsonzes`
 --
 
 CREATE TABLE `kolcsonzes` (
@@ -198,7 +198,7 @@ CREATE TABLE `kolcsonzes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- A tábla adatainak kiíratása `kolcsonzes`
+-- Dumping data for table `kolcsonzes`
 --
 
 INSERT INTO `kolcsonzes` (`kolcsonzesid`, `felhaszid`, `vegosszeg`, `felvhely`, `leadhely`, `felvdatum`, `leaddatum`, `jarmuid`) VALUES
@@ -215,7 +215,7 @@ INSERT INTO `kolcsonzes` (`kolcsonzesid`, `felhaszid`, `vegosszeg`, `felvhely`, 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `markak`
+-- Table structure for table `markak`
 --
 
 CREATE TABLE `markak` (
@@ -224,7 +224,7 @@ CREATE TABLE `markak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- A tábla adatainak kiíratása `markak`
+-- Dumping data for table `markak`
 --
 
 INSERT INTO `markak` (`id`, `nev`) VALUES
@@ -241,7 +241,19 @@ INSERT INTO `markak` (`id`, `nev`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `user`
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `nev` varchar(25) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `ertekeles` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -260,7 +272,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- A tábla adatainak kiíratása `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `masodiknev`, `telszam`, `szulev`, `nem`, `cim`, `iranyitoszam`, `varos`) VALUES
@@ -270,29 +282,29 @@ INSERT INTO `user` (`felhaszid`, `jelsz`, `email`, `vezeteknev`, `keresztnev`, `
 (9, '1234Aa', 'nagyjanos@gmail.com', 'Nagy', 'János', 'László', '06704443313', '1999-01-04', 'M', NULL, NULL, 'Makivár');
 
 --
--- Indexek a kiírt táblákhoz
+-- Indexes for dumped tables
 --
 
 --
--- A tábla indexei `connection`
+-- Indexes for table `connection`
 --
 ALTER TABLE `connection`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `dijak`
+-- Indexes for table `dijak`
 --
 ALTER TABLE `dijak`
   ADD PRIMARY KEY (`dijid`);
 
 --
--- A tábla indexei `fizetes`
+-- Indexes for table `fizetes`
 --
 ALTER TABLE `fizetes`
   ADD PRIMARY KEY (`fizid`);
 
 --
--- A tábla indexei `foglalas`
+-- Indexes for table `foglalas`
 --
 ALTER TABLE `foglalas`
   ADD PRIMARY KEY (`foglalasid`),
@@ -300,67 +312,67 @@ ALTER TABLE `foglalas`
   ADD KEY `felhaszid` (`felhaszid`);
 
 --
--- A tábla indexei `jarmuvek`
+-- Indexes for table `jarmuvek`
 --
 ALTER TABLE `jarmuvek`
   ADD PRIMARY KEY (`jarmuid`),
   ADD KEY `dijid` (`dijid`);
 
 --
--- A tábla indexei `kolcsonzes`
+-- Indexes for table `kolcsonzes`
 --
 ALTER TABLE `kolcsonzes`
   ADD PRIMARY KEY (`kolcsonzesid`),
   ADD KEY `felhaszid` (`felhaszid`);
 
 --
--- A tábla indexei `markak`
+-- Indexes for table `markak`
 --
 ALTER TABLE `markak`
   ADD PRIMARY KEY (`id`);
 
 --
--- A tábla indexei `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`felhaszid`);
 
 --
--- A kiírt táblák AUTO_INCREMENT értéke
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT a táblához `connection`
+-- AUTO_INCREMENT for table `connection`
 --
 ALTER TABLE `connection`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT a táblához `fizetes`
+-- AUTO_INCREMENT for table `fizetes`
 --
 ALTER TABLE `fizetes`
   MODIFY `fizid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT a táblához `jarmuvek`
+-- AUTO_INCREMENT for table `jarmuvek`
 --
 ALTER TABLE `jarmuvek`
   MODIFY `jarmuid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT a táblához `kolcsonzes`
+-- AUTO_INCREMENT for table `kolcsonzes`
 --
 ALTER TABLE `kolcsonzes`
   MODIFY `kolcsonzesid` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT a táblához `markak`
+-- AUTO_INCREMENT for table `markak`
 --
 ALTER TABLE `markak`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT a táblához `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `felhaszid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;

@@ -583,3 +583,7 @@ ul{
 .star:hover {
   transition: color 0.2s ease;
 }
+
+.text-justify{
+  text-align: justify;
+}
